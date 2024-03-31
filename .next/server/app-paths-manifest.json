@@ -1,5 +1,7 @@
 {
+  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/admin/page": "app/admin/page.js",
@@ -7,4 +9,8 @@
   "/signup/page": "app/signup/page.js",
   "/signin/page": "app/signin/page.js",
   "/dashboard/page": "app/dashboard/page.js"
+=======
+  "/admin/page": "app/admin/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+>>>>>>> fadffc3769ab364de6097acf69a7f6fe1e1d1417
 }
