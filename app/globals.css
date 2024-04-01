@@ -466,7 +466,7 @@ html {
   }
   
   .logoContainer{
-    @apply w-full px-10  bg-[#FFEBA9] rounded-2xl     
+    @apply w-full px-10  bg-[#ffeba9] rounded-2xl     
   }
 
   .logoSignIn{

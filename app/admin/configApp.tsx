@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 import NavBarAdmin from '@/components/NavBarAdmin';
 
-export default function Home() {
+export default function configApp() {
     const [enabled, setEnabled] = useState(false);
 
     return (
