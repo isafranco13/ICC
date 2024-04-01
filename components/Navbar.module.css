@@ -53,6 +53,10 @@
     padding: 10px; 
   }
 
+  .navMenu li:hover {
+    background-color: #E2F4EF;
+  }
+
   .navLink{
 	color: rgb(21 128 61);
     font-weight: bold;

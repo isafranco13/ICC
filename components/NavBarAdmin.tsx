@@ -26,21 +26,21 @@ function Navbar() {
                             className=""/>
                         <a href='#home' className={`${styles.logo}`}>HealthSync </a>
                         <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Inicio</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Lista usuarios</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Alta terapista</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Aplicación</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Cerrar sesión</a>
-                            </li>
+                            <a href='/admin' className={`${styles.navLink}`}><li onClick={removeActive}>
+                                Inicio
+                            </li></a>
+                            <a href='/admin/users' className={`${styles.navLink}`}><li onClick={removeActive}>
+                                Lista usuarios
+                            </li></a>
+                            <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
+                                Alta terapista
+                            </li></a>
+                            <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
+                                Aplicación
+                            </li></a>
+                            <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
+                                Cerrar sesión
+                            </li></a>
                         </ul>
                         <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
                             <span className={`${styles.bar}`}></span>
