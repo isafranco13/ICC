@@ -249,13 +249,11 @@ html {
 .app{
   background-color: white;
   margin-top: 3%;
-  width: 245%;
-  height: 90%;
   border-radius: 20px;
 }
 
 .app{
-  @apply drop-shadow-xl shadow-md mx-auto;
+  @apply shadow-md mx-auto max-w-prose;
 }
 
 
@@ -399,13 +397,6 @@ html {
     min-width: 300px;
   }
 
-  .app{
-    background-color: antiquewhite;
-    margin-top: 3%;
-    width: 100%;
-    height: 600px;
-    border-radius: 20px;
-  }
 }
 
 
@@ -558,15 +549,6 @@ html {
     color: black;
     font-size: 18px;
   }
-  
-  .app{
-    background-color: white;
-    margin-top: 3%;
-    width: 100%;
-    height: 600px;
-    border-radius: 20px;
-  
-  }
 }
 
 
@@ -579,24 +561,3 @@ html {
 
   }
   
-
-  
-  @media (min-width: 470px) and (max-width: 780px){
-  
-    .navBarApp{
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .app{
-      background-color: white;
-      margin-top: 3%;
-      width: 165%;
-      height: 600px;
-      border-radius: 20px;
-    }
-  
-
-  }  
-  
- 
