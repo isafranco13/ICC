@@ -1,11 +1,13 @@
 "use client"
 import NavBarAdmin from '@/components/NavBarAdmin';
 import CustomButton from '@/components/CustomButton';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import CustomAlert from '@/components/CustomAlert';
 
 export default function Home() {
-    const [successMessage, setSuccessMessage] = useState("");
-    
+    const [alertType, setAlertType] = useState(""); // Tipo de alerta
+    const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
+
     const handleSumbmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const res = await fetch("/api/terapeutas",{
@@ -18,10 +20,15 @@ export default function Home() {
         })
 
         if(!res.ok){
+            setAlertType("warning");
+            setAlertMessage("Error al agregar el terapeuta");
             throw new Error("Error al crear el usuario")
         }
-        //router.refresh();
-        setSuccessMessage("Terapeuta registrado exitosamente");
+        // Terapeuta agregado correctamente
+        setAlertType("success");
+        setAlertMessage("Terapeuta agregado correctamente");
+
+        // Limpiar el formulario después de agregar el terapeuta
         setFormData({
             nombre: "",
             apellidoPaterno: "",
@@ -52,7 +59,7 @@ export default function Home() {
     return (
         <main className="overflow-hidden">
             <div className="contenedor">
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', backgroundColor: '#F5FFFC' }}>
                     <div>
                         <NavBarAdmin />
                     </div>
@@ -86,7 +93,7 @@ export default function Home() {
                                     <label className="text-black font-medium form w-1/3">Correo</label>
                                     <input  name="correo" id="correo" type="email" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.correo}/>
                                 </div>
-                                <div className='flex mb-6'>
+                                <div className='flex'>
                                     <label className="text-black font-medium form w-1/3">Contraseña</label>
                                     <input  name="contrasena" id="contrasena" type="password" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.contrasena}/>
                                 </div>
@@ -98,10 +105,18 @@ export default function Home() {
                                         containerStyles="text-white rounded-full bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-pink-500 h-10"
                                     />
                                 </div>
+                                {/* Renderizar la alerta */}
+                                {alertType && (
+                                    <CustomAlert
+                                        status={alertType === "success" ? "success" : "warning"}
+                                        variant="subtle"
+                                        title={alertType === "success" ? "Éxito" : "Advertencia"}
+                                        description={alertMessage}
+                                    />
+                                )}
                             </form>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </main>

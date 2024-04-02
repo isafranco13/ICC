@@ -1,4 +1,9 @@
 {
+  "/page": "app/page.js",
   "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js",
-  "/api/terapeutas/route": "app/api/terapeutas/route.js"
+  "/signin/page": "app/signin/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
