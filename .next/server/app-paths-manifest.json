@@ -1,3 +1,4 @@
 {
-  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js"
+  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js",
+  "/api/terapeutas/route": "app/api/terapeutas/route.js"
 }

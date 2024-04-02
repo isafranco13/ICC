@@ -4,6 +4,41 @@ import CustomButton from '@/components/CustomButton';
 import React, { useState, useEffect } from 'react';
 
 export default function Home() {
+    const [successMessage, setSuccessMessage] = useState("");
+    
+    const handleSumbmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const res = await fetch("/api/terapeutas",{
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers:{
+                "Content-Type": "application/json"
+            }
+            
+        })
+
+        if(!res.ok){
+            throw new Error("Error al crear el usuario")
+        }
+        //router.refresh();
+        setSuccessMessage("Terapeuta registrado exitosamente");
+        setFormData({
+            nombre: "",
+            apellidoPaterno: "",
+            apellidoMaterno: "",
+            celular: "",
+            correo: "",
+            contrasena: "",
+        });
+    }
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+        const value = e.target.value;
+        const name = e.target.name;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    }
     const startingTerapeutasData={
         nombre: "",
         apellidoPaterno: "",
@@ -30,31 +65,32 @@ export default function Home() {
                         </div>
                         {/* Formulario */}
                         <div style={{ alignItems:'center', justifyContent: 'center', padding: '2%'}}>
-                            <form className='w-1/2 mx-auto text-right'>
+                            <form onSubmit={handleSumbmit} className='w-1/2 mx-auto text-right'>
                                 <div className='flex mb-6'>
                                     <label className="text-black font-medium form w-1/3">Nombre</label>
-                                    <input value={formData.nombre} name="nombre"  id="nombre" type="text" className="bg-white rounded-3xl outline-none text-base w-2/3 h-9 ml-2 shadow-md" required={true} />
+                                    <input value={formData.nombre} name="nombre"  id="nombre" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} />
                                 </div>
                                 <div className='flex mb-6'>
                                     <label className="text-black font-medium form w-1/3">Apellido Paterno</label>
-                                    <input  name="apellidoPaterno" id="apellidoPaterno" type="text" className="bg-white rounded-3xl outline-none text-base w-2/3 h-9 ml-2 shadow-md" required={true} value={formData.apellidoPaterno}/>
+                                    <input  name="apellidoPaterno" id="apellidoPaterno" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.apellidoPaterno}/>
                                 </div>
                                 <div className='flex mb-6'>
                                     <label className="text-black font-medium form w-1/3">Apellido Materno</label>
-                                    <input  name="apellidoMaterno" id="apellidoMaterno" type="text" className="bg-white rounded-3xl outline-none text-base w-2/3 h-9 ml-2 shadow-md" required={true} value={formData.apellidoMaterno}/>
+                                    <input  name="apellidoMaterno" id="apellidoMaterno" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.apellidoMaterno}/>
                                 </div>
                                 <div className='flex mb-6'>
                                     <label className="text-black font-medium form w-1/3">Celular</label>
-                                    <input  name="celular" id="celular" type="text" className="bg-white rounded-3xl outline-none text-base w-2/3 h-9 ml-2 shadow-md" required={true} value={formData.celular}/>
+                                    <input  name="celular" id="celular" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.celular}/>
                                 </div>
                                 <div className='flex mb-6'>
                                     <label className="text-black font-medium form w-1/3">Correo</label>
-                                    <input  name="correo" id="correo" type="email" className="bg-white rounded-3xl outline-none text-base w-2/3 h-9 ml-2 shadow-md" required={true} value={formData.correo}/>
+                                    <input  name="correo" id="correo" type="email" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.correo}/>
                                 </div>
                                 <div className='flex mb-6'>
                                     <label className="text-black font-medium form w-1/3">Contraseña</label>
-                                    <input  name="contrasena" id="contrasena" type="password" className="bg-white rounded-3xl outline-none text-base w-2/3 h-9 ml-2 shadow-md" required={true} value={formData.contrasena}/>
+                                    <input  name="contrasena" id="contrasena" type="password" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.contrasena}/>
                                 </div>
+                                {/* Botón */}
                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                                     <CustomButton
                                         btnType="submit"
