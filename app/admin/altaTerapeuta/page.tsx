@@ -3,10 +3,13 @@ import NavBarAdmin from '@/components/NavBarAdmin';
 import CustomButton from '@/components/CustomButton';
 import React, { useState } from 'react';
 import CustomAlert from '@/components/CustomAlert';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+    const router = useRouter();
     const [alertType, setAlertType] = useState(""); // Tipo de alerta
     const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
+    const [isVisible, setIsVisible] = useState(true); // Estado para controlar la visibilidad de la alerta
 
     const handleSumbmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -17,26 +20,34 @@ export default function Home() {
                 "Content-Type": "application/json"
             }
             
-        })
+        });
 
-        if(!res.ok){
+        const data = await res.json();
+
+        if (res.ok) {
+            if (data.message === "Terapeuta ya existe") {
+                setAlertType("warning");
+                setAlertMessage("Ya existe un terapeuta con ese correo electrónico agregado");
+                setIsVisible(true);
+            } else {
+                setAlertType("success");
+                setAlertMessage("Terapeuta agregado correctamente");
+                setIsVisible(true);
+                // Limpiar el formulario después de agregar el terapeuta
+                setFormData({
+                    nombre: "",
+                    apellidoPaterno: "",
+                    apellidoMaterno: "",
+                    celular: "",
+                    correo: "",
+                    contrasena: "",
+                });
+            }
+        } else {
             setAlertType("warning");
             setAlertMessage("Error al agregar el terapeuta");
-            throw new Error("Error al crear el usuario")
         }
-        // Terapeuta agregado correctamente
-        setAlertType("success");
-        setAlertMessage("Terapeuta agregado correctamente");
-
-        // Limpiar el formulario después de agregar el terapeuta
-        setFormData({
-            nombre: "",
-            apellidoPaterno: "",
-            apellidoMaterno: "",
-            celular: "",
-            correo: "",
-            contrasena: "",
-        });
+        router.refresh();
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;
@@ -105,13 +116,14 @@ export default function Home() {
                                         containerStyles="text-white rounded-full bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-pink-500 h-10"
                                     />
                                 </div>
-                                {/* Renderizar la alerta */}
-                                {alertType && (
+                                {/* Renderizar alerta */}
+                                {alertType && isVisible && (
                                     <CustomAlert
                                         status={alertType === "success" ? "success" : "warning"}
                                         variant="subtle"
                                         title={alertType === "success" ? "Éxito" : "Advertencia"}
                                         description={alertMessage}
+                                        setIsVisible={setIsVisible}
                                     />
                                 )}
                             </form>
