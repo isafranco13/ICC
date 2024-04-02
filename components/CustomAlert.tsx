@@ -6,10 +6,11 @@ interface CustomAlertProps {
     variant?: "subtle" | "solid" | "left-accent" | "top-accent";
     title: string;
     description: string;
+    setIsVisible: (isVisible: boolean) => void;
 }
 
-const CustomAlert: React.FC<CustomAlertProps> = ({ status, variant, title, description }) => {
-    const [isVisible, setIsVisible] = useState(true); // Estado para controlar la visibilidad de la alerta
+const CustomAlert: React.FC<CustomAlertProps> = ({ status, variant, title, description, setIsVisible  }) => {
+    //const [isVisible, setIsVisible] = useState(true); // Estado para controlar la visibilidad de la alerta
 
     // Función para cerrar la alerta
     const handleClose = () => {
@@ -18,7 +19,6 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ status, variant, title, descr
 
     return (
         <>
-            {isVisible && (
                 <ChakraProvider>
                     <Alert status={status} variant={variant} flexDirection='row' textAlign='left' marginTop={4}>
                         <AlertIcon />
@@ -39,7 +39,6 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ status, variant, title, descr
                         />
                     </Alert>
                 </ChakraProvider>
-            )}
         </>
     );
 };
