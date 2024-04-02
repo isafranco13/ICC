@@ -16,6 +16,7 @@ export async function POST(request) {
 
     if (!terapeutaExists) {
         const terapeuta = await Terapeutas.create(data); // Crea un nuevo terapeuta
+        return NextResponse.json({ terapeuta }); // Devuelve la respuesta con el terapeuta creado
     } else {
         return NextResponse.json({ message: "Terapeuta ya existe" });
     }
