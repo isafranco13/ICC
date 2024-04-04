@@ -21,3 +21,10 @@ export async function POST(request) {
         return NextResponse.json({ message: "Usuario ya existe" });
     }
 }
+
+export async function DELETE(request) {
+    const id = request.nextUrl.searchParams.get("id");
+    await connectDB();
+    await Usuarios.findByIdAndDelete(id);
+    return NextResponse.json({ message: "Usuario eliminado" });
+}

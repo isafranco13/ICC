@@ -21,3 +21,10 @@ export async function POST(request) {
         return NextResponse.json({ message: "Terapeuta ya existe" });
     }
 }
+
+export async function DELETE(request) {
+    const id = request.nextUrl.searchParams.get("id");
+    await connectDB();
+    await Terapeutas.findByIdAndDelete(id);
+    return NextResponse.json({ message: "Terapeuta eliminado" });
+}
