@@ -15,6 +15,16 @@ export default function Home() {
             .then(response => response.json())
             .then(data => setUsuarios(data.usuarios));
     }, []);
+
+    const handleDeleteUser = async ( id: string ) => {
+        const res = await fetch(`/api/usuarios?id=${id}`, {
+            method: 'DELETE',
+        });
+        if (res.ok) {
+            setUsuarios(usuarios.filter(usuario => usuario._id !== id));
+            router.refresh();
+        }
+    }
     
     //TERAPEUTAS
     const [terapeutas, setTerapeutas] = useState<{ _id: string, nombre: string, apellidoPaterno: string, apellidoMaterno: string, celular: string, correo: string }[]>([]);
@@ -24,6 +34,16 @@ export default function Home() {
             .then(response => response.json())
             .then(data => setTerapeutas(data.terapeutas));
     }, []);
+
+    const handleDeleteTerap = async ( id: string ) => {
+        const res = await fetch(`/api/terapeutas?id=${id}`, {
+            method: 'DELETE',
+        });
+        if (res.ok) {
+            setTerapeutas(terapeutas.filter(terapeuta => terapeuta._id !== id));
+            router.refresh();
+        }
+    }
 
     return (
         
@@ -57,7 +77,7 @@ export default function Home() {
                                             <td className='py-1.5'>{usuario.correo}</td>
                                             <td className='py-1.5 flex text-2xl justify-center items-center'>
                                                 <button className='text-green-400 cursor-pointer mr-1'><FaRegEdit /></button>
-                                                <button className='text-red-400 cursor-pointer'><RiDeleteBin6Line /></button>
+                                                <button className='text-red-400 cursor-pointer' onClick={() => handleDeleteUser(usuario._id)}><RiDeleteBin6Line /></button>
                                             </td>
                                         </tr>
                                     ))}
@@ -92,7 +112,7 @@ export default function Home() {
                                             <td className='py-1.5'>{terapeuta.correo}</td>
                                             <td className='py-1.5 flex text-2xl justify-center items-center'>
                                                 <button className='text-green-400 cursor-pointer mr-1'><FaRegEdit /></button>
-                                                <button className='text-red-400 cursor-pointer'><RiDeleteBin6Line /></button>
+                                                <button className='text-red-400 cursor-pointer' onClick={() => handleDeleteTerap(terapeuta._id)}><RiDeleteBin6Line /></button>
                                             </td>
                                         </tr>
                                     ))}
