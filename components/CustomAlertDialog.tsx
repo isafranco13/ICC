@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-import { ChakraProvider, Button, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, 
-    AlertDialogContent, AlertDialogOverlay, useDisclosure } from '@chakra-ui/react';
+import { ChakraProvider, Button, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay } from '@chakra-ui/react';
 
 interface CustomAlertDialogProps {
     isOpen: boolean;
@@ -10,10 +9,10 @@ interface CustomAlertDialogProps {
     confirmText: string;
     colorScheme: string;
     onConfirm: () => void;
+    onClose: () => void;
 }
 
-const CustomAlertDialog: React.FC<CustomAlertDialogProps> = ({ isOpen, headerText, bodyText, cancelText, confirmText, colorScheme, onConfirm  }) => {
-    const { onClose } = useDisclosure()
+const CustomAlertDialog: React.FC<CustomAlertDialogProps> = ({ isOpen, headerText, bodyText, cancelText, confirmText, colorScheme, onConfirm, onClose }) => {
     const cancelRef = useRef<HTMLButtonElement>(null);
 
     return (
