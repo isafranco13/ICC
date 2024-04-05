@@ -174,6 +174,7 @@ export default function Home() {
                                         confirmText='Eliminar'
                                         colorScheme='red'
                                         onConfirm={handleDelete}
+                                        onClose={() => setIsAlertDialogOpen(false)}
                                     />
                         </div>
                     </div>
