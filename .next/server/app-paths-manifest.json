@@ -1,13 +1,9 @@
 {
+  "/admin/page": "app/admin/page.js",
   "/page": "app/page.js",
-<<<<<<< HEAD
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/signup/page": "app/signup/page.js"
-=======
   "/signup/page": "app/signup/page.js",
-  "/signin/page": "app/signin/page.js"
->>>>>>> 61b7d27d0ef0e5712cba5b596c4acbfa754397e8
+  "/signin/page": "app/signin/page.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

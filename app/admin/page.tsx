@@ -14,7 +14,6 @@ export default function Home() {
     return (
         
         <main className="overflow-hidden">
-            <NavbarAdmin />
 
             <div>
                 <h1>Cantidad de Usuarios: {usuarios.length}</h1><br />
