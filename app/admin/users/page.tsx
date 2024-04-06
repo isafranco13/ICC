@@ -167,15 +167,15 @@ export default function Home() {
                             </table>
                             {/* Componente AlertDialog */}
                             <CustomAlertDialog
-                                        isOpen={isAlertDialogOpen}
-                                        headerText={alertDialogTitle}
-                                        bodyText={alertDialogBody}
-                                        cancelText='Cancelar'
-                                        confirmText='Eliminar'
-                                        colorScheme='red'
-                                        onConfirm={handleDelete}
-                                        onClose={() => setIsAlertDialogOpen(false)}
-                                    />
+                                isOpen={isAlertDialogOpen}
+                                headerText={alertDialogTitle}
+                                bodyText={alertDialogBody}
+                                cancelText='Cancelar'
+                                confirmText='Eliminar'
+                                colorScheme='red'
+                                onConfirm={handleDelete}
+                                onClose={() => setIsAlertDialogOpen(false)}
+                            />
                         </div>
                     </div>
                 </div>
