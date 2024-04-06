@@ -25,7 +25,7 @@ export default function Form(){
             throw new Error("Error al crear el usuario")
         }
         router.refresh();
-        router.push("/dashboard");
+        router.push("/dashboard_usuarios"); // /dashboard
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;
@@ -89,7 +89,7 @@ export default function Form(){
                                 <CustomButton
                                     btnType="submit"
                                     title="Crear Cuenta"
-                                    containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-E55E7F h-10"
+                                    containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
                                 />
                                 
                                 <br />

@@ -15,7 +15,7 @@ export default function Form(){
 
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-        router.replace("/dashboard");
+        router.replace("/dashboardU"); //"/dashboard"
         }
     }, [sessionStatus, router]);
 
@@ -32,7 +32,7 @@ export default function Form(){
 
         if (res?.error) {
         setError("Invalid email or password");
-        if (res?.url) router.replace("/dashboard");
+        if (res?.url) router.replace("/dashboardU"); //"/dashboard
         } else {
         setError("");
         }

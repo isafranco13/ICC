@@ -1,13 +1,9 @@
 {
+  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
-<<<<<<< HEAD
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/signin/page": "app/signin/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/signup/page": "app/signup/page.js"
-=======
-  "/signup/page": "app/signup/page.js",
-  "/signin/page": "app/signin/page.js"
->>>>>>> 61b7d27d0ef0e5712cba5b596c4acbfa754397e8
+  "/dashboardU/page": "app/dashboardU/page.js",
+  "/historial_c/page": "app/historial_c/page.js",
+  "/dashboard_tera/page": "app/dashboard_tera/page.js"
 }
