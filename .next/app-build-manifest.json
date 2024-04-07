@@ -1,5 +1,11 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -9,26 +15,25 @@
     "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js",
-      "static/css/app/admin/page.css"
+      "static/css/app/admin/page.css",
+      "static/chunks/app/admin/page.js"
     ],
-    "/page": [
+    "/admin/configApp/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js",
-      "static/css/app/page.css"
+      "static/css/app/admin/configApp/page.css",
+      "static/chunks/app/admin/configApp/page.js"
     ],
-    "/signup/page": [
+    "/admin/mantenimiento/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/signup/page.js",
-      "static/css/app/signup/page.css"
+      "static/chunks/app/admin/mantenimiento/page.js"
     ],
-    "/signin/page": [
+    "/admin/users/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/signin/page.js",
-      "static/css/app/signin/page.css"
+      "static/css/app/admin/users/page.css",
+      "static/chunks/app/admin/users/page.js"
     ]
   }
 }
