@@ -1,4 +1,4 @@
-// File: C:\xampp\htdocs\healthSync\app\api\auth\[...nextauth]\route.ts
+// File: C:\Users\bombo\Desktop\healthSync\app\api\auth\[...nextauth]\route.ts
 import * as entry from '../../../../../../app/api/auth/[...nextauth]/route.js'
 import type { NextRequest } from 'next/server.js'
 
