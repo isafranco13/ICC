@@ -7,17 +7,6 @@ import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
 import React, {useEffect, useState} from "react";
 
-<<<<<<< HEAD
-export default function Home() {
-
-    return (
-        
-        <main className="overflow-hidden">
-
-            <div>
-                <h1>Bienvenido admin</h1>
-            </div>
-=======
 export default function Form(){
     const router = useRouter();
 
@@ -54,7 +43,6 @@ export default function Form(){
                     </div>
                 </div>
             </div> <br />
->>>>>>> dba5574d2b0e42eca59c4b2c5b7a5949e480babf
         </main>
         </>
     )
