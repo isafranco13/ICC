@@ -1,6 +1,4 @@
 "use client"
-
-import { Switch } from '@headlessui/react';
 import NavBarAdmin from '@/components/NavBarAdmin';
 import React, { useState, useEffect, useRef } from 'react';
 import { FaUsers } from 'react-icons/fa';
@@ -112,10 +110,11 @@ export default function Home() {
     }, []);
 
     return (
+        
         <main className="overflow-hidden">
             <div className="contenedor">
-                <div style={{ display: 'flex', flexWrap: 'wrap'}}>
-                    <div className='navBarApp'>
+                <div style={{ display: 'flex' }}>
+                    <div>
                         <NavBarAdmin />
                     </div>
 
