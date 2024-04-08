@@ -6,14 +6,13 @@ import {signIn, useSession} from 'next-auth/react'
 import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
 import React, {useEffect, useState} from "react";
-import CustomAlert from '@/components/CustomAlert';
+//import type { User } from "next-auth";
 
 export default function Form(){
     const router = useRouter();
+    const [error, setError] = useState("");
     // const session = useSession();
     const { data: session, status: sessionStatus } = useSession();
-    const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
-    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         if (sessionStatus === "authenticated") {
@@ -34,9 +33,11 @@ export default function Form(){
 
         
         if (res?.error) {
-            setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
-            setIsVisible(true);
-            if (res?.url) router.replace("/dashboard");
+        setError("Invalid email or password");
+        if (res?.url) router.replace("/dashboardU"); //"/dashboard
+        } else {
+            
+        setError("");
         }
     };
 
@@ -48,7 +49,7 @@ export default function Form(){
         <>
         <Navbar2 />
 
-        <main className="flex flex-col justify-center items-center w-full flex-1 bg-[#F5FFFC]">
+        <main className="flex flex-col justify-center items-center w-full flex-1">
             <br /><br /><br /><br />
             <div className="flex max-w-3xl yellowContainer"> {/*div principal */}
                 {/*Sección de iniciar sesión*/}
@@ -70,23 +71,13 @@ export default function Form(){
                                 <CustomButton
                                     btnType="submit"
                                     title="Iniciar Sesión"
-                                    containerStyles="text-white rounded-full bg-[#FC83A1] hover:bg-[#E55E7F] font-medium mt-10 textButton"
+                                    containerStyles="text-white rounded-full bg-pink-400 font-medium mt-10 textButton"
                                 />
                             </form><br />
                             <div className="flex justify-between">
                                 <p className="text-black text-[17px] font-medium prSignIn">¿No tienes cuenta? <Link href="/signup" className="text-[#E55E7F]">Regístrate</Link></p>
                                 <p className="text-black text-[17px] font-medium prSignIn"><Link href="" className="text-[#E55E7F]">¿Olvidaste tu contraseña?</Link></p>
-                            </div>
-                            {/* Renderizar alerta */}
-                            {isVisible && (
-                                <CustomAlert
-                                    status="warning"
-                                    variant="subtle"
-                                    title="Error"
-                                    description={alertMessage}
-                                    setIsVisible={setIsVisible}
-                                />
-                            )}                            
+                            </div>                            
                         </div>
                     </div>
                         <div className="flex flex-nowrap items-center justify-center">
@@ -98,7 +89,7 @@ export default function Form(){
                         </div>
                         <br />
                         <div className="flex justify-center my-2">&nbsp;
-                        <button onClick={() => signIn('google', { callbackUrl: '/dashboard_tera' })} className="flex items-center justify-center w-[299px] h-[59px] 
+                        <button onClick={() => signIn('google', { callbackUrl: '/dashboardU' })} className="flex items-center justify-center w-[299px] h-[59px] 
                         border-2 border-[#FFFFFF] bg-[#FFFFFF] rounded px-2 py-2 font-light text-center"> <Image
                         src="/buscar.png"
                         alt="mental"
@@ -106,8 +97,7 @@ export default function Form(){
                         height={40}
                         className="mr-2 googleLogo" 
                         />Continuar con Google</button> {/*'google', { callbackUrl: '/dashboard' }*/ }
-                        </div> <br /> 
-                        <br />
+                        </div> <br /> <br />
                 </div>
             </div> <br />
         </main>

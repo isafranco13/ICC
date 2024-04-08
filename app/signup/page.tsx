@@ -10,7 +10,7 @@ import React, {useState} from "react";
 export default function Form(){
     const router = useRouter();
     
-    const handleSumbmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const res = await fetch("/api/usuarios",{
             method: "POST",
@@ -25,7 +25,7 @@ export default function Form(){
             throw new Error("Error al crear el usuario")
         }
         router.refresh();
-        router.push("/dashboard_usuarios"); // /dashboard
+        router.push("/dashboardU"); // /dashboard
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;
@@ -72,7 +72,7 @@ export default function Form(){
                         {/*Sección de crear cuenta*/}
                         <div className="container"> 
                         <div className="divYellowContainer"><h1 className="text-3xl font-bold titleSignIn">Crear Cuenta</h1><br />
-                            <form className="flex flex-col w-full pl-4" method="post" onSubmit={handleSumbmit}>
+                            <form className="flex flex-col w-full pl-4" method="post" onSubmit={handleSubmit}>
                             <div className="flex flex-wrap"> {/* div de nombre y apellido*/}
                                 <div className="w-1/2 pl-4"><p className="text-black font-medium form">Nombre</p>
                                 <input value={formData.nombre} name="nombre"  id="nombre" type="text" className="bg-white rounded-lg outline-none text-base w-full h-9 pl-2" onChange={handleChange} required={true} /></div>
