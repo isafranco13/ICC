@@ -1,39 +1,78 @@
 {
   "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-<<<<<<< HEAD
-    ],
-<<<<<<< HEAD
     "/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/signin/page.css",
       "static/chunks/app/signin/page.js"
     ],
-    "/dashboard/page": [
+    "/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/dashboard/page.css",
-      "static/chunks/app/dashboard/page.js"
-=======
->>>>>>> b77d91cb1cca9ff4d32acbc965812109320845c6
-=======
-    "/admin/signin/page": [
+      "static/css/app/signup/page.css",
+      "static/chunks/app/signup/page.js"
+    ],
+    "/dashboardU/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/admin/signin/page.css",
-      "static/chunks/app/admin/signin/page.js"
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
+      "static/chunks/app/dashboardU/page.js"
+    ],
+    "/historial_c/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/historial_c/page.js"
+    ],
+    "/dashboard_tera/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard_tera/page.css",
+      "static/chunks/app/dashboard_tera/page.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/page.css",
+      "static/chunks/app/admin/page.js"
+    ],
+    "/admin/users/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/users/page.css",
+      "static/chunks/app/admin/users/page.js"
+    ],
+    "/admin/altaTerapeuta/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/altaTerapeuta/page.css",
+      "static/chunks/app/admin/altaTerapeuta/page.js"
+    ],
+    "/admin/configApp/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/configApp/page.css",
+      "static/chunks/app/admin/configApp/page.js"
+    ],
+    "/admin/mantenimiento/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/mantenimiento/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }

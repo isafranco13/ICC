@@ -35,7 +35,7 @@ function Navbar() {
                             <a href='/admin/altaTerapeuta' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Alta terapista
                             </li></a>
-                            <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
+                            <a href='/admin/configApp' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Aplicación
                             </li></a>
                             <a href='/' className={`${styles.navLink}`}><li onClick={removeActive}>

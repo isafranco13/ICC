@@ -1,17 +1,13 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js",
-  "/signin/page": "app/signin/page.js",
+  "/not-found": "app/not-found.js",
+  "/historial_c/page": "app/historial_c/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/dashboard/page": "app/dashboard/page.js"
-=======
   "/page": "app/page.js",
-=======
-  "/admin/signin/page": "app/admin/signin/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
->>>>>>> b77d91cb1cca9ff4d32acbc965812109320845c6
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/admin/configApp/page": "app/admin/configApp/page.js",
+  "/admin/mantenimiento/page": "app/admin/mantenimiento/page.js"
 }
