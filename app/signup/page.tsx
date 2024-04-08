@@ -25,7 +25,7 @@ export default function Form(){
             throw new Error("Error al crear el usuario")
         }
         router.refresh();
-        router.push("/dashboard_usuarios"); // /dashboard
+        router.push("/dashboardU"); // /dashboard
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;
@@ -106,7 +106,7 @@ export default function Form(){
                                 </div>
                                 <br />
                                 <div className="flex justify-center my-2">
-                                <button onClick={() => signIn('google', { callbackUrl: '/dashboard' })} className="flex items-center justify-center w-[310px] h-[59px] 
+                                <button onClick={() => signIn('google', { callbackUrl: '/dashboardU' })} className="flex items-center justify-center w-[310px] h-[59px] 
                                 border-2 border-[#FFFFFF] bg-[#FFFFFF] rounded px-15 py-2 font-light text-center"> <Image
                                 src="/buscar.png"
                                 alt="mental"
