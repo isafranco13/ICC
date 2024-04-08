@@ -6,6 +6,7 @@ import {signIn, useSession} from 'next-auth/react'
 import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
 import React, {useEffect, useState} from "react";
+import type { User } from "next-auth";
 
 export default function Form(){
     const router = useRouter();
@@ -15,7 +16,7 @@ export default function Form(){
 
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-        router.replace("/dashboard");
+        router.replace("/dashboardU"); //"/dashboard"
         }
     }, [sessionStatus, router]);
 
@@ -30,10 +31,12 @@ export default function Form(){
             redirect: false,
         });
 
+        
         if (res?.error) {
         setError("Invalid email or password");
-        if (res?.url) router.replace("/dashboard");
+        if (res?.url) router.replace("/dashboardU"); //"/dashboard
         } else {
+            
         setError("");
         }
     };
@@ -86,7 +89,7 @@ export default function Form(){
                         </div>
                         <br />
                         <div className="flex justify-center my-2">&nbsp;
-                        <button onClick={() => signIn('google', { callbackUrl: '/dashboard' })} className="flex items-center justify-center w-[299px] h-[59px] 
+                        <button onClick={() => signIn('google', { callbackUrl: '/dashboardU' })} className="flex items-center justify-center w-[299px] h-[59px] 
                         border-2 border-[#FFFFFF] bg-[#FFFFFF] rounded px-2 py-2 font-light text-center"> <Image
                         src="/buscar.png"
                         alt="mental"

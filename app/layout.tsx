@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="icon" href="/atomo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" type="image/svg+xml" /> {/*href="/atomo.svg" */}
       </Head>
       <body className={inter.className}> {/* className='static'*/}
         <Providers>
