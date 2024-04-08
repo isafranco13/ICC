@@ -256,6 +256,10 @@ html {
   @apply shadow-md mx-auto max-w-prose;
 }
 
+      /*Hoome page*/
+.contenedor2{
+  display: flex;
+}
 
 /*Celular*/
 
@@ -395,6 +399,11 @@ html {
   .navBarApp{
     flex: 1;
     min-width: 300px;
+  }
+
+        /*Home page*/
+  .contenedor2{
+    flex-wrap: wrap;
   }
 
 }
@@ -549,6 +558,12 @@ html {
     color: black;
     font-size: 18px;
   }
+
+      /*Home page*/
+  .contenedor2{
+    flex-wrap: wrap;
+  }
+        
 }
 
 
@@ -558,6 +573,12 @@ html {
       flex: 1;
       min-width: 300px;
     }
+
+      /*Home page*/
+  .contenedor2{
+    flex-wrap: wrap;
+  }
+
 
   }
   

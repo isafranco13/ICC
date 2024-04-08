@@ -113,8 +113,8 @@ export default function Home() {
         
         <main className="overflow-hidden">
             <div className="contenedor">
-                <div style={{ display: 'flex' }}>
-                    <div>
+                <div className='contenedor2'>
+                    <div className='navBarApp'>
                         <NavBarAdmin />
                     </div>
 

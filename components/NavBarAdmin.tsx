@@ -33,7 +33,7 @@ function Navbar() {
                                 Lista usuarios
                             </li></a>
                             <a href='/admin/altaTerapeuta' className={`${styles.navLink}`}><li onClick={removeActive}>
-                                Alta terapista
+                                Alta terapeuta
                             </li></a>
                             <a href='/admin/configApp' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Aplicación

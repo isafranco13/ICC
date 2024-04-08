@@ -95,8 +95,8 @@ export default function Home() {
         
         <main className="overflow-hidden">
             <div className="contenedor">
-                <div style={{ display: 'flex', backgroundColor: '#F5FFFC' }}>
-                    <div>
+                <div  className='contenedor2' style={{backgroundColor: '#F5FFFC' }}>
+                    <div className='navBarApp'>
                         <NavBarAdmin />
                     </div>
 
