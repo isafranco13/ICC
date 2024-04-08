@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
   "/signin/page": "app/signin/page.js",
@@ -7,6 +8,10 @@
   "/dashboard/page": "app/dashboard/page.js"
 =======
   "/page": "app/page.js",
+=======
+  "/admin/signin/page": "app/admin/signin/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+>>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 >>>>>>> b77d91cb1cca9ff4d32acbc965812109320845c6
 }

@@ -13,6 +13,7 @@
       "static/chunks/app/layout.js"
 <<<<<<< HEAD
     ],
+<<<<<<< HEAD
     "/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -26,6 +27,13 @@
       "static/chunks/app/dashboard/page.js"
 =======
 >>>>>>> b77d91cb1cca9ff4d32acbc965812109320845c6
+=======
+    "/admin/signin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/signin/page.css",
+      "static/chunks/app/admin/signin/page.js"
+>>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
     ]
   }
 }

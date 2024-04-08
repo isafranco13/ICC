@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // File: C:\Users\bombo\Desktop\healthSync\app\api\auth\[...nextauth]\route.ts
 =======
 // File: C:\Users\isach\OneDrive\Escritorio\healthSync\app\api\auth\[...nextauth]\route.ts
 >>>>>>> b77d91cb1cca9ff4d32acbc965812109320845c6
+=======
+// File: C:\xampp\htdocs\healthSync\app\api\auth\[...nextauth]\route.ts
+>>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
 import * as entry from '../../../../../../app/api/auth/[...nextauth]/route.js'
 import type { NextRequest } from 'next/server.js'
 
