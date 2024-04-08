@@ -1,6 +1,17 @@
 {
+<<<<<<< HEAD
   "/page": "app/page.js",
   "/admin/page": "app/admin/page.js",
   "/api/usuarios/route": "app/api/usuarios/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+=======
+  "/admin/home/page": "app/admin/home/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/page": "app/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/dashboardU/page": "app/dashboardU/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/dashboard_tera/page": "app/dashboard_tera/page.js"
+>>>>>>> dba5574d2b0e42eca59c4b2c5b7a5949e480babf
 }

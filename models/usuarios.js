@@ -19,7 +19,7 @@ const usuarioSchema =new mongoose.Schema(
         contrasena: {
             type: String, 
             required: false
-        },
+        }
     }
 )
 

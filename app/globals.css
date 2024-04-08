@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 html {
-  background-color: #F5FFFB;
+  background-color: #f5fffb;
 }
 
 .green{
@@ -142,6 +142,52 @@ html {
 
 
 
+/*Admin*/
+  .toggleButton{
+    background-color: pink;
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+  
+  /* navbar */
+  .navbar {
+    background-color: aliceblue;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    min-height: 70px;
+  }
+  
+  
+  /* logo  */
+  .logo {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  
+  /* ul  */
+  .navMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+  }
+  
+  
+
+
 
 /* START: Footer styles */
 .footer {
@@ -177,6 +223,7 @@ html {
 
 
 /*ADMIN*/
+
 /*NavBar*/
 .navBar{
   width: 15%;
@@ -190,10 +237,29 @@ html {
   justify-content: flex-start; /* Añadido para alinear a la izquierda */
 }
 
+.text{
+  padding: 2%;
+}
+.tituloAdmin{
+  font-size: 30px;
+  font-weight: bold;
+}
 
 
+.app{
+  background-color: white;
+  margin-top: 3%;
+  border-radius: 20px;
+}
 
+.app{
+  @apply shadow-md mx-auto max-w-prose;
+}
 
+      /*Hoome page*/
+.contenedor2{
+  display: flex;
+}
 
 /*Celular*/
 
@@ -328,6 +394,18 @@ html {
     height: 47px; /* Ajusta la altura del botón */
   
   }
+
+  /*Admin*/
+  .navBarApp{
+    flex: 1;
+    min-width: 300px;
+  }
+
+        /*Home page*/
+  .contenedor2{
+    flex-wrap: wrap;
+  }
+
 }
 
 
@@ -388,7 +466,7 @@ html {
   }
   
   .logoContainer{
-    @apply w-full px-10  bg-[#FFEBA9] rounded-2xl     
+    @apply w-full px-10  bg-[#ffeba9] rounded-2xl     
   }
 
   .logoSignIn{
@@ -464,7 +542,43 @@ html {
   }
   
 
-  
+  /*Admin*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
   
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+      /*Home page*/
+  .contenedor2{
+    flex-wrap: wrap;
+  }
+        
+}
+
+
+  @media (min-width: 380px) and (max-width: 780px){
+  
+    .navBarApp{
+      flex: 1;
+      min-width: 300px;
+    }
+
+      /*Home page*/
+  .contenedor2{
+    flex-wrap: wrap;
+  }
+
+
+  }
   
