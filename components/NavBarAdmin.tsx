@@ -26,23 +26,6 @@ function Navbar() {
                             className=""/>
                         <a href='/' className={`${styles.logo}`}>HealthSync </a>
                         <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
-<<<<<<< HEAD
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Inicio</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Lista usuarios</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Alta terapista</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='/admin/configApp' className={`${styles.navLink}`}>Aplicación</a>
-                            </li>
-                            <li onClick={removeActive}>
-                                <a href='#home' className={`${styles.navLink}`}>Cerrar sesión</a>
-                            </li>
-=======
                             <a href='/admin' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Inicio
                             </li></a>
@@ -58,7 +41,6 @@ function Navbar() {
                             <a href='/' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Cerrar sesión
                             </li></a>
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
                         </ul>
                         <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
                             <span className={`${styles.bar}`}></span>

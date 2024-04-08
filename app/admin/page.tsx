@@ -1,13 +1,7 @@
 "use client"
 
-import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 import NavBarAdmin from '@/components/NavBarAdmin';
-<<<<<<< HEAD
-
-export default function Home() {
-    const [enabled, setEnabled] = useState(false);
-=======
 import React, { useState, useEffect, useRef } from 'react';
 import { FaUsers } from 'react-icons/fa';
 import { TfiWorld } from "react-icons/tfi";
@@ -116,7 +110,6 @@ export default function Home() {
             }
         }
     }, []);
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
 
     return (
         <main className="overflow-hidden">

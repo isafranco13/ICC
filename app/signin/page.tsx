@@ -6,11 +6,7 @@ import {signIn, useSession} from 'next-auth/react'
 import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
 import React, {useEffect, useState} from "react";
-<<<<<<< HEAD
-import type { User } from "next-auth";
-=======
 import CustomAlert from '@/components/CustomAlert';
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
 
 export default function Form(){
     const router = useRouter();
@@ -38,17 +34,9 @@ export default function Form(){
 
         
         if (res?.error) {
-<<<<<<< HEAD
-        setError("Invalid email or password");
-        if (res?.url) router.replace("/dashboardU"); //"/dashboard
-        } else {
-            
-        setError("");
-=======
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
             if (res?.url) router.replace("/dashboard");
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
         }
     };
 

@@ -1,13 +1,6 @@
 "use client"
 import NavBarAdmin from '@/components/NavBarAdmin';
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-
-export default function Home() {
-    const [usuarios, setUsuarios] = useState<{ _id: string, nombre: string, correo: string, apellido: string }[]>([]);
-
-    useEffect(() => {
-=======
 import { useRouter } from 'next/navigation';
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -23,14 +16,11 @@ export default function Home() {
     const [usuarios, setUsuarios] = useState<{ _id: string, nombre: string, correo: string, apellido: string }[]>([]);
 
     useEffect(() => { //cargar usuarios
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
         fetch('/api/usuarios')
             .then(response => response.json())
             .then(data => setUsuarios(data.usuarios));
     }, []);
 
-<<<<<<< HEAD
-=======
     /*const handleDeleteUser = async ( id: string ) => {
         const res = await fetch(`/api/usuarios?id=${id}`, {
             method: 'DELETE',
@@ -101,44 +91,15 @@ export default function Home() {
         setSelectedItemId('');
     };
 
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
     return (
         
         <main className="overflow-hidden">
             <div className="contenedor">
-<<<<<<< HEAD
-                <div style={{ display: 'flex' }}>
-=======
                 <div style={{ display: 'flex', backgroundColor: '#F5FFFC' }}>
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
                     <div>
                         <NavBarAdmin />
                     </div>
 
-<<<<<<< HEAD
-                    <div className='text'>
-                        <h1>Cantidad de Usuarios: {usuarios.length}</h1><br />
-                        <table className='text-center'>
-                            <thead>
-                                <tr>
-                                    <th className='pr-10'>Nombre</th>
-                                    <th className='pr-10'>Apellido</th>
-                                    <th>Correo</th>
-                                    {/* Agregar más columnas según la estructura de los usuarios */}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {usuarios.map(usuario => (
-                                    <tr key={usuario._id}>
-                                        <td className='pr-10'>{usuario.nombre}</td>
-                                        <td className='pr-10'>{usuario.apellido}</td>
-                                        <td>{usuario.correo}</td>
-                                        {/* Agregar más celdas según la estructura de los usuarios */}
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-=======
                     <div style={{ display: 'inline-block', width: '100%', marginLeft: '2%' , marginRight: '2%' }}>
                         <div className='text'>
                             <p className='tituloAdmin'><strong>Usuarios</strong></p>
@@ -216,7 +177,6 @@ export default function Home() {
                                 onClose={() => setIsAlertDialogOpen(false)}
                             />
                         </div>
->>>>>>> 4914ffb46688dc739ae5edb5f105e246d1ffa6ab
                     </div>
                 </div>
             </div>
