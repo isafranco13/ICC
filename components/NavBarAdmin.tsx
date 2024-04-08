@@ -26,7 +26,7 @@ function Navbar() {
                             className=""/>
                         <a href='/' className={`${styles.logo}`}>HealthSync </a>
                         <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
-                            <a href='/admin' className={`${styles.navLink}`}><li onClick={removeActive}>
+                            <a href='/admin/home' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Inicio
                             </li></a>
                             <a href='/admin/users' className={`${styles.navLink}`}><li onClick={removeActive}>

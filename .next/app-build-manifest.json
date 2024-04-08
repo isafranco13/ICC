@@ -29,6 +29,23 @@
       "static/chunks/main-app.js",
       "static/css/app/admin/altaTerapeuta/page.css",
       "static/chunks/app/admin/altaTerapeuta/page.js"
+    ],
+    "/admin/home/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/home/page.css",
+      "static/chunks/app/admin/home/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }

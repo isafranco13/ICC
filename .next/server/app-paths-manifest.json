@@ -1,7 +1,12 @@
 {
+  "/not-found": "app/not-found.js",
   "/admin/page": "app/admin/page.js",
-  "/admin/users/page": "app/admin/users/page.js",
   "/admin/configApp/page": "app/admin/configApp/page.js",
+  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js"
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/admin/home/page": "app/admin/home/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/api/terapeutas/route": "app/api/terapeutas/route.js",
+  "/page": "app/page.js"
 }
