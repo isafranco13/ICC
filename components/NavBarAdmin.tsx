@@ -24,7 +24,7 @@ function Navbar() {
                             width={80}
                             height={48}
                             className=""/>
-                        <a href='#home' className={`${styles.logo}`}>HealthSync </a>
+                        <a href='/' className={`${styles.logo}`}>HealthSync </a>
                         <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
                             <a href='/admin' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Inicio
@@ -32,13 +32,13 @@ function Navbar() {
                             <a href='/admin/users' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Lista usuarios
                             </li></a>
-                            <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
+                            <a href='/admin/altaTerapeuta' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Alta terapista
                             </li></a>
                             <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Aplicación
                             </li></a>
-                            <a href='#home' className={`${styles.navLink}`}><li onClick={removeActive}>
+                            <a href='/' className={`${styles.navLink}`}><li onClick={removeActive}>
                                 Cerrar sesión
                             </li></a>
                         </ul>
