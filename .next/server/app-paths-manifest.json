@@ -1,10 +1,10 @@
 {
   "/admin/home/page": "app/admin/home/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/admin/users/page": "app/admin/users/page.js",
   "/page": "app/page.js",
   "/signin/page": "app/signin/page.js",
   "/dashboardU/page": "app/dashboardU/page.js",
-  "/admin/users/page": "app/admin/users/page.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
-  "/dashboard_tera/page": "app/dashboard_tera/page.js"
+  "/dashboard_tera/page": "app/dashboard_tera/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
