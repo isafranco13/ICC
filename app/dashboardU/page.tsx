@@ -3,21 +3,32 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import NavbarUsuario from "@/components/NavbarUsuario";
+import type { User } from "next-auth"
 
-const Dashboard = async () => {
+type Props = {
+    user: User,
+}
+  
+const Dashboard = async ({user}: Props) => { //async ()
     const session = await getServerSession();
+    /*if(session?.user.rol !== "terapeuta" && !session){
+        redirect("/signin");
+    }*/
+    
     if (!session) {
       redirect("/signin");
     }
+    
     return (
         <>
-            <NavbarUsuario />
+            <NavbarUsuario></NavbarUsuario>
             <main className="flex justify-center items-center w-full flex-1 main">
                 <br /><br /><br /><br />
             {/*1 er div - div principal*/}
             <div className="flex flex-row gap-[50px]">
                 <div className="w-full">{/* px-50 2do div- seccion terpeutas */}
                     <h1 className="font-bold text-2xl">Terapeutas</h1>
+                    
                     <div className="flex justify-start w-[357px] h-[120px] bg-[#0DF59147] rounded-lg pl-2 mt-[14px]"> {/*div de terapeuta*/}
                         <div className="flex items-center"> 
                             <Image

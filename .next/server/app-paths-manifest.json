@@ -1,9 +1,3 @@
 {
-  "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js",
-  "/dashboardU/page": "app/dashboardU/page.js",
-  "/historial_c/page": "app/historial_c/page.js",
-  "/dashboard_tera/page": "app/dashboard_tera/page.js"
+  "/signin/page": "app/signin/page.js"
 }

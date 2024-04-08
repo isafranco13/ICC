@@ -647,6 +647,9 @@ video {
 .table{
   display: table;
 }
+.hidden{
+  display: none;
+}
 .h-10{
   height: 2.5rem;
 }
@@ -679,6 +682,9 @@ video {
 }
 .h-\[280px\]{
   height: 280px;
+}
+.h-\[500px\]{
+  height: 500px;
 }
 .h-\[59px\]{
   height: 59px;
@@ -721,6 +727,9 @@ video {
 }
 .w-\[357px\]{
   width: 357px;
+}
+.w-\[500\]{
+  width: 500;
 }
 .w-\[570px\]{
   width: 570px;
@@ -820,6 +829,12 @@ video {
 }
 .gap-\[50px\]{
   gap: 50px;
+}
+.gap-\[20px\]{
+  gap: 20px;
+}
+.gap-\[30px\]{
+  gap: 30px;
 }
 .space-x-5 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;

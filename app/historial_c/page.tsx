@@ -15,7 +15,7 @@ const Historial = async () => {
       redirect("/signin");
     }
     
-    {/*const handleSumbmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSumbmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const res = await fetch("/api/usuarios",{
             method: "POST",
@@ -54,7 +54,7 @@ const Historial = async () => {
         operaciones: "",
         medicamentos: "",
     };
-const [formData, setFormData] = useState(startingUsuariosData);*/}
+const [formData, setFormData] = useState(startingUsuariosData);
      
     return (
         <>
@@ -76,6 +76,7 @@ const [formData, setFormData] = useState(startingUsuariosData);*/}
                             <h3 className="text-[#5c5a5a] text-[30px] font-semibold">Datos generales</h3>
                             <div className="flex flex-wrap mt-[20px]"> {/*div principal de datos generales */}
                                 <div className="w-[100px] pl-[30px]">
+                                    <input type="hidden" name="name"  /> {/*Input para tomar el nombre */}
                                 <p className="text-[20px] text-black font-medium">Telefono</p>
                                 <input required={true} name="telefono"  id="telefono" type="number" placeholder="6145153999" className="rounded-[20px] w-[147px] h-[25px] outline-none text-base pl-2"/></div> {/*value={formData.telefono}  onChange={handleChange}*/}
                                 <div className="w-[150px] pl-[100px]">

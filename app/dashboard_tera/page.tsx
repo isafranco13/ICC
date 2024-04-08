@@ -1,16 +1,24 @@
+"use client"
 import { Footer} from "@/components";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { AuthOptions } from "next-auth";
 import Image from 'next/image';
 import CustomButton from '../../components/CustomButton';
 import NavbarTera from "@/components/NavbarTera";
-
+import {Calendar, dayjsLocalizer} from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import dayjs from 'dayjs';
 
 const Dashboard = async () => {
     const session = await getServerSession();
     if (!session) {
       redirect("/signin");
     }
+    
+    //componentes del calendario
+    const localizer = dayjsLocalizer(dayjs);
+    
     return (
         <>
             <NavbarTera />
@@ -18,14 +26,28 @@ const Dashboard = async () => {
                 <br /><br /><br /><br />
             {/*1 er div - div principal*/}
             <div className="flex flex-row gap-[50px]">
-                <div className="w-full items-center">{/* px-50 2do div- seccion terpeutas */}
-                    <h1 className="font-bold text-2xl text-[#05814E] ">Calendario</h1>
+                <div className="w-full items-center justify-center">{/* px-50 2do div- seccion citas */}
+                    <h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>
+                    <br />
+                    <div className="h-[500px] w-[500] items-center">
+                    <Calendar
+                        localizer={localizer}
+                        style={{
+                            borderRadius: 20,
+                            height: '100%',
+                            width: '100%',
+                        }}
+                        components={{
+                            
+                        }}
+                        length={1}
+                    /></div>
                     <CustomButton
                                     btnType="submit"
                                     title="Añadir Cita"
                                     containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] w-full font-medium textButton mt-5 hover:bg-[#E55E7F]"
                                 /> 
-                </div> {/* fin de sección terpeutas */}
+                </div> {/* fin de calendario */}
 
                     {/*3er div - seccion de citas */}
                     <div className="divYellowContainer bg-[#FFEBA9CC] rounded-[40px] ">
@@ -63,7 +85,7 @@ const Dashboard = async () => {
                                     />
                                     <a href="#"><p className="font-medium text-[19px] hover:text-[#05814E]">Descargar Historial Clinico</p></a>
                                     </div>
-                                    </div>
+                            </div>
                         </div>
                     </div>{/*fin div de terapeuta*/}
                         <div className=" bg-white rounded-[20px] w-[620px] h-[280px]"> {/*Cuadro de cita */}
@@ -77,6 +99,7 @@ const Dashboard = async () => {
                                     btnType="submit"
                                     title="Guardar"
                                     containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10 mt-[.5px] mr-[18px]"
+                                    
                                 /> 
                              </div>
                             </form>
