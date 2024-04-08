@@ -12,30 +12,6 @@
       "static/css/app/admin/page.css",
       "static/chunks/app/admin/page.js"
     ],
-    "/admin/users/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/users/page.css",
-      "static/chunks/app/admin/users/page.js"
-    ],
-    "/admin/configApp/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/configApp/page.css",
-      "static/chunks/app/admin/configApp/page.js"
-    ],
-    "/admin/altaTerapeuta/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/altaTerapeuta/page.css",
-      "static/chunks/app/admin/altaTerapeuta/page.js"
-    ],
-    "/admin/home/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/home/page.css",
-      "static/chunks/app/admin/home/page.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -69,11 +45,6 @@
       "static/chunks/main-app.js",
       "static/css/app/dashboard_tera/page.css",
       "static/chunks/app/dashboard_tera/page.js"
-    ],
-    "/admin/mantenimiento/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/mantenimiento/page.js"
     ]
   }
 }
