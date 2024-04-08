@@ -31,14 +31,14 @@ export default function Form(){
             redirect: false,
         });
 
-        /*
+        
         if (res?.error) {
         setError("Invalid email or password");
         if (res?.url) router.replace("/dashboardU"); //"/dashboard
         } else {
             
         setError("");
-        }*/
+        }
     };
 
     if (sessionStatus === "loading") {

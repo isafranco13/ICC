@@ -16,14 +16,14 @@ const MyListbox = () => {
   return (
     <Listbox value={selectedPerson} onChange={setSelectedPerson}>
       <Listbox.Button className="bg-white text-gray-900 py-2 px-4 rounded-md">{selectedPerson.name}</Listbox.Button>
-      <Listbox.Options className="bg-white">
+      <Listbox.Options className="bg-white rounded-[20px]">
         {people.map((person) => (
           <Listbox.Option
             key={person.id}
             value={person}
             className={({ active }) =>
-            `cursor-default select-none relative py-2 pl-10 pr-4 ${
-              active ? 'bg-blue-100 text-[#FC83A1]' : 'text-black'
+            `cursor-default select-none relative py-1 pl-10 pr-3 ${
+              active ? 'rounded-[10px] bg-gray-100 text-[#FC83A1]' : 'text-black'
             }`
           }
         >
@@ -34,7 +34,7 @@ const MyListbox = () => {
               </span>
               {selected ? (
                 <span
-                  className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                  className={`absolute inset-y-0 left-0 flex items-center pl-1 ${
                     active ? 'text-[#FC83A1]' : 'text-[#FC83A1]'
                   }`}
                 >

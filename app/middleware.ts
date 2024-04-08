@@ -1,5 +1,6 @@
-//export { default } from "next-auth/middleware"
-import { withAuth,  NextRequestWithAuth} from "next-auth/middleware"
+export { default } from "next-auth/middleware"
+//NO BORRAR ESTA EN PRUEBA
+/*import { withAuth,  NextRequestWithAuth} from "next-auth/middleware"
 import { NextResponse } from "next/server"
 
 export default withAuth(
@@ -21,6 +22,6 @@ export default withAuth(
         },
     }
     
-)
+)*/
 
 export const config = { matcher: ["/dashboard", "/admin", "/dashboard_U", "/dashboard_tera", "/signin", "/singup"] }
