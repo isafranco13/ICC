@@ -20,15 +20,10 @@ const usuarioSchema =new mongoose.Schema(
             type: String, 
             required: false
         }
-        /*
-        rol: {
-            type: String,
-            required: true
-        }*/
     }
 )
 
-export default mongoose.models.Usuarios || mongoose.model('Usuarios', usuarioSchema);
+export default mongoose.models.Usuarios || mongoose.model('usuarios', usuarioSchema);
 
 
 

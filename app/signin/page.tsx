@@ -6,7 +6,7 @@ import {signIn, useSession} from 'next-auth/react'
 import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
 import React, {useEffect, useState} from "react";
-import type { User } from "next-auth";
+//import type { User } from "next-auth";
 
 export default function Form(){
     const router = useRouter();
