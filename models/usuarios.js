@@ -23,7 +23,7 @@ const usuarioSchema =new mongoose.Schema(
     }
 )
 
-export default mongoose.models.Usuarios || mongoose.model('usuarios', usuarioSchema);
+export default mongoose.models.Usuarios || mongoose.model('Usuarios', usuarioSchema);
 
 
 

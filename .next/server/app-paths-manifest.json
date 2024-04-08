@@ -1,16 +1,10 @@
 {
-<<<<<<< HEAD
-  "/admin/page": "app/admin/page.js",
-  "/signup/page": "app/signup/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/admin/home/page": "app/admin/home/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/page": "app/page.js"
-=======
   "/page": "app/page.js",
-  "/signup/page": "app/signup/page.js",
   "/signin/page": "app/signin/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/dashboardU/page": "app/dashboardU/page.js"
->>>>>>> f952d90cfdb86bc55d0e8fee3714410af96940b3
+  "/dashboardU/page": "app/dashboardU/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/dashboard_tera/page": "app/dashboard_tera/page.js"
 }

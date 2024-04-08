@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectDB } from "@/libs/mongodb";
 import User from "@/models/usuarios";
-//import { GoogleProfile } from 'next-auth/providers/google';
+import { GoogleProfile } from 'next-auth/providers/google';
 
 const handler = NextAuth({
     providers: [ GoogleProvider ({
