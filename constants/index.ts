@@ -19,7 +19,7 @@ export const footerLinks = [
   {
     title: "Socials",
     links: [
-      { title: "Whatsapp", url: "https://www.whatsapp.com/download" },
+      { title: "Whatsapp", url: "https://wa.me/526141974031" },
     ],
   },
 ];
