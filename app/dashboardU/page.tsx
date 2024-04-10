@@ -66,7 +66,7 @@ const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN P
                 </div> {/* fin de sección terpeutas */}
 
                     {/*3er div - seccion de citas */}
-                    <div className="divYellowContainer bg-[#FFEBA9CC] rounded-[40px] ">
+                    <div className="divYellowContainer rounded-[40px] ">
                         <div className=" bg-white rounded-[20px] w-[620px] h-[280px]"> {/*Cuadro de cita */}
                             <br />
                             <h1 className="pl-[30px] font-bold text-2xl">Próxima Cita</h1>
