@@ -11,7 +11,7 @@ const NavbarSignOut = () => {
     return (
         <header className="w-full absolute z-10"> 
             <nav className="mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
-                <Link href="/dashboard" className="flex justify-center items-center">
+                <Link href="/usuario" className="flex justify-center items-center">
                     <Image
                         src="/atomo.svg"
                         alt="atomo"

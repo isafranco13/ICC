@@ -9,7 +9,7 @@ export default withAuth(
         console.log(request.nextUrl.pathname)
         console.log(request.nextauth.token)
 
-        if(request.nextUrl.pathname.startsWith("/dashboardU") 
+        if(request.nextUrl.pathname.startsWith("/usuario") 
         && request.nextauth.token?.rol !== "usuario"){
             return NextResponse.rewrite(
                 new URL("/signin", request.url)
@@ -24,4 +24,4 @@ export default withAuth(
     
 )*/
 
-export const config = { matcher: ["/dashboard", "/admin", "/dashboard_U", "/dashboard_tera", "/signin", "/singup"] }
+export const config = { matcher: ["/admin", "/usuario", "/terapeuta", "/signin", "/singup"] }

@@ -3,7 +3,7 @@ import { Footer, NavbarSignOut} from "@/components";
 import Link from "next/link"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '../../../components/CustomButton';
 import MyListbox from "@/components/listboxHijo";
 //import React, {useState} from "react";
 
@@ -24,8 +24,8 @@ const Historial = async () => {
                 <div className="flex flex-col  bg-[#FFEBA9] rounded-lg"> 
                     {/*titulo e instrucciones */}
                     <div className="items-start px-[50px] py-[10px]"><br />
-                        <div className="flex justify-end"><Link href="/dashboardU" className="hover:text-[#E55E7F] font-extrabold text-[22px]">Omitir</Link></div>
-                        <h1 className="font-bold text-[44px]">Historial clinico</h1>
+                        <div className="flex justify-end"><Link href="/usuario" className="hover:text-[#E55E7F] font-extrabold text-[22px]">Omitir</Link></div>
+                        <h1 className="font-bold text-[44px]">Historial clínico</h1>
                         <p>Por favor llene este formulario para una mejor experiencia con el terapeuta</p> 
                     </div>
                     {/*contenido del formulario*/}
@@ -35,7 +35,7 @@ const Historial = async () => {
                             <div className="flex flex-wrap mt-[20px]"> {/*div principal de datos generales */}
                                 <div className="w-[100px] pl-[30px]">
                                     <input type="hidden" name="name"  /> {/*Input para tomar el nombre */}
-                                <p className="text-[20px] text-black font-medium">Telefono</p>
+                                <p className="text-[20px] text-black font-medium">Teléfono</p>
                                 <input required={true} name="telefono"  id="telefono" type="number" placeholder="6145153999" 
                                 className="rounded-[20px] w-[147px] h-[25px] outline-none text-base pl-2"/></div> {/*value={formData.telefono}  onChange={handleChange}*/}
                                 <div className="w-[150px] pl-[100px]">
@@ -48,9 +48,9 @@ const Historial = async () => {
                                 <p className="text-[20px] text-black font-medium">Estado Civil</p></div>
                                 </div>
                                 <div className="flex flex-row pl-[30px] gap-[10px]">
-                                <input type="checkbox" id="casado" name="casado" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="casado" name="estadoCivil" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="casado" className="text-[19px]">Casado(a)</label>
-                                <input type="checkbox" id="soltero" name="soltero" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="soltero" name="estadoCivil" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="soltero" className="text-[19px]">Soltero(a)</label>
                             </div><br />
 
@@ -71,11 +71,11 @@ const Historial = async () => {
                         <p className="text-[15px] text-red-500 italic">*Incluyendo abortos que conozca dentro de su familia*</p><br />
                             <MyListbox/>
                         <br /><br />
-                        <p className="text-[20px] text-black font-medium">¿Tiene Hijos?</p>
+                        <p className="text-[20px] text-black font-medium">¿Tiene hijos?</p>
                             <div className="flex flex-row  gap-[10px]"> 
-                                <input type="checkbox" id="si" name="si" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="si" name="hijos" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="si">Si</label>
-                                <input type="checkbox" id="no" name="no" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="no" name="hijos" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="no">No</label><br /><br />
                             </div>
                             
@@ -84,25 +84,25 @@ const Historial = async () => {
                             <MyListbox/><br /><br />
                         </div>
                         
-                            <h3 className="text-[#5c5a5a] text-[30px] font-semibold">Datos medicos</h3>
+                            <h3 className="text-[#5c5a5a] text-[30px] font-semibold">Datos médicos</h3>
                             <div className="flex flex-wrap pt-[10px] ">
                                 <div className="w-full pl-[30px]">
                                 <p className="text-[20px] text-black font-medium">¿Ha tenido operaciones?</p></div>
                                 <div className="flex flex-row pl-[30px] gap-[10px]"> 
-                                <input type="checkbox" id="si" name="si" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="si" name="operaciones" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="si">Si</label>
-                                <input type="checkbox" id="no" name="no" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="no" name="operaciones" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="no">No</label><br /><br />
                                 </div>
-                                <textarea  name="operaciones"  id="operaciones"  placeholder="Describa sus operaciones, de que trataron" 
+                                <textarea  name="operaciones"  id="operaciones"  placeholder="Describa sus operaciones, de qué trataron" 
                                 className="resize-none bg-white outline-none text-base mx-[30px] w-[570px] h-[170px] whitespace-normal break-words rounded-[20px] pl-2 pt-2"></textarea> {/*value={formData.operaciones} */}
                                 <br /><br />
                                 <div className="w-full pl-[30px]"><br />
-                                <p className="text-[20px] text-black font-medium">¿Tóma algun medicamento?</p></div>
+                                <p className="text-[20px] text-black font-medium">¿Toma algún medicamento?</p></div>
                                 <div className="flex flex-row pl-[30px] gap-[10px]"> 
-                                <input type="checkbox" id="si" name="si" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="si" name="medicamento" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="si">Si</label>
-                                <input type="checkbox" id="no" name="no" className="w-6 h-6 outline-none text-base"/>
+                                <input type="radio" id="no" name="medicamento" className="w-6 h-6 outline-none text-base"/>
                                 <label htmlFor="no">No</label><br /><br />
                                 </div>
                                 <textarea name="medicamentos"  id="medicamentos" placeholder="Nombre los medicamentos que toma y su función" 

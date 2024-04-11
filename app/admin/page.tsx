@@ -33,11 +33,13 @@ export default function Form(){
                                 <br />
                                 <input type="password" className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña"/>
                             
+                            <a href="/admin/home">Abrir</a>
                                 <CustomButton
                                     btnType="submit"
                                     title="Iniciar Sesión"
                                     containerStyles="text-white rounded-full bg-[#FC83A1] hover:bg-[#E55E7F] font-medium mt-10 textButton"
                                 />
+                            
                             </form><br />                    
                         </div>
                     </div>
