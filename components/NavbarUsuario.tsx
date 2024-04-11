@@ -8,7 +8,7 @@ import CustomButton from './CustomButton';
 type Props ={
     user: User,
 }
-const NavbarUsuer = () => {
+const NavbarUser = () => {
     const { data: session }: any = useSession();
 
     return (
@@ -40,4 +40,4 @@ const NavbarUsuer = () => {
     )
 }
 
-export default NavbarUsuer
+export default NavbarUser

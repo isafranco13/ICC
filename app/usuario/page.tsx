@@ -22,9 +22,8 @@ const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN P
     
     return (
         <>
-            <NavbarUsuario></NavbarUsuario>
+            <NavbarUsuario/>
             <main className="flex justify-center items-center w-full flex-1 main">
-                <br /><br /><br /><br />
             {/*1 er div - div principal*/}
             <div className="flex flex-row gap-[50px]">
                 <div className="w-full">{/* px-50 2do div- seccion terpeutas */}
