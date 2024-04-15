@@ -10,7 +10,7 @@ import {
 const InputNumber = () => {
     return (
        <ChakraProvider>
-        <NumberInput defaultValue={1} min={1} max={15}
+        <NumberInput defaultValue={0} min={0} max={15}
         keepWithinRange={true}
         clampValueOnBlur={true}
         size='md' maxW={24}>

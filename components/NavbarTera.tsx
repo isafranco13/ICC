@@ -15,7 +15,7 @@ const NavbarTera = () => {
     return (
         <header className="w-full absolute z-10"> 
             <nav className="mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
-                <Link href="/dashboard_tera" className="flex justify-center items-center">
+                <Link href="/terapeuta" className="flex justify-center items-center">
                     <Image
                         src="/atomo.svg"
                         alt="atomo"
@@ -26,7 +26,7 @@ const NavbarTera = () => {
                 </Link>
 
                 <div className="ml-auto flex space-x-5 items-center">
-                    <a href="/dashboard_tera"><strong>Perfil</strong></a>
+                    <a href="/terapeuta"><strong>Perfil</strong></a>
                     <div className='text-black text-center justify-center userName'>
                     {session && session.user && session.user.name}
                     </div>

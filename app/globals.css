@@ -139,8 +139,149 @@ html {
 
 }
 
+.containerUser {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 0px;
+  height: 100%;
+}
+
+.therapistAppointment{
+  @apply flex justify-start h-[120px] bg-[#0DF59147] rounded-lg pl-2 mt-[14px]
+}
+
+.subtitleHome{
+  @apply font-semibold text-[30px]
+}
 
 
+.navbarUser {
+  height: 100px;
+  display: flex;
+}
+
+.section-1,
+.section-2 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.section-1 {
+  /*background-color: #e5a4eb;*/
+  background-color: #f5fffb;
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #f5fffb;
+  padding: 20px;
+}
+
+.section-2 {
+  grid-column: 2 / 3;
+  /*background-color: #8cf32c;*/
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #f5fffb;
+  padding: 20px;
+  border-radius: 20px;
+  margin-right: 5px;
+
+}
+
+.formUser{
+  @apply py-[58px] px-[140px] h-[1932px] flex-1
+}
+
+.formUserDiv{
+  @apply flex flex-wrap rounded-lg
+}
+
+.edad{
+  @apply pl-5
+}
+
+.radio{
+  @apply flex items-center /*flex flex-col*/
+}
+
+.textInput{
+  @apply w-6 h-6 outline-none text-base
+}
+
+.inputBox{
+  @apply outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4
+}
+
+.formUserTitle{
+  @apply font-bold text-[44px]
+}
+
+.formUserForm{
+  @apply items-start px-[50px] py-[10px]
+}
+
+.formUserSubtitle{
+  @apply text-[#5c5a5a] text-[30px] font-semibold
+}
+
+.formUserText{
+  @apply text-[20px] text-black font-medium mb-2
+}
+
+.formUserWarning{
+  @apply text-[15px] text-red-500 italic
+}
+
+
+/*Terapeuta*/
+.section-3,
+.section-4 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.section-3 {
+  /*background-color: #e5a4eb;*/
+  background-color: #f5fffb;
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #f5fffb;
+  padding: 20px;
+}
+
+.section-4 {
+  grid-column: 2 / 3;
+  /*background-color: #8cf32c;*/
+  background-color: #FFEBA9CC;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #f5fffb;
+  padding: 20px;
+  border-radius: 20px;
+  margin-right: 5px;
+
+}
+
+.section-5 {
+  grid-column: 2 / 3;
+  /*background-color: #8cf32c;*/
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #f5fffb;
+  padding: 20px;
+  border-radius: 20px;
+  margin-right: 5px;
+
+}
 
 /*Admin*/
   .toggleButton{
@@ -542,6 +683,7 @@ html {
   }
   
 
+  
   /*Admin*/
 * {
     padding: 0;
@@ -579,6 +721,86 @@ html {
     flex-wrap: wrap;
   }
 
+    /*User*/
+    .formUser{
+      @apply py-[58px] px-[40px] h-[1932px] flex-1
+    }
+    
+    .edad{
+      @apply pl-0
+    }
+    
+    .radio{
+      @apply flex items-center /*flex flex-col*/
+    }
+  
+  
 
+}
+
+@media (max-width: 738px){
+  .containerUser {
+    display: flex;
+    flex-direction: column;
+}
+
+    .section-1, .section-2 {
+        width: 100%;
+    }
+
+  
+}
+
+@media (min-width: 642px) and (max-width: 780px){
+  /*User*/
+  .formUser{
+    @apply py-[58px] px-[40px] h-[1932px] flex-1
   }
   
+  .edad{
+    @apply pl-1
+  }
+}
+
+  @media (min-width: 780px) and (max-width: 858px){
+/*User*/  
+    .formUser{
+      @apply py-[58px] px-[40px] h-[1932px] flex-1
+    }
+        
+    .textInput{
+      @apply w-6 h-6 outline-none text-base
+    }
+    
+    .edad{
+      @apply pl-5
+    }
+    
+    .radio{
+      @apply flex items-center /*flex flex-col*/
+    }
+
+    .inputBox{
+      @apply outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4
+    }
+    
+    .formUserTitle{
+      @apply font-bold text-[44px]
+    }
+    
+    .formUserForm{
+      @apply items-start px-[50px] py-[10px]
+    }
+    
+    .formUserSubtitle{
+      @apply text-[#5c5a5a] text-[30px] font-semibold
+    }
+    
+    .formUserText{
+      @apply text-[20px] text-black font-medium mb-2
+    }
+    
+    .formUserWarning{
+      @apply text-[15px] text-red-500 italic
+    }
+}

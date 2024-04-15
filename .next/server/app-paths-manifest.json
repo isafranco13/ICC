@@ -1,6 +1,12 @@
 {
+<<<<<<< HEAD
   "/dashboardU/page": "app/dashboardU/page.js",
   "/page": "app/page.js",
   "/signin/page": "app/signin/page.js",
+=======
+  "/signin/page": "app/signin/page.js",
+  "/usuario/page": "app/usuario/page.js",
+  "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
+>>>>>>> cristina
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

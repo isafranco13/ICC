@@ -8,13 +8,13 @@ import CustomButton from './CustomButton';
 type Props ={
     user: User,
 }
-const NavbarUsuer = () => {
+const NavbarUser = () => {
     const { data: session }: any = useSession();
 
     return (
         <header className="w-full absolute z-10"> 
             <nav className="mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
-                <Link href="/dashboardU" className="flex justify-center items-center">
+                <Link href="/usuario" className="flex justify-center items-center">
                     <Image
                         src="/atomo.svg"
                         alt="atomo"
@@ -25,7 +25,7 @@ const NavbarUsuer = () => {
                 </Link>
 
                 <div className="ml-auto flex space-x-5 items-center">
-                    <a href="/historial_c"><strong>Historial Clinico</strong></a>
+                    <a href="/usuario/historial_c"><strong>Historial Clínico</strong></a>
                     <div className='text-black text-center justify-center userName'>
                     {session?.user?.name} {/*{session && session.user && session.user.name} */}
                     </div>
@@ -40,4 +40,4 @@ const NavbarUsuer = () => {
     )
 }
 
-export default NavbarUsuer
+export default NavbarUser
