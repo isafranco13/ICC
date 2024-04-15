@@ -9,6 +9,13 @@ export async function GET() {
     return NextResponse.json({ usuarios });
 }
 
+//Función GET para obtener un usuario con una solicitud y una respuesta
+export async function GET(request, response) {
+    await connectDB();
+    const user = await Usuarios.findOne({ _id: request.query.id });
+    return NextResponse.json({ user });
+}
+
 export async function POST(request) {
     await connectDB();
     const data = await request.json();

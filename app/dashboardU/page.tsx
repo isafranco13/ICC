@@ -1,24 +1,22 @@
+
+import {useSession} from  'next-auth/react';
 import { Footer} from "@/components"; {/*{ Footer, NavbarSignOut } */}
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import NavbarUsuario from "@/components/NavbarUsuario";
-import type { User } from "next-auth"
+import { useState, useEffect } from "react";
 
 
-type Props = {
-    user: User,
-}
+
   
-const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
-    const session = await getServerSession();
-    if(session?.user.rol !== "terapeuta" && !session){
-        redirect("/signin");
-    }
-    
+const Dashboard = async () => { 
+   const session = await getServerSession();
+   console.log(session?.user)
+  
     if (!session) {
       redirect("/signin");
-    }
+    }   
     
     return (
         <>
@@ -29,6 +27,7 @@ const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN P
             <div className="flex flex-row gap-[50px]">
                 <div className="w-full">{/* px-50 2do div- seccion terpeutas */}
                     <h1 className="font-bold text-2xl">Terapeutas</h1>
+                    
                     <div className="flex justify-start w-[357px] h-[120px] bg-[#0DF59147] rounded-lg pl-2 mt-[14px]"> {/*div de terapeuta*/}
                         <div className="flex items-center"> 
                             <Image

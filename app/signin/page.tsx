@@ -9,8 +9,8 @@ import React, {useEffect, useState} from "react";
 import CustomAlert from '@/components/CustomAlert';
 
 export default function Form(){
-    const router = useRouter();
     // const session = useSession();
+    const router = useRouter();
     const { data: session, status: sessionStatus } = useSession();
     const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
     const [isVisible, setIsVisible] = useState(false);
@@ -97,7 +97,7 @@ export default function Form(){
                         </div>
                         <br />
                         <div className="flex justify-center my-2">&nbsp;
-                        <button onClick={() => signIn('google', { callbackUrl: '/dashboard_tera' })} className="flex items-center justify-center w-[299px] h-[59px] 
+                        <button onClick={() => signIn('google', {callbackUrl: '/dashboardU' })} /**/className="flex items-center justify-center w-[299px] h-[59px] 
                         border-2 border-[#FFFFFF] bg-[#FFFFFF] rounded px-2 py-2 font-light text-center"> <Image
                         src="/buscar.png"
                         alt="mental"

@@ -19,6 +19,10 @@ const usuarioSchema =new mongoose.Schema(
         contrasena: {
             type: String, 
             required: false
+        },
+        role: {
+            type: String,
+            required: true
         }
     }
 )

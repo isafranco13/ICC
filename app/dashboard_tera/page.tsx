@@ -10,7 +10,11 @@ import {Calendar, dayjsLocalizer} from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import dayjs from 'dayjs';
 
-const Dashboard = async () => {
+
+
+
+
+const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     const session = await getServerSession();
     if (!session) {
       redirect("/signin");
