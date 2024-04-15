@@ -1,17 +1,6 @@
 {
-<<<<<<< HEAD
-  "/not-found": "app/not-found.js",
   "/signin/page": "app/signin/page.js",
   "/usuario/page": "app/usuario/page.js",
   "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
-  "/terapeuta/page": "app/terapeuta/page.js"
-=======
-  "/page": "app/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js",
-  "/dashboardU/page": "app/dashboardU/page.js",
-  "/historial_c/page": "app/historial_c/page.js"
->>>>>>> 7c749ed0c87e239b3f4282d9a511b72d6030f073
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

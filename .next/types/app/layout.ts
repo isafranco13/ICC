@@ -1,4 +1,4 @@
-// File: C:\Users\isach\OneDrive\Escritorio\healthSync\app\layout.tsx
+// File: C:\Users\bombo\Desktop\healthSync\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

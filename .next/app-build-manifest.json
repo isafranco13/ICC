@@ -1,11 +1,5 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -26,22 +20,7 @@
     "/usuario/historial_c/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-<<<<<<< HEAD
       "static/chunks/app/usuario/historial_c/page.js"
-    ],
-    "/terapeuta/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/terapeuta/page.css",
-      "static/chunks/app/terapeuta/page.js"
-    ],
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
-=======
-      "static/chunks/app/historial_c/page.js"
->>>>>>> 7c749ed0c87e239b3f4282d9a511b72d6030f073
     ]
   }
 }
