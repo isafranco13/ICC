@@ -1,1 +1,9 @@
-{}
+{
+  "/not-found": "app/not-found.js",
+  "/signin/page": "app/signin/page.js",
+  "/usuario/page": "app/usuario/page.js",
+  "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/terapeuta/page": "app/terapeuta/page.js"
+}
