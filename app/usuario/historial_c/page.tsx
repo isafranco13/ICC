@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import CustomButton from '../../../components/CustomButton';
 import MyListbox from "@/components/listboxHijo";
+import InputNumber from "@/components/InputNumber";
 //import React, {useState} from "react";
 
 
@@ -80,7 +81,7 @@ const Historial = async () => {
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">Número de hijo</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
-                                            <MyListbox/> <br/><br/>
+                                        <InputNumber/> <br/><br/>
                                         <p className="formUserText">¿Tiene hijos?</p>
                                             <div className="flex flex-row  gap-[10px]"> 
                                                 <input type="radio" id="si" name="hijos" className="textInput"/>
@@ -91,7 +92,7 @@ const Historial = async () => {
                                             
                                         <p className="formUserText">¿Cuántos hijos tiene?</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
-                                            <MyListbox/> <br/><br/>
+                                        <InputNumber/> <br/><br/>
                                     </div>
 
                                     <h3 className="formUserSubtitle">Datos médicos</h3> 
