@@ -9,23 +9,25 @@ import NavbarTera from "@/components/NavbarTera";
 import {Calendar, dayjsLocalizer} from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import dayjs from 'dayjs';
+import type { User } from "next-auth"
+
 
 const Dashboard = async () => {
-    const session = await getServerSession();
+    /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
     }
-    
+    */
     //componentes del calendario
     const localizer = dayjsLocalizer(dayjs);
     
     return (
-        <>
-                    <div className="containerUser">
+        <>                             <NavbarTera />
+                   {/* <div className="containerUser">
                         <div className="navbarUser">
                             <NavbarTera />
                         </div>
-                        
+    */}    
                         <div className="section-3 h-max">
                             <h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>
                             
@@ -108,7 +110,7 @@ const Dashboard = async () => {
                             </div>
                         </div>{/*fin seccion 2*/}
 
-                    </div>
+                {/*   </div>   */}
                 </>
     );
 };

@@ -21,12 +21,13 @@ const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN P
     }
     
     return (
-        <>
-                    <div className="containerUser">
+        <>                            <NavbarUsuario/>
+
+                  {/*  <div className="containerUser">
                         <div className="navbarUser">
                             <NavbarUsuario/>
                         </div>
-                        
+    */} 
                         <div className="section-1 h-max">
                             <h1 className="font-bold text-2xl">Terapeutas</h1>
                                 <div className="therapistAppointment">
@@ -106,7 +107,7 @@ const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN P
                                     </div>
                                 </div>
                             </div>{/*fin seccion 2*/}
-                    </div>
+                   {/* </div>*/}
                 </>
 );
 };

@@ -590,6 +590,9 @@ video {
 .z-50{
   z-index: 50;
 }
+.m-3{
+  margin: 0.75rem;
+}
 .m-6{
   margin: 1.5rem;
 }
@@ -721,6 +724,9 @@ video {
 }
 .h-12{
   height: 3rem;
+}
+.h-24{
+  height: 6rem;
 }
 .h-36{
   height: 9rem;
@@ -1055,6 +1061,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(236 240 243 / var(--tw-bg-opacity));
 }
+.bg-\[\#f5fffb\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 255 251 / var(--tw-bg-opacity));
+}
 .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1093,6 +1103,10 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-yellow-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-br{
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
@@ -1223,6 +1237,9 @@ video {
 }
 .pt-\[10px\]{
   padding-top: 10px;
+}
+.pb-5{
+  padding-bottom: 1.25rem;
 }
 .text-left{
   text-align: left;
@@ -1382,6 +1399,10 @@ video {
 .text-red-400{
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .text-white{
   --tw-text-opacity: 1;
@@ -1733,7 +1754,7 @@ html {
 
 .navbarUser {
   height: 100px;
-  display: flex;
+  width: 100%;
 }
 
 .section-1,
@@ -2113,35 +2134,14 @@ html {
 
 @media (max-width: 380px){
   /*Intro*/
-  .navBarName{
-    font-size: 10px;
-    padding-right: 20px;
-  
-  }
-  
-  .textButton{
-    font-size: 10px;
-  }
-  
-  .textButtonDiv{
-    margin-left: auto;
-    display: flex;
-    min-width: 244px;
-  }
-  
-  .logo {
-    padding-left: 0px;
-    width: 25px;
-    height: 25px;
-  } 
-  
+    
   .image-container{
     display: flex;
     width: 100%;
     align-items: flex-end;
     justify-content: flex-end;
-  } 
-  
+  }
+    
   @media (min-width: 1280px){
 
     .image-container{
@@ -2318,19 +2318,6 @@ html {
     font-size: 12px;
   }
   
-
-/*User page*/
-  .userName{
-    font-size: 13px;
-  }
-
-  .textButtonSignOut{
-    font-size: 13px;
-    width: 150px; /* Ajusta el ancho del botón */
-    height: 47px; /* Ajusta la altura del botón */
-  
-  }
-
   /*Admin*/
   .navBarApp{
     flex: 1;
@@ -2347,34 +2334,18 @@ html {
 
 @media (min-width: 380px) and (max-width: 520px){
   /*Intro*/
-  .navBarName{
-    font-size: 12px;
-    padding-right: 20px;
-  
-  }
-  
   .textButton{
     font-size: 12px;
   }
   
-  .textButtonDiv{
-    margin-left: auto;
-    display: flex;
-    min-width: 270px;
-  }
-  
-  .logo {
-    padding-left: 0px;
-    width: 30px;
-    height: 30px;
-  } 
   
   .image-container{
     display: flex;
     width: 100%;
     align-items: flex-end;
     justify-content: flex-end;
-  } 
+  }
+  
   
   @media (min-width: 1280px){
 
@@ -2552,20 +2523,6 @@ html {
     font-size: 12px;
   }
   
-
-/*User page*/
-  .userName{
-    font-size: 13px;
-  }
-
-  .textButtonSignOut{
-    font-size: 13px;
-    width: 150px; /* Ajusta el ancho del botón */
-    height: 47px; /* Ajusta la altura del botón */
-  
-  }
-  
-
   
   /*Admin*/
 * {
@@ -2593,7 +2550,7 @@ html {
 
 
   @media (min-width: 380px) and (max-width: 780px){
-  
+  /*Admin*/
     .navBarApp{
       flex: 1;
       min-width: 300px;
@@ -2778,6 +2735,10 @@ html {
   text-decoration-color: #F6B519;
 }
 
+  .hover\:decoration-\[\#e669d1fa\]:hover{
+  text-decoration-color: #e669d1fa;
+}
+
   .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2821,6 +2782,11 @@ html {
 
   .sm\:flex-row{
     flex-direction: row;
+  }
+
+  .sm\:px-12{
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .sm\:px-16{
