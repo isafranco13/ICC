@@ -1,32 +1,44 @@
-import { Footer} from "@/components"; {/*{ Footer, NavbarSignOut } */}
+"use client"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import NavbarUsuario from "@/components/NavbarUsuario";
-import type { User } from "next-auth"
+import {useSession} from 'next-auth/react';
+//import React, {useState} from 'react';
+import { useEffect } from 'react';
 
 
-type Props = {
-    user: User,
-}
   
-const Dashboard = async () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
-    const session = await getServerSession();
-    if(session?.user.rol !== "terapeuta" && !session){
-        redirect("/signin");
-    }
-    
+const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
+    //const session = getServerSession();
+    //console.log(session)
+    /*const session = await getServerSession(authOptions)
     if (!session) {
       redirect("/signin");
-    }
+    }*/
+
     
+    const { data: session, status } = useSession()
+
+    useEffect(() => {
+            if (session?.user?.role == 'usuario') {
+                console.log("Usuario");
+            }else{
+                console.log("No eres usuario");
+                
+            }
+    }, [status, session]);
     return (
         <>
                     <div className="containerUser">
                         <div className="navbarUser">
                             <NavbarUsuario/>
                         </div>
-                        
+                        <div>
+                           {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
+                           <p>Nombre: {session?.user?.name}</p>
+                             <p>Rol: {session?.user?.role}</p>
+                        </div>
                         <div className="section-1 h-max">
                             <h1 className="font-bold text-2xl">Terapeutas</h1>
                                 <div className="therapistAppointment">

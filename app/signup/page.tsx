@@ -40,6 +40,7 @@ export default function Form(){
         apellido: "",
         correo: "",
         contrasena: "",
+        role: "usuario",
     };
     const [formData, setFormData] = useState(startingUsuariosData);
     {/*const {data: session}=useSession()

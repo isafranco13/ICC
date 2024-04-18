@@ -4,10 +4,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { connectDB } from "@/libs/mongodb";
 import User from "@/models/usuarios";
 import { GoogleProfile } from 'next-auth/providers/google';
+import getServersession from 'next-auth';
 
 
-const handler = NextAuth ({   //const handler = NextAuth({ -> lo que estaba antes
-    providers: [ GoogleProvider ({
+
+const authOptions = {   //const handler = NextAuth({ -> lo que estaba antes
+    providers: [ 
+        GoogleProvider ({
         profile(profile:GoogleProfile){
             return{
                 ...profile,
@@ -17,7 +20,6 @@ const handler = NextAuth ({   //const handler = NextAuth({ -> lo que estaba ante
         },
         clientId: process.env.GOOGLE_CLIENT_ID as string,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-
         }),
         CredentialsProvider({
             id: 'credentials',
@@ -36,7 +38,7 @@ const handler = NextAuth ({   //const handler = NextAuth({ -> lo que estaba ante
                 const user = await User.findOne({ correo: credentials.email });
                 if (user && user.contrasena === credentials.password) {
                     // La contraseña coincide, puedes devolver el usuario
-                    //console.log(user);
+                   // console.log(user);
                     return user;
                 } else {
                     // La contraseña no coincide
@@ -49,10 +51,54 @@ const handler = NextAuth ({   //const handler = NextAuth({ -> lo que estaba ante
           })
     ],
     callbacks: {
+        async signIn({user, account}){
+            if(account?.provider === 'credentials'){
+                return user;
+            }else if(account?.provider === 'google'){
+                const {name, email} = user;
+                try {
+                    const res = await fetch('http://localhost:3000/api/usuarios', { //http://localhost:3000/api/usuarios
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            nombre: name,
+                            correo: email,
+                            role:  "usuario",
+                        }),
+                    });
+                    if (res.ok) {
+                        return user;
+                    }
+                } catch (error) {
+                    console.error(error);
+                    return false;
+                }
+            }else{
+                return false;
+            }
+            return user;
+        },
+         jwt({ token, user }) {
+            // Persist the OAuth access_token to the token right after signin
+            if (user) {
+              token.role = user.role
+            }
+            //console.log(token);
+            return token;
+          },
+           session({ session, token, user }) {
+            // Send properties to the client, like an access_token from a provider.
+            //session.accessToken = token.accessToken
+            session.user.role = token.role
+            //console.log(session);
+            return session;
+          }
         
-        async signIn({user, account}) {
+        /*async signIn({user, account}) {
             if (account?.provider === 'credentials') {
-                console.log(user);
+                //console.log(user);
                 return true;
             }
             if (account && account.provider === 'google') {
@@ -79,7 +125,8 @@ const handler = NextAuth ({   //const handler = NextAuth({ -> lo que estaba ante
                 }
             }
             return true;
-        }
+        }*/
     }
-});
+};
+const handler = NextAuth(authOptions);
 export {handler as GET, handler as POST}; 

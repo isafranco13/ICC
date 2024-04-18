@@ -1,4 +1,4 @@
-export { default } from "next-auth/middleware"
+//export { default } from "next-auth/middleware"
 //NO BORRAR ESTA EN PRUEBA
 /*import { withAuth,  NextRequestWithAuth} from "next-auth/middleware"
 import { NextResponse } from "next/server"
@@ -23,5 +23,32 @@ export default withAuth(
     }
     
 )*/
+import { withAuth,  NextRequestWithAuth} from "next-auth/middleware"
+import { NextResponse } from "next/server"
 
-export const config = { matcher: ["/admin", "/usuario", "/terapeuta", "/signin", "/singup"] }
+export default withAuth(
+
+  function middleware(req: NextRequestWithAuth) {
+    console.log(req.nextUrl.pathname)
+        //console.log(req.nextauth.token)
+
+        if(req.nextUrl.pathname.startsWith("/usuario") 
+        && req.nextauth.token?.rol !== "terapeuta"){
+            return NextResponse.rewrite(
+                new URL("/signin", req.url)
+            )
+        }
+    /*if (req.nextauth.token?.role !== "usuario") {
+      console.log("No eres un usuario")
+      return NextResponse.rewrite(
+        new URL("/signin", req.url)
+      )
+    }*/
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token,
+    },
+  }
+)
+export const config = { matcher: ["/admin", "/usuario", "/terapeuta", "/signin", "/singup"] } //matcher: ["/admin", "/usuario", "/terapeuta", "/signin", "/singup"]

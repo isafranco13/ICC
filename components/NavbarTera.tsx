@@ -2,12 +2,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react'; // Import signOut
-import type { User } from "next-auth";
+
 import CustomButton from './CustomButton';
 
-type Props ={
-    user: User,
-}
+
 
 const NavbarTera = () => {
     const { data: session }: any = useSession();
@@ -30,7 +28,7 @@ const NavbarTera = () => {
                     <div className='text-black text-center justify-center userName'>
                     {session && session.user && session.user.name}
                     </div>
-                    <button onClick={() => {signOut();}} 
+                    <button onClick={() => {signOut()}} 
                         className="text-white rounded-full bg-pink-400 font-semibold textButtonSignOut">
                         Cerrar Sesión
                     </button>
