@@ -18,14 +18,18 @@ const Dashboard =  () => { //async
     if (!session) {
       redirect("/signin");
     }*/
+    
     const { data: session, status } = useSession()
     useEffect(() => {
-        if (session?.user?.role == 'usuario') {
-            console.log("Usuario");
-        }else{
-            console.log("No eres usuario");
+        if (session?.user?.role == 'terapeuta') {
             
+            console.log("tera");
+        }else{
+            redirect("/signin");
         }
+        if (!session) {
+            redirect("/signin");
+          }
 }, [status, session]);
     
     //componentes del calendario
@@ -37,7 +41,11 @@ const Dashboard =  () => { //async
                         <div className="navbarUser">
                             <NavbarTera />
                         </div>
-                        
+                        <div>
+                           {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
+                           <p>Nombre: {session?.user?.name}</p>
+                             <p>Rol: {session?.user?.role}</p>
+                        </div>
                         <div className="section-3 h-max">
                             <h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>
                             

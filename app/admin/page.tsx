@@ -9,7 +9,16 @@ import React, {useEffect, useState} from "react";
 
 export default function Form(){
     const router = useRouter();
-
+    const { data: session, status: sessionStatus } = useSession();
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if(session?.user?.role === "usuario"){
+                router.replace("/usuario");
+        }else if(session?.user?.role === "terapeuta"){
+            router.replace("/terapeuta");
+        }
+    }
+    }, [sessionStatus, router]);
     return(
         <>
         <Navbar2 />

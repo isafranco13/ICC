@@ -17,16 +17,20 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
       redirect("/signin");
     }*/
 
-    
     const { data: session, status } = useSession()
 
     useEffect(() => {
             if (session?.user?.role == 'usuario') {
-                console.log("Usuario");
-            }else{
-                console.log("No eres usuario");
+               
+            }else if(session?.user?.role == 'terapeuta'){
+                redirect("/terapeuta");
                 
+            }else{
+                redirect("/admin")
             }
+            if (!session) {
+                redirect("/signin");
+              }
     }, [status, session]);
     return (
         <>
