@@ -30,16 +30,17 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
               }
     }, [status, session]);
     return (
-        <>
-                    <div className="containerUser">
+        <>                            <NavbarUsuario/>
+
+                  {/*  <div className="containerUser">
                         <div className="navbarUser">
                             <NavbarUsuario/>
-                        </div>
+                        </div>/*}
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
                            <p>Nombre: {session?.user?.name}</p>
                              <p>Rol: {session?.user?.role}</p>
-                        </div>
+                        
                         <div className="section-1 h-max">
                             <h1 className="font-bold text-2xl">Terapeutas</h1>
                                 <div className="therapistAppointment">
@@ -119,7 +120,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                                     </div>
                                 </div>
                             </div>{/*fin seccion 2*/}
-                    </div>
+                   {/* </div>*/}
                 </>
 );
 };
