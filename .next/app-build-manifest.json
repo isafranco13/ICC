@@ -34,12 +34,6 @@
       "static/chunks/main-app.js",
       "static/css/app/admin/page.css",
       "static/chunks/app/admin/page.js"
-    ],
-    "/admin/home/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/home/page.css",
-      "static/chunks/app/admin/home/page.js"
     ]
   }
 }

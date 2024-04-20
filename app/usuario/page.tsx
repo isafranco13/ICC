@@ -22,12 +22,9 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     useEffect(() => {
             if (session?.user?.role == 'usuario') {
                
-            }else if(session?.user?.role == 'terapeuta'){
-                redirect("/terapeuta");
-                
             }else{
-                redirect("/admin")
-            }
+                redirect("/terapeuta");
+            }   
             if (!session) {
                 redirect("/signin");
               }

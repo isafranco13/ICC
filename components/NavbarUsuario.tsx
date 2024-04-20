@@ -2,13 +2,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react'; // Import signOut
-
 import CustomButton from './CustomButton';
+//nuevos
+import { redirect } from 'next/dist/server/api-utils';
+import { useEffect } from 'react';
 
 
 const NavbarUser = () => {
-    const { data: session }: any = useSession();
-
+    const { data: session } = useSession();
+    
+    
     return (
         <header className="w-full absolute z-10"> 
             <nav className="mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
@@ -27,7 +30,7 @@ const NavbarUser = () => {
                     <div className='text-black text-center justify-center userName'>
                     {session?.user?.name} {/*{session && session.user && session.user.name} */}
                     </div>
-                    <button onClick={() => {signOut()}} 
+                    <button onClick={() => {signOut(), { callbackUrl: '/signin' }}} 
                         className="text-white rounded-full bg-pink-400 font-semibold textButtonSignOut">
                         Cerrar Sesión
                     </button>
