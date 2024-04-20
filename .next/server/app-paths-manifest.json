@@ -1,9 +1,11 @@
 {
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signup/page": "app/signup/page.js",
+  "/admin/home/page": "app/admin/home/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/admin/page": "app/admin/page.js",
   "/signin/page": "app/signin/page.js",
-  "/usuario/page": "app/usuario/page.js",
-  "/usuario/historial_c/page": "app/usuario/historial_c/page.js"
+  "/signup/page": "app/signup/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/api/terapeutas/route": "app/api/terapeutas/route.js"
 }

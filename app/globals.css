@@ -284,6 +284,90 @@ html {
 }
 
 /*Admin*/
+.headerAdmin{
+  @apply h-screen w-52 fixed z-10 bg-amber-100 flex flex-col items-center rounded-r-2xl
+}
+
+.navAdmin{
+@apply h-screen w-full flex flex-col items-center
+}
+
+.divAdmin{
+  @apply items-center justify-between h-screen px-4 w-full p-5 
+}
+
+.divOptionsAdmin{
+  @apply text-white hidden sm:flex items-center
+}
+
+.ulAdmin{
+  @apply hidden sm:flex flex-col gap-8 items-center
+}
+.links{
+  @apply py-4 hover:underline hover:decoration-[#407735fa] hover:text-green-700 text-base
+}
+
+          /*Users*/
+
+.tableDiv{
+  @apply w-full
+}
+
+.table{
+  @apply text-center mx-auto w-full
+}
+
+.textUser{
+  @apply py-1.5 
+}
+
+.trTable{
+  @apply px-2 py-1
+}
+
+
+.tableDivTera{
+  @apply w-full
+}
+
+.tableTera{
+  @apply text-center mx-auto w-full
+}
+
+.textUserTera{
+  @apply py-1.5 
+}
+
+.trTableTera{
+  @apply px-2 py-1
+}
+
+          /*alta Terapeuta*/
+.divForm{
+  @apply flex mb-6
+}
+
+.labelForm{
+  @apply text-black font-medium form min-w-[190px] pr-10
+}
+
+.inputForm{
+  @apply bg-white rounded-3xl outline-none text-lg text-center w-64 h-9 ml-2 shadow-md
+}
+
+.formTera{
+  @apply pl-16 w-full mx-auto text-right
+}
+
+
+
+            /*ConfigApp*/
+
+
+.adminDiv{
+  margin-left: 20%;
+}
+
   .toggleButton{
     background-color: pink;
     color: white;
@@ -397,7 +481,7 @@ html {
   @apply shadow-md mx-auto max-w-prose;
 }
 
-      /*Hoome page*/
+      /*Home page*/
 .contenedor2{
   display: flex;
 }
@@ -742,4 +826,354 @@ html {
     .formUserWarning{
       @apply text-[15px] text-red-500 italic
     }
+}
+
+@media (min-width: 870px) and (max-width: 1050px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+  }
+}
+
+@media  (min-width: 900px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+  }
+
+  .formTera{
+    @apply pl-20
+  }
+
+}
+
+@media (min-width: 780px) and (max-width: 870px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 98%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-xs
+  }
+
+
+
+}
+
+@media (min-width: 590px) and (max-width: 639px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 15%;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 98%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-xs
+  }
+}
+
+@media (min-width: 470px) and (max-width: 590px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 20%;
+  }
+
+  
+  .tableDiv{
+    width: 95%;
+  }
+
+  .table{
+    width: 95%;
+  }  
+
+  .textUserTitle{
+    @apply text-sm
+  }
+  
+  .textUser{
+    @apply py-1.5 text-xs
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 95%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-[10px]
+  }
+
+  .formTera{
+    @apply pl-10
+  }
+
+  .labelForm{
+    @apply text-sm min-w-[110px]  pr-0
+  }
+  
+  .inputForm{
+    @apply text-base w-64
+  }
+  
+
+}
+
+@media (min-width: 375px) and (max-width: 470px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 25%;
+  }
+
+  
+  .tableDiv{
+    width: 95%;
+  }
+
+  .table{
+    width: 98%;
+  }  
+
+  .textUserTitle{
+    @apply text-sm
+  }
+  
+  .textUser{
+    @apply py-1.5 text-xs
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 100%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-[8px]
+  }
+
+  .formTera{
+    @apply pl-5
+  }
+
+  .labelForm{
+    @apply text-sm min-w-[110px]  pr-0
+  }
+  
+  .inputForm{
+    @apply text-sm w-52
+  }
+  
+
+}
+
+@media (max-width: 375px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 30%;
+  }
+
+  
+  .tableDiv{
+    width: 95%;
+  }
+
+  .table{
+    width: 95%;
+  }  
+
+  .textUserTitle{
+    @apply text-sm
+  }
+  
+  .textUser{
+    @apply py-1.5 text-xs
+  }
+
+  .tableDiv{
+    width: 95%;
+  }
+
+  .tableTera{
+    width: 95%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-[10px]
+  }
+
+  .formTera{
+    @apply pl-0
+  }
+
+  .labelForm{
+    @apply text-sm min-w-[100px] pr-0
+  }
+  
+  .inputForm{
+    @apply text-sm w-36
+  }
+}
+
+
+@media (min-width: 640px) and (max-width: 720px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 35%;
+  }
+
+  
+  .tableDiv{
+    width: 90%;
+  }
+
+  .table{
+    width: 95%;
+  }  
+
+  .textUserTitle{
+    @apply text-sm
+  }
+  
+  .textUser{
+    @apply py-1.5 text-xs
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 95%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-[10px]
+  }
+
+  .formTera{
+    @apply pl-2
+  }
+
+  .labelForm{
+    @apply text-sm min-w-[110px] pr-0
+  }
+  
+  .inputForm{
+    @apply text-sm w-64
+  }
+  
+}
+
+@media (min-width: 720px) and (max-width: 780px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+    margin-top: 0;
+  }
+
+  .tableDiv{
+    width: 90%;
+  }
+
+  .table{
+    width: 98%;
+  }  
+
+  .textUserTitle{
+    @apply text-sm
+  }
+  
+  .textUser{
+    @apply py-1.5 text-xs
+  }
+  
+  .tableDivTera{
+    width: 95%;
+  }
+
+  .tableTera{
+    width: 98%;
+  }  
+
+  .textUserTitleTera{
+    @apply text-sm
+  }
+  
+  .textUserTera{
+    @apply py-1.5 text-[12px]
+  }
+}
+
+@media (max-width: 639px){
+/*Admin*/
+.headerAdmin{
+  @apply w-full h-24 absolute z-10 bg-amber-100 flex-row 
+}
+
+.navAdmin{
+@apply h-screen w-full flex-row 
+}
+
+.divAdmin{
+  @apply flex
+}
+
+.divOptionsAdmin{
+  @apply flex
+}
+
+.ulAdmin{
+  @apply hidden sm:flex flex-col gap-10 items-center
+}
+
 }

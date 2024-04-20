@@ -635,9 +635,6 @@ video {
 .mb-4{
   margin-bottom: 1rem;
 }
-.mb-6{
-  margin-bottom: 1.5rem;
-}
 .ml-10{
   margin-left: 2.5rem;
 }
@@ -789,20 +786,17 @@ video {
 .w-1\/2{
   width: 50%;
 }
-.w-1\/3{
-  width: 33.333333%;
-}
 .w-1\/5{
   width: 20%;
 }
 .w-16{
   width: 4rem;
 }
-.w-2\/3{
-  width: 66.666667%;
-}
 .w-3\/4{
   width: 75%;
+}
+.w-44{
+  width: 11rem;
 }
 .w-5{
   width: 1.25rem;
@@ -839,9 +833,6 @@ video {
 }
 .min-w-\[100px\]{
   min-width: 100px;
-}
-.max-w-2xl{
-  max-width: 42rem;
 }
 .max-w-3xl{
   max-width: 48rem;
@@ -990,9 +981,19 @@ video {
 .rounded-md{
   border-radius: 0.375rem;
 }
+.rounded-xl{
+  border-radius: 0.75rem;
+}
+.rounded-sm{
+  border-radius: 0.125rem;
+}
 .rounded-t-xl{
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+}
+.rounded-b-lg{
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .border{
   border-width: 1px;
@@ -1076,6 +1077,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
+.bg-emerald-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 253 245 / var(--tw-bg-opacity));
+}
 .bg-gray-100{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1149,10 +1154,6 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.px-5{
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
 .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1164,10 +1165,6 @@ video {
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.py-1\.5{
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
 }
 .py-10{
   padding-top: 2.5rem;
@@ -1238,17 +1235,11 @@ video {
 .pt-\[10px\]{
   padding-top: 10px;
 }
-.pb-5{
-  padding-bottom: 1.25rem;
-}
 .text-left{
   text-align: left;
 }
 .text-center{
   text-align: center;
-}
-.text-right{
-  text-align: right;
 }
 .text-justify{
   text-align: justify;
@@ -1264,10 +1255,6 @@ video {
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
 }
 .text-6xl{
   font-size: 3.75rem;
@@ -1391,6 +1378,10 @@ video {
 .text-green-500{
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+.text-green-700{
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 .text-pink-400{
   --tw-text-opacity: 1;
@@ -1918,6 +1909,192 @@ html {
 }
 
 /*Admin*/
+.headerAdmin{
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  height: 100vh;
+  width: 13rem;
+  flex-direction: column;
+  align-items: center;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 243 199 / var(--tw-bg-opacity));
+}
+
+.navAdmin{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divAdmin{
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.divOptionsAdmin{
+  display: none;
+  align-items: center;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 640px){
+
+  .divOptionsAdmin{
+    display: flex;
+  }
+}
+
+.ulAdmin{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 640px){
+
+  .ulAdmin{
+    display: flex;
+  }
+}
+.links{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.links:hover{
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+  text-decoration-color: #407735fa;
+}
+
+          /*Users*/
+
+.tableDiv{
+  width: 100%;
+}
+
+.table{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.textUser{
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.trTable{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+
+.tableDivTera{
+  width: 100%;
+}
+
+.tableTera{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.textUserTera{
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.trTableTera{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+          /*alta Terapeuta*/
+.divForm{
+  margin-bottom: 1.5rem;
+  display: flex;
+}
+
+.labelForm{
+  min-width: 190px;
+  padding-right: 2.5rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+    font-size: 19px;
+}
+
+@media (max-width: 380px){
+
+    .labelForm{
+      font-size: 15px;
+    }
+
+}
+
+@media (min-width: 380px) and (max-width: 520px){
+
+    .labelForm{
+      font-size: 15px;
+    }
+        
+}
+
+.inputForm{
+  margin-left: 0.5rem;
+  height: 2.25rem;
+  width: 16rem;
+  border-radius: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.formTera{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 4rem;
+  text-align: right;
+}
+
+
+
+            /*ConfigApp*/
+
+
+.adminDiv{
+  margin-left: 20%;
+}
+
   .toggleButton{
     background-color: pink;
     color: white;
@@ -2125,7 +2302,7 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-      /*Hoome page*/
+      /*Home page*/
 .contenedor2{
   display: flex;
 }
@@ -2692,85 +2869,516 @@ html {
   }
 }
 
-  .hover\:bg-\[\#E55E7F\]:hover{
+@media (min-width: 870px) and (max-width: 1050px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+  }
+}
+
+@media  (min-width: 900px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+  }
+
+  .formTera{
+    padding-left: 5rem;
+  }
+
+}
+
+@media (min-width: 780px) and (max-width: 870px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 98%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+
+
+}
+
+@media (min-width: 590px) and (max-width: 639px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 15%;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 98%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 470px) and (max-width: 590px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 20%;
+  }
+
+  
+  .tableDiv{
+    width: 95%;
+  }
+
+  .table{
+    width: 95%;
+  }  
+
+  .textUserTitle{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUser{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 95%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 10px;
+  }
+
+  .formTera{
+    padding-left: 2.5rem;
+  }
+
+  .labelForm{
+    min-width: 110px;
+    padding-right: 0px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .inputForm{
+    width: 16rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+
+}
+
+@media (min-width: 375px) and (max-width: 470px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 25%;
+  }
+
+  
+  .tableDiv{
+    width: 95%;
+  }
+
+  .table{
+    width: 98%;
+  }  
+
+  .textUserTitle{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUser{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 100%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 8px;
+  }
+
+  .formTera{
+    padding-left: 1.25rem;
+  }
+
+  .labelForm{
+    min-width: 110px;
+    padding-right: 0px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .inputForm{
+    width: 13rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+
+}
+
+@media (max-width: 375px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 2%;
+    margin-top: 30%;
+  }
+
+  
+  .tableDiv{
+    width: 95%;
+  }
+
+  .table{
+    width: 95%;
+  }  
+
+  .textUserTitle{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUser{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .tableDiv{
+    width: 95%;
+  }
+
+  .tableTera{
+    width: 95%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 10px;
+  }
+
+  .formTera{
+    padding-left: 0px;
+  }
+
+  .labelForm{
+    min-width: 100px;
+    padding-right: 0px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .inputForm{
+    width: 9rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+
+@media (min-width: 640px) and (max-width: 720px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 35%;
+  }
+
+  
+  .tableDiv{
+    width: 90%;
+  }
+
+  .table{
+    width: 95%;
+  }  
+
+  .textUserTitle{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUser{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .tableDivTera{
+    width: 100%;
+  }
+
+  .tableTera{
+    width: 95%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 10px;
+  }
+
+  .formTera{
+    padding-left: 0.5rem;
+  }
+
+  .labelForm{
+    min-width: 110px;
+    padding-right: 0px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .inputForm{
+    width: 16rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+}
+
+@media (min-width: 720px) and (max-width: 780px){
+  /*Admin*/
+  .adminDiv{
+    margin-left: 30%;
+    margin-top: 0;
+  }
+
+  .tableDiv{
+    width: 90%;
+  }
+
+  .table{
+    width: 98%;
+  }  
+
+  .textUserTitle{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUser{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  
+  .tableDivTera{
+    width: 95%;
+  }
+
+  .tableTera{
+    width: 98%;
+  }  
+
+  .textUserTitleTera{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .textUserTera{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 639px){
+/*Admin*/
+.headerAdmin{
+    position: absolute;
+    z-index: 10;
+    height: 6rem;
+    width: 100%;
+    flex-direction: row;
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 243 199 / var(--tw-bg-opacity));
+  }
+
+.navAdmin{
+    height: 100vh;
+    width: 100%;
+    flex-direction: row;
+  }
+
+.divAdmin{
+    display: flex;
+  }
+
+.divOptionsAdmin{
+    display: flex;
+  }
+
+.ulAdmin{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+@media (min-width: 640px){
+
+    .ulAdmin{
+      display: flex;
+    }
+  }
+
+}
+
+.hover\:bg-\[\#E55E7F\]:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(229 94 127 / var(--tw-bg-opacity));
 }
 
-  .hover\:bg-black:hover{
+.hover\:bg-black:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-  .hover\:bg-blue-200:hover{
+.hover\:bg-blue-200:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
 
-  .hover\:bg-pink-500:hover{
+.hover\:bg-pink-500:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
-  .hover\:text-\[\#05814E\]:hover{
+.hover\:text-\[\#05814E\]:hover{
   --tw-text-opacity: 1;
   color: rgb(5 129 78 / var(--tw-text-opacity));
 }
 
-  .hover\:text-\[\#E55E7F\]:hover{
+.hover\:text-\[\#E55E7F\]:hover{
   --tw-text-opacity: 1;
   color: rgb(229 94 127 / var(--tw-text-opacity));
 }
 
-  .hover\:text-\[\#F6B519\]:hover{
+.hover\:text-\[\#F6B519\]:hover{
   --tw-text-opacity: 1;
   color: rgb(246 181 25 / var(--tw-text-opacity));
 }
 
-  .hover\:underline:hover{
+.hover\:underline:hover{
   text-decoration-line: underline;
 }
 
-  .hover\:decoration-\[\#F6B519\]:hover{
+.hover\:decoration-\[\#F6B519\]:hover{
   text-decoration-color: #F6B519;
 }
 
-  .hover\:decoration-\[\#e669d1fa\]:hover{
+.hover\:decoration-\[\#e669d1fa\]:hover{
   text-decoration-color: #e669d1fa;
 }
 
-  .focus\:outline-none:focus{
+.focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-  .focus-visible\:ring-2:focus-visible{
+.focus-visible\:ring-2:focus-visible{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-  .focus-visible\:ring-blue-500:focus-visible{
+.focus-visible\:ring-blue-500:focus-visible{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 
-  .focus-visible\:ring-white\/75:focus-visible{
+.focus-visible\:ring-white\/75:focus-visible{
   --tw-ring-color: rgb(255 255 255 / 0.75);
 }
 
-  .focus-visible\:ring-offset-2:focus-visible{
+.focus-visible\:ring-offset-2:focus-visible{
   --tw-ring-offset-width: 2px;
 }
 
-  @media not all and (min-width: 768px){
+@media not all and (min-width: 768px){
 
   .max-md\:flex-col{
     flex-direction: column;
   }
 }
 
-  @media (min-width: 640px){
+@media (min-width: 640px){
 
   .sm\:flex{
     display: flex;

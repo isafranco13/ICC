@@ -25,7 +25,7 @@ const NavbarTera = () => {
 
             return (
                     <header>
-                        <nav className='w-full h-24 shadow-xl'> {/*<nav className={`${styles.navbar}`}>*/}
+                        <nav className='w-full h-24'> {/*<nav className={`${styles.navbar}`}>*/}
                             <div className='flex items-center justify-between h-full px-4 w-full'>
                             <Link href="/" className="flex justify-center items-center sm:px-12">
                                 <Image
@@ -63,10 +63,10 @@ const NavbarTera = () => {
                                 </div>                            
                                 <div className= {
                                     menuOpen
-                                    ? 'fixed top-0 left-0 w-[75%] sm:hidden h-screen bg-[#f5fffb] p-10 ease-in-out duration-500'
+                                    ? 'fixed top-0 left-0 w-[75%] sm:hidden h-screen bg-[#f5fffb] p-10 ease-in-out duration-500' 
                                     : 'fixed left-[-100%] top-0 p-10 ease-in-out duration-500'
-                                    }
-                                >
+                                    } 
+                                > {/* bg-[#f5fffb]  */}
                                     <div className='flex w-full items-center justify-end'>
                                         <div onClick={toggleMenu} 
                                             className='cursor-pointer'>
