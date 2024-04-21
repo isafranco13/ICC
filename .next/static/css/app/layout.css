@@ -819,14 +819,14 @@ video {
 .w-\[500\]{
   width: 500;
 }
-.w-\[70px\]{
-  width: 70px;
-}
 .w-\[74px\]{
   width: 74px;
 }
 .w-\[75\%\]{
   width: 75%;
+}
+.w-\[80px\]{
+  width: 80px;
 }
 .w-full{
   width: 100%;
@@ -968,9 +968,6 @@ video {
 }
 .rounded-\[20px\]{
   border-radius: 20px;
-}
-.rounded-\[29px\]{
-  border-radius: 29px;
 }
 .rounded-full{
   border-radius: 9999px;
@@ -2050,7 +2047,7 @@ html {
 
     .labelForm{
       font-size: 15px;
-    }
+    } 
         
 }
 
@@ -2714,7 +2711,7 @@ html {
       /*Home page*/
   .contenedor2{
     flex-wrap: wrap;
-  }
+  } 
         
 }
 
@@ -2737,8 +2734,8 @@ html {
     flex: 1 1 0%;
     padding-top: 58px;
     padding-bottom: 58px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
     
     .edad{
@@ -2869,10 +2866,10 @@ html {
   }
 }
 
-@media  (min-width: 900px){
+@media  (min-width: 1007px){
   /*Admin*/
   .adminDiv{
-    margin-left: 30%;
+    margin-left: 20%;
   }
 
   .formTera{
@@ -3060,6 +3057,7 @@ html {
   .labelForm{
     min-width: 110px;
     padding-right: 0px;
+    padding-top: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }

@@ -118,7 +118,7 @@ const Historial = async () => {
                                                 </div>
                                             <textarea  name="medicamentos"  id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
-                                            <br /><br />
+                                            <br />
                                     </div>
 
                                     <CustomButton
@@ -133,7 +133,7 @@ const Historial = async () => {
                     </div>
 
                 </div>
-                <br/><br/><br/>
+                <br/><br/>
             </main>
             
         </>

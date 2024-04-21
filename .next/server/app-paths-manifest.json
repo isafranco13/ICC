@@ -1,3 +1,12 @@
 {
+  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/admin/configApp/page": "app/admin/configApp/page.js",
+  "/admin/home/page": "app/admin/home/page.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/admin/page": "app/admin/page.js",
   "/page": "app/page.js",
-  "/signup/page": "app/signup/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/usuario/page": "app/usuario/page.js"
+}

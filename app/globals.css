@@ -727,7 +727,7 @@ html {
       /*Home page*/
   .contenedor2{
     flex-wrap: wrap;
-  }
+  } 
         
 }
 
@@ -746,7 +746,7 @@ html {
 
     /*User*/
     .formUser{
-      @apply py-[58px] px-[40px] h-[1932px] flex-1
+      @apply py-[58px] px-[25px] h-[1932px] flex-1
     }
     
     .edad{
@@ -835,10 +835,10 @@ html {
   }
 }
 
-@media  (min-width: 900px){
+@media  (min-width: 1007px){
   /*Admin*/
   .adminDiv{
-    margin-left: 30%;
+    margin-left: 20%;
   }
 
   .formTera{
@@ -993,11 +993,11 @@ html {
   }
 
   .formTera{
-    @apply pl-5
+    @apply pl-5 
   }
 
   .labelForm{
-    @apply text-sm min-w-[110px]  pr-0
+    @apply text-sm min-w-[110px]  pr-0 pt-2
   }
   
   .inputForm{

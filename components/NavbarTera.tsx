@@ -27,7 +27,7 @@ const NavbarTera = () => {
                     <header>
                         <nav className='w-full h-24'> {/*<nav className={`${styles.navbar}`}>*/}
                             <div className='flex items-center justify-between h-full px-4 w-full'>
-                            <Link href="/" className="flex justify-center items-center sm:px-12">
+                            <Link href="/terapeuta" className="flex justify-center items-center sm:px-12">
                                 <Image
                                     src="/atomo.svg"
                                     alt="atomo"
