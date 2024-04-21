@@ -18,9 +18,9 @@ const Historial = async () => {
     
     return (
         <>
-            <main className="formUser">
+            <main className="formUser bg-[#F5FFFC]">
                 {/*contenedor del formulario*/}
-                <div className="bg-[#FFEBA9] rounded-lg"> 
+                <div className="bg-[#FFEBA9] rounded-3xl"> 
                     <div className="flex flex-col rounded-lg">                 
                         {/*titulo e instrucciones */}
                         <div className="items-start px-[50px] py-[10px]"><br />
@@ -118,15 +118,15 @@ const Historial = async () => {
                                                 </div>
                                             <textarea  name="medicamentos"  id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
-                                            <br /><br />
+                                            <br />
                                     </div>
 
                                     <CustomButton
                                         btnType="submit"
                                         title="Guardar"
-                                        containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
+                                        containerStyles="btnStyle min-w-[100px] font-medium textButton mt-5 h-10"
                                     /> 
-
+                                    <br/>
                                 </form>
                             </div>
                         </div>
