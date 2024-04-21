@@ -984,16 +984,9 @@ video {
 .rounded-xl{
   border-radius: 0.75rem;
 }
-.rounded-sm{
-  border-radius: 0.125rem;
-}
 .rounded-t-xl{
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
-}
-.rounded-b-lg{
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
 }
 .border{
   border-width: 1px;
@@ -1681,7 +1674,7 @@ html {
 }
 
 .pinkLine{
-  min-width: 260px;
+  min-width: 135px;
 }
 
 
@@ -2449,7 +2442,7 @@ html {
   }
 
   .pinkLine{
-    min-width: 120px;
+    min-width: 105px;
   }
 
   .googleLogo{

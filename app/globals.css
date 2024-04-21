@@ -108,7 +108,7 @@ html {
 }
 
 .pinkLine{
-  @apply min-w-[260px];
+  @apply min-w-[135px];
 }
 
 
@@ -550,7 +550,7 @@ html {
   }
 
   .pinkLine{
-    @apply min-w-[120px];
+    @apply min-w-[105px];
   }
 
   .googleLogo{
