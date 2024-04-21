@@ -130,12 +130,10 @@ const Historial = async () => {
                                 </form>
                             </div>
                         </div>
-
                     </div>
 
-
-
                 </div>
+                <br/><br/><br/>
             </main>
             
         </>

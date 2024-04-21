@@ -75,7 +75,7 @@ export default function Home() {
                         <NavBarAdmin />
                     </div>
 
-                    <div style={{ display: 'inline-block', width: '100%', marginLeft: '2%' , marginRight: '2%'}}>
+                    <div className='adminDiv' style={{ display: 'inline-block', width: '100%', marginRight: '2%'}}>
                         {/* Titulo y descripción */}
                         <div className='text'>
                             <p className='tituloAdmin'><strong>Alta Terapeuta</strong></p>
@@ -83,30 +83,30 @@ export default function Home() {
                         </div>
                         {/* Formulario */}
                         <div style={{ alignItems:'center', justifyContent: 'center', padding: '2%'}}>
-                            <form onSubmit={handleSumbmit} className='w-1/2 mx-auto text-right'>
-                                <div className='flex mb-6'>
-                                    <label className="text-black font-medium form w-1/3">Nombre</label>
-                                    <input value={formData.nombre} name="nombre"  id="nombre" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} />
+                            <form onSubmit={handleSumbmit} className='formTera'>
+                                <div className='divForm'>
+                                    <label className="labelForm">Nombre</label>
+                                    <input value={formData.nombre} name="nombre"  id="nombre" type="text" className="inputForm" onChange={handleChange} required={true} />
                                 </div>
-                                <div className='flex mb-6'>
-                                    <label className="text-black font-medium form w-1/3">Apellido Paterno</label>
-                                    <input  name="apellidoPaterno" id="apellidoPaterno" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.apellidoPaterno}/>
+                                <div className='divForm'>
+                                    <label className="labelForm">Apellido Paterno</label>
+                                    <input  name="apellidoPaterno" id="apellidoPaterno" type="text" className="inputForm" onChange={handleChange} required={true} value={formData.apellidoPaterno}/>
                                 </div>
-                                <div className='flex mb-6'>
-                                    <label className="text-black font-medium form w-1/3">Apellido Materno</label>
-                                    <input  name="apellidoMaterno" id="apellidoMaterno" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.apellidoMaterno}/>
+                                <div className='divForm'>
+                                    <label className="labelForm">Apellido Materno</label>
+                                    <input  name="apellidoMaterno" id="apellidoMaterno" type="text" className="inputForm" onChange={handleChange} required={true} value={formData.apellidoMaterno}/>
                                 </div>
-                                <div className='flex mb-6'>
-                                    <label className="text-black font-medium form w-1/3">Celular</label>
-                                    <input  name="celular" id="celular" type="text" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.celular}/>
+                                <div className='divForm'>
+                                    <label className="labelForm">Celular</label>
+                                    <input  name="celular" id="celular" type="text" className="inputForm" onChange={handleChange} required={true} value={formData.celular}/>
                                 </div>
-                                <div className='flex mb-6'>
-                                    <label className="text-black font-medium form w-1/3">Correo</label>
-                                    <input  name="correo" id="correo" type="email" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.correo}/>
+                                <div className='divForm'>
+                                    <label className="labelForm">Correo</label>
+                                    <input  name="correo" id="correo" type="email" className="inputForm" onChange={handleChange} required={true} value={formData.correo}/>
                                 </div>
-                                <div className='flex'>
-                                    <label className="text-black font-medium form w-1/3">Contraseña</label>
-                                    <input  name="contrasena" id="contrasena" type="password" className="bg-white rounded-3xl outline-none text-lg text-center w-2/3 h-9 ml-2 shadow-md" onChange={handleChange} required={true} value={formData.contrasena}/>
+                                <div className='divForm'>
+                                    <label className="labelForm">Contraseña</label>
+                                    <input  name="contrasena" id="contrasena" type="password" className="inputForm" onChange={handleChange} required={true} value={formData.contrasena}/>
                                 </div>
                                 {/* Botón */}
                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

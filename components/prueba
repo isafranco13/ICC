@@ -1,0 +1,46 @@
+
+        return (
+            <header className="w-50 z-10 bg-amber-100 h-screen fixed"> 
+                <nav className='w-full h-50 flex flex-col'> {/* Cambiar flex-direction a column */}
+                    <Link href="/" className="flex justify-center items-center sm:px-12">
+                        <Image
+                            src="/atomo.svg"
+                            alt="atomo"
+                            width={50}
+                            height={50}
+                            className="object-contain logo" 
+                        />  
+                        <p className='navBarName'><strong>HealthSync</strong></p>
+                    </Link>
+                    <div className='text-white hidden sm:flex flex-col'> {/* Cambiar a flex-direction column */}
+                        <ul className='hidden sm:flex flex-col'> {/* Cambiar a flex-direction column */}
+                            <li className={`${styles.navLinks}`}> 
+                                <Link href="/signup">
+                                    <CustomButton
+                                        title="Crear Cuenta"
+                                        btnType="button"
+                                        containerStyles="text-white rounded-full bg-pink-400 font-semibold textButton"
+                                    />
+                                </Link>
+                            </li>
+                            <li className={`${styles.navLinks}`}> 
+                                <Link href="/signin">
+                                    <CustomButton
+                                        title="Iniciar Sesión"
+                                        btnType="button"
+                                        containerStyles="text-white rounded-full bg-pink-400 font-semibold textButton"
+                                    />
+                                </Link>                    
+                            </li>
+                        </ul>
+                    </div>
+                    <div onClick={toggleMenu} className='sm:hidden cursor-pointer pl-24'> 
+                        <BsList className='h-8 w-8 text-pink-400'/>
+                    </div>
+                </nav>
+            </header>
+        );
+    }
+  export default Navbar;
+  ;
+

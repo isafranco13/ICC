@@ -10,16 +10,18 @@ const Navbar2 = () => {
     
     return (
         <header className="w-full absolute z-10"> 
-            <nav className="mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
-                <Link href="/" className="flex justify-center items-center">
-                    <Image
-                        src="/atomo.svg"
-                        alt="atomo"
-                        width={50}
-                        height={18}
-                        className="object-contain logo" 
-                    /> <p className='navBarName'><strong>HealthSync</strong></p>
-                </Link>                
+            <nav className='w-full h-24'>
+                <div className='flex items-center justify-between h-full px-4 w-full'>
+                    <Link href="/" className="flex justify-center items-center sm:px-12">
+                        <Image
+                            src="/atomo.svg"
+                            alt="atomo"
+                            width={50}
+                            height={50}
+                            className="object-contain logo" 
+                        />  <p className='navBarName'><strong>HealthSync</strong></p>
+                    </Link>
+                </div>
             </nav>
          </header>
     )
