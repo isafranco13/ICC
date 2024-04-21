@@ -39,7 +39,7 @@ export default function Form(){
         if (res?.error) {
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
-            if (res?.url) router.replace("/usuario");
+            //if (res?.url) router.replace("/usuario");
         }
     };
 

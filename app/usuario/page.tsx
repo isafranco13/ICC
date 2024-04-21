@@ -5,6 +5,8 @@ import Image from 'next/image';
 import NavbarUsuario from "@/components/NavbarUsuario";
 import {useSession} from 'next-auth/react';
 //import React, {useState} from 'react';
+//import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect } from 'react';
 
 
@@ -16,19 +18,25 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     if (!session) {
       redirect("/signin");
     }*/
-
-    const { data: session, status } = useSession()
-
+    const router = useRouter();
+    const { data: session, status: sessionStatus } = useSession()
+    
     useEffect(() => {
-            if (session?.user?.role == 'usuario') {
-               
-            }else{
-                redirect("/terapeuta");
-            }   
-            if (!session) {
-                redirect("/signin");
-              }
-    }, [status, session]);
+        /* if(session?.user?.role !== "usuario") {
+            router.replace("/terapeuta");
+         } else {
+            router.replace("/usuario");
+         }*/
+        if (!session) {
+                //redirect("/signin");
+                router.replace("/signin");
+                //router.push("/signin");
+            }/*else if(session?.user?.role !== "usuario") {
+                //redirect("/terapeuta");
+                router.replace("/terapeuta");
+               //router.push("/terapeuta");
+            }   */
+    }, [sessionStatus, router]);
     return (
         <>                            <NavbarUsuario/>
 

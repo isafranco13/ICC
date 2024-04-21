@@ -27,10 +27,14 @@ const terapeutaSchema =new mongoose.Schema(
             type: String, 
             required: true
         },
+        role: {
+            type: String,
+            required: true
+        },
     }
 )
-
-export default mongoose.models.Terapeutas || mongoose.model('Terapeutas', terapeutaSchema);
+export default mongoose.models.usuarios || mongoose.model('usuarios', terapeutaSchema);
+//export default mongoose.models.usuarios || mongoose.model('usuarios', terapeutaSchema);
 
 
 

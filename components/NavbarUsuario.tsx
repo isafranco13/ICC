@@ -4,13 +4,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react'; // Import signOut
 import CustomButton from './CustomButton';
-import styles from './NavbarUser.module.css'; // Import styles module
+
 import { BsList, BsX } from 'react-icons/bs';
 //nuevos
 import { redirect } from 'next/dist/server/api-utils';
 import { useEffect } from 'react';
 
 
+const styles={
+    navLinks: "rounded-full bg-pink-400 font-semibold textButton m-3",
+    navTextUser: "text-black text-center justify-center userName mt-6 m-3"
+}
 
 const NavbarUser = () => {
     const { data: session } = useSession();

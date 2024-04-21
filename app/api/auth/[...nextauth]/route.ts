@@ -51,7 +51,7 @@ const authOptions = {   //const handler = NextAuth({ -> lo que estaba antes
           })
     ],
     callbacks: {
-        async signIn({user, account}){
+        async signIn({user, account}: { user: any, account: any }){
             if(account?.provider === 'credentials'){
                 return user;
             }else if(account?.provider === 'google'){
@@ -80,23 +80,7 @@ const authOptions = {   //const handler = NextAuth({ -> lo que estaba antes
             }
             return user;
         },
-         jwt({ token, user }) {
-            // Persist the OAuth access_token to the token right after signin
-            if (user) {
-              token.role = user.role
-            }
-            //console.log(token);
-            return token;
-          },
-           session({ session, token, user }) {
-            // Send properties to the client, like an access_token from a provider.
-            //session.accessToken = token.accessToken
-            session.user.role = token.role
-            //console.log(session);
-            return session;
-          }
-        
-        /*async signIn({user, account}) {
+        /*async signIn({user, account}: { user: any, account: any }) {
             if (account?.provider === 'credentials') {
                 //console.log(user);
                 return true;
@@ -125,7 +109,24 @@ const authOptions = {   //const handler = NextAuth({ -> lo que estaba antes
                 }
             }
             return true;
-        }*/
+        },*/
+         jwt({ token, user }: { token: any, user: any }) {
+            // Persist the OAuth access_token to the token right after signin
+            if (user) {
+              token.role = user.role
+            }
+            //console.log(token);
+            return token;
+          },
+           session({ session, token}: { token: any, session: any }) { //, user 
+            // Send properties to the client, like an access_token from a provider.
+            //session.accessToken = token.accessToken
+            session.user.role = token.role
+            //console.log(session);
+            return session;
+          }
+        
+        
     }
 };
 const handler = NextAuth(authOptions);

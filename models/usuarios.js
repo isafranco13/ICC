@@ -23,11 +23,11 @@ const usuarioSchema =new mongoose.Schema(
         role: {
             type: String,
             required: true
-        }
+        },
     }
 )
 
-export default mongoose.models.Usuarios || mongoose.model('Usuarios', usuarioSchema);
+export default mongoose.models.usuarios || mongoose.model('usuarios', usuarioSchema);
 
 
 

@@ -2,14 +2,19 @@
 import Link from "next/link"
 import Image from 'next/image';
 import CustomButton from '../../components/CustomButton';
-import {signIn} from 'next-auth/react'
+import {signIn, useSession} from 'next-auth/react'
 import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
 import React, {useState} from "react";
+import CustomAlert from '@/components/CustomAlert';
 
 export default function Form(){
     const router = useRouter();
-    
+    const {data: session}=useSession()
+    //const { data: session, status: sessionStatus } = useSession();
+    const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
+    const [isVisible, setIsVisible] = useState(false);
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const res = await fetch("/api/usuarios",{
@@ -20,12 +25,26 @@ export default function Form(){
             }
             
         })
-
-        if(!res.ok){
-            throw new Error("Error al crear el usuario")
+        const data = await res.json(); // Aquí obtenemos el cuerpo de la respuesta
+        console.log(data.message); //respuesta de usuarios/route.js
+        console.log(session); //debe decir la sesión de nuestro usuario
+        if(res.ok){
+            
+            router.replace("/usuario");
+        } else {
+            if (data.message ==="correo") { //!res.ok
+                /*setAlertMessage("Correo Electronico ya registrado");
+                setIsVisible(true);*/
+                console.log("Correo Electronico ya registrado");
+                //if (res?.url) router.replace("/usuario");
+            }else{
+                throw new Error("Error al crear el usuario")
+            }
+            
         }
-        router.refresh();
-        router.push("/usuario"); // /dashboard
+        
+
+        
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;
@@ -42,15 +61,9 @@ export default function Form(){
         contrasena: "",
         role: "usuario",
     };
+   
     const [formData, setFormData] = useState(startingUsuariosData);
-    {/*const {data: session}=useSession()
-    import Navbar from '../../components/Navbar'; // Assuming the Navbar component is located in the components folder
-
-    export default function Form(){
-        {/*const {data: session}=useSession()
-        if(process.env.NODE_ENV === 'development') {
-            console.log(session); // EN CASO DE QUERER VER AL USUARIO (SOLO USARLO EN LOCAL)
-        }*/}
+    
         return(
             <>
                 <Navbar2 />
@@ -92,7 +105,15 @@ export default function Form(){
                                     title="Crear Cuenta"
                                     containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
                                 />
-                                
+                                {isVisible && (
+                                <CustomAlert
+                                    status="warning"
+                                    variant="subtle"
+                                    title="Error"
+                                    description={alertMessage}
+                                    setIsVisible={setIsVisible}
+                                />
+                                )}
                                 <br />
                             </div>
                             <div className="block ">

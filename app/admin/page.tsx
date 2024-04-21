@@ -18,9 +18,10 @@ export default function Form(){
     
     useEffect(() => {
         if (sessionStatus === "authenticated") {
+            
             if(session?.user?.role === "usuario"){
                 router.replace("/usuario");
-        }else if(session?.user?.role === "terapeuta"){
+        }else{
             router.replace("/terapeuta");
         }
     }
@@ -40,7 +41,7 @@ export default function Form(){
         if (res?.error) {
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
-            if (res?.url) router.replace("/admin");
+           if (res?.url) router.replace("/admin");
         }
     };
 
