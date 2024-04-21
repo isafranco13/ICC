@@ -39,7 +39,7 @@ const Historial = async () => {
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
                                         <div className="mb-4">
                                             <input type="hidden" name="name"  /> {/*Input para tomar el nombre */}
-                                            <p className="formUserText">Telefono</p>
+                                            <p className="formUserText">Teléfono</p>
                                             <input required={true} name="telefono"  id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
                                         <div className="edad">
