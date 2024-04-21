@@ -59,6 +59,16 @@ html {
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+
+.btnStyle {
+  background-color: #FC83A1;
+  color: #F5FFFC;
+  border-radius: 20px;
+}
+
+.btnStyle:hover {
+  background-color: #E55E7F;
+}
 /* END: General styles */
 
 /* START: Intro styles */
@@ -198,6 +208,14 @@ html {
 
 .formUserDiv{
   @apply flex flex-wrap rounded-lg
+}
+
+.formDiv{
+  @apply flex flex-wrap
+}
+
+.formDivW{
+  @apply w-1/4 mr-4
 }
 
 .edad{
@@ -728,7 +746,7 @@ html {
   .contenedor2{
     flex-wrap: wrap;
   }
-        
+
 }
 
 
@@ -1176,4 +1194,14 @@ html {
   @apply hidden sm:flex flex-col gap-10 items-center
 }
 
+}
+
+@media (max-width: 881px){
+  /*Perfil terapeuta*/
+  .formDiv{
+    @apply flex flex-col
+  }
+  .formDivW{
+    @apply w-2/3 mr-0
+  }
 }
