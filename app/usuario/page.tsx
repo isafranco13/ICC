@@ -22,21 +22,16 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     const { data: session, status: sessionStatus } = useSession()
     
     useEffect(() => {
-        /* if(session?.user?.role !== "usuario") {
-            router.replace("/terapeuta");
-         } else {
-            router.replace("/usuario");
-         }*/
-        if (!session) {
-                //redirect("/signin");
-                router.replace("/signin");
-                //router.push("/signin");
-            }/*else if(session?.user?.role !== "usuario") {
-                //redirect("/terapeuta");
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.role === "usuario") {
+                router.replace("/usuario");
+            } else {
                 router.replace("/terapeuta");
-               //router.push("/terapeuta");
-            }   */
-    }, [sessionStatus, router]);
+            }
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+    }, [sessionStatus, session, router]);
     return (
         <>                            <NavbarUsuario/>
 

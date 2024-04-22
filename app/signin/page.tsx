@@ -14,14 +14,16 @@ export default function Form(){
     const { data: session, status: sessionStatus } = useSession();
     const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
     const [isVisible, setIsVisible] = useState(false);
-
+    
     useEffect(() => {
         if (sessionStatus === "authenticated") {
         //router.replace("/usuario");
             if(session?.user?.role === "usuario"){
                 router.replace("/usuario");
-        }else{
+        }else if(session?.user?.role === "terapeuta"){
             router.replace("/terapeuta");
+        }else{
+            router.replace("/admin/home");
         }}
     }, [sessionStatus, router]);
 
@@ -36,11 +38,12 @@ export default function Form(){
             redirect: false,
         });
 
-        if (res?.error) {
+        if (res?.error ) { //
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
             //if (res?.url) router.replace("/usuario");
         }
+        
     };
 
     if (sessionStatus === "loading") {

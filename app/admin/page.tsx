@@ -16,16 +16,15 @@ export default function Form(){
     const [isVisible, setIsVisible] = useState(false);
 
     
-    useEffect(() => {
+    /*useEffect(() => {
         if (sessionStatus === "authenticated") {
-            
             if(session?.user?.role === "usuario"){
                 router.replace("/usuario");
-        }else{
+        }else if(session?.user?.role === "terapeuta"){
             router.replace("/terapeuta");
         }
     }
-    }, [sessionStatus, router]);
+    }, [sessionStatus, router]);*/
     
     const handleSubmit = async (e: any) => {
         e.preventDefault();

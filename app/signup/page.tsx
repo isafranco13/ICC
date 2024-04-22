@@ -10,41 +10,51 @@ import CustomAlert from '@/components/CustomAlert';
 
 export default function Form(){
     const router = useRouter();
-    const {data: session}=useSession()
-    //const { data: session, status: sessionStatus } = useSession();
+    //const {data: session}=useSession()
+    const { data: session, status: sessionStatus } = useSession();
     const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
     const [isVisible, setIsVisible] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await fetch("/api/usuarios",{
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers:{
-                "Content-Type": "application/json"
-            }
-            
-        })
-        const data = await res.json(); // Aquí obtenemos el cuerpo de la respuesta
-        console.log(data.message); //respuesta de usuarios/route.js
-        console.log(session); //debe decir la sesión de nuestro usuario
-        if(res.ok){
-            
-            router.replace("/usuario");
-        } else {
-            if (data.message ==="correo") { //!res.ok
-                /*setAlertMessage("Correo Electronico ya registrado");
-                setIsVisible(true);*/
-                console.log("Correo Electronico ya registrado");
-                //if (res?.url) router.replace("/usuario");
+        
+            const res = await fetch("/api/usuarios",{
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers:{
+                    "Content-Type": "application/json"
+                }
+                
+            })
+            const data = await res.json(); // Aquí obtenemos el cuerpo de la respuesta
+            console.log(data.message); //respuesta de usuarios/route.js
+            console.log(data.message);//console.log(session); //debe decir la sesión de nuestro usuario
+            /*if(res.ok){
+                router.replace("/usuario");
+            } else {
+                if (data.message ==="correo") { //!res.ok
+                    console.log(data.message);
+                    setAlertMessage("Correo Electronico ya registrado");
+                    setIsVisible(true);
+                    if(sessionStatus === "unauthenticated"){
+                        setAlertMessage("Usuario registrado inicie sesión");
+                        setIsVisible(true);
+                    }
+                    //console.log("Correo Electronico ya registrado");
+                    //if (res?.url) router.replace("/usuario");
+                }else{
+                    throw new Error("Error al crear el usuario")
+                }
+                
+            }*/
+            if(data.message === "correo"){ //!res.ok &&
+                setAlertMessage("Correo Electronico ya registrado");
+                setIsVisible(true);
             }else{
-                throw new Error("Error al crear el usuario")
+                router.replace("/usuario");
             }
-            
-        }
-        
-
-        
+           // router.refresh();
+            //router.push("/usuario"); // /dashboard
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;
@@ -86,6 +96,7 @@ export default function Form(){
                         {/*Sección de crear cuenta*/}
                         <div className="container"> 
                         <div className="divYellowContainer"><h1 className="text-3xl font-bold titleSignIn">Crear Cuenta</h1><br />
+                        
                             <form className="flex flex-col w-full pl-4" method="post" onSubmit={handleSubmit}>
                             <div className="flex flex-wrap"> {/* div de nombre y apellido*/}
                                 <div className="w-1/2 pl-4"><p className="text-black font-medium form">Nombre</p>
@@ -113,7 +124,7 @@ export default function Form(){
                                     description={alertMessage}
                                     setIsVisible={setIsVisible}
                                 />
-                                )}
+                                )} 
                                 <br />
                             </div>
                             <div className="block ">
@@ -137,7 +148,8 @@ export default function Form(){
                                 className="mr-2 googleLogo" 
                                 /> Continuar con Google</button> {/*'google', { callbackUrl: '/dashboard' }*/ }
                                 </div>
-                            </form>    
+                            </form>   
+                            
                             </div>
                             </div>
                     </div>
