@@ -9,15 +9,23 @@ import NavbarTera from "@/components/NavbarTera";
 import {Calendar, dayjsLocalizer} from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import dayjs from 'dayjs';
-import type { User } from "next-auth"
-
+import {useSession} from 'next-auth/react';
+import { useEffect } from 'react';
 
 const Dashboard = async () => {
-    /*const session = await getServerSession();
-    if (!session) {
-      redirect("/signin");
-    }
-    */
+    //const session = await getServerSession();
+    const { data: session, status } = useSession()
+    useEffect(() => {
+        if (session?.user?.role == 'terapeuta') {
+            
+            console.log("tera");
+        }else{
+            redirect("/signin");
+        }
+        if (!session) {
+            redirect("/signin");
+          }
+}, [status, session]);
     //componentes del calendario
     const localizer = dayjsLocalizer(dayjs);
     
@@ -27,8 +35,10 @@ const Dashboard = async () => {
                         <div className="navbarUser">
                             <NavbarTera />
                         </div>
-    */}    
-
+                        <div>
+                           {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
+                           <p>Nombre: {session?.user?.name}</p>
+                             <p>Rol: {session?.user?.role}</p>
                         <div className="section-3 h-max">
                             <h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>
                             

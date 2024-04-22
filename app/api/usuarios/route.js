@@ -9,16 +9,17 @@ export async function GET() {
     return NextResponse.json({ usuarios });
 }
 
+
 export async function POST(request) {
     await connectDB();
     const data = await request.json();
     const userExists = await Usuarios.findOne({ correo: data.correo });
     if (!userExists) {
         const usuarios = await Usuarios.create(data);
-        return NextResponse.json({ usuarios });
+        return NextResponse.json({ usuarios , message: "Usuario creado"});
     } else{
         //Si el usuario ya existe, no hace nada
-        return NextResponse.json({ message: "Usuario ya existe" });
+        return NextResponse.json({ message: "correo"});
     }
 }
 

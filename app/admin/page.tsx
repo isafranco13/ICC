@@ -15,12 +15,17 @@ export default function Form(){
     const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
     const [isVisible, setIsVisible] = useState(false);
 
+    
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-        router.replace("/admin/home");
+            if(session?.user?.role === "usuario"){
+                router.replace("/usuario");
+        }else if(session?.user?.role === "terapeuta"){
+            router.replace("/terapeuta");
         }
+    }
     }, [sessionStatus, router]);
-
+    
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -35,14 +40,15 @@ export default function Form(){
         if (res?.error) {
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
-            if (res?.url) router.replace("/admin");
+           if (res?.url) router.replace("/admin");
         }
     };
 
     if (sessionStatus === "loading") {
         return <h1>Loading...</h1>;
     }
-
+    
+    
     return(
         <>
         <Navbar2 />

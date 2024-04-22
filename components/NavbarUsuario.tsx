@@ -3,14 +3,13 @@ import { useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react'; // Import signOut
-import type { User } from "next-auth";
 import CustomButton from './CustomButton';
-//import styles from './NavbarUser.module.css'; // Import styles module
-import { BsList, BsX } from 'react-icons/bs';
 
-type Props ={
-    user: User,
-}
+import { BsList, BsX } from 'react-icons/bs';
+//nuevos
+import { redirect } from 'next/dist/server/api-utils';
+import { useEffect } from 'react';
+
 
 const styles={
     navLinks: "rounded-full bg-pink-400 font-semibold textButton m-3",
@@ -18,11 +17,12 @@ const styles={
 }
 
 const NavbarUser = () => {
-    const { data: session }: any = useSession();
+    const { data: session } = useSession();
 
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
-
+    
+    
             return (
                     <header>
                         <nav className='w-full h-24'>
@@ -47,7 +47,7 @@ const NavbarUser = () => {
                                                 {session?.user?.name} {/*{session && session.user && session.user.name} */}
                                         </li>
                                         <li className={`${styles.navLinks}`}> 
-                                            <button onClick={() => {signOut();}} 
+                                            <button onClick={() => {signOut(), { callbackUrl: '/signin' }}} 
                                                 className="text-white rounded-full bg-pink-400 font-semibold textButtonSignOut">
                                                 Cerrar Sesión
                                             </button>

@@ -69,7 +69,7 @@ function Navbar() {
                                         </Link>                    
                                     </li>
                                     <li className={`${styles.navLinks}`}> 
-                                        <Link href="/admin">
+                                        <Link href="/signin">
                                             <CustomButton
                                                 title="Cerrar Sesión"
                                                 btnType="button"

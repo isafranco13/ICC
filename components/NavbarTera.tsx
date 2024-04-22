@@ -3,14 +3,12 @@ import { useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react'; // Import signOut
-import type { User } from "next-auth";
+
 import CustomButton from './CustomButton';
 //import styles from './NavbarUser.module.css'; // Import styles module
 import { BsList, BsX } from 'react-icons/bs';
 
-type Props ={
-    user: User,
-}
+
 
 const styles={
     navLinks: "rounded-full bg-pink-400 font-semibold textButton m-3",
