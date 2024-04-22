@@ -29,26 +29,8 @@ export default function Form(){
             const data = await res.json(); // Aquí obtenemos el cuerpo de la respuesta
             console.log(data.message); //respuesta de usuarios/route.js
             console.log(data.message);//console.log(session); //debe decir la sesión de nuestro usuario
-            /*if(res.ok){
-                router.replace("/usuario");
-            } else {
-                if (data.message ==="correo") { //!res.ok
-                    console.log(data.message);
-                    setAlertMessage("Correo Electronico ya registrado");
-                    setIsVisible(true);
-                    if(sessionStatus === "unauthenticated"){
-                        setAlertMessage("Usuario registrado inicie sesión");
-                        setIsVisible(true);
-                    }
-                    //console.log("Correo Electronico ya registrado");
-                    //if (res?.url) router.replace("/usuario");
-                }else{
-                    throw new Error("Error al crear el usuario")
-                }
-                
-            }*/
             if(data.message === "correo"){ //!res.ok &&
-                setAlertMessage("Correo Electronico ya registrado");
+                setAlertMessage("Correo Electronico ya registrado, inicie sesión");
                 setIsVisible(true);
             }else{
                 router.replace("/usuario");
