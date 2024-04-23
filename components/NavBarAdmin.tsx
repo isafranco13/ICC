@@ -21,7 +21,7 @@ function Navbar() {
                 <header className="headerAdmin"> 
                     <nav className='navAdmin'>
                         <div className='divAdmin'>
-                        <Link href="/admin/home" className="flex justify-center items-center sm:px-12">
+                        <Link href="/admin" className="flex justify-center items-center sm:px-12">
                             <Image
                                 src="/atomo.svg"
                                 alt="atomo"
@@ -33,7 +33,7 @@ function Navbar() {
                             <div className='divOptionsAdmin'>
                                 <ul className='ulAdmin'> 
                                     <li className={`${styles.navLinks}`}> 
-                                        <Link href="/admin/home">
+                                        <Link href="/admin">
                                             <CustomButton
                                                 title="Inicio"
                                                 btnType="button"
@@ -69,7 +69,7 @@ function Navbar() {
                                         </Link>                    
                                     </li>
                                     <li className={`${styles.navLinks}`}> 
-                                        <Link href="/signin">
+                                        <Link href="/signin" onClick={() => {signOut();}}>
                                             <CustomButton
                                                 title="Cerrar Sesión"
                                                 btnType="button"
@@ -102,7 +102,7 @@ function Navbar() {
                                         <ul>
                                             <li onClick={() => setMenuOpen(false)} 
                                                 className='links'>
-                                                    <Link href="/admin/home">
+                                                    <Link href="/admin">
                                                         Inicio
                                                     </Link>
                                             </li>
@@ -126,7 +126,7 @@ function Navbar() {
                                             </li>
                                             <li onClick={() => setMenuOpen(false)} 
                                                 className='links'>
-                                                    <Link href="/admin">
+                                                    <Link href="app/signin">
                                                         Cerrar sesión
                                                     </Link>
                                             </li>

@@ -122,6 +122,9 @@ const authOptions = {   //const handler = NextAuth({ -> lo que estaba antes
             // Send properties to the client, like an access_token from a provider.
             //session.accessToken = token.accessToken
             session.user.role = token.role
+            // darle el nombre a la session
+            session.user.name = token.name
+
             //console.log(session);
             return session;
           }

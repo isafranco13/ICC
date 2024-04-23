@@ -22,9 +22,12 @@ export default function Form(){
                 router.replace("/usuario");
         }else if(session?.user?.role === "terapeuta"){
             router.replace("/terapeuta");
+        }else if(session?.user?.role === "admin"){
+            router.replace("/admin");
+        }
         }else{
-            router.replace("/admin/home");
-        }}
+            router.replace("/signin");
+        }
     }, [sessionStatus, router]);
 
     const handleSubmit = async (e: any) => {

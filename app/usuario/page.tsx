@@ -20,13 +20,15 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     }*/
     const router = useRouter();
     const { data: session, status: sessionStatus } = useSession()
-    
+    console.log("session => ", session);
     useEffect(() => {
         if (sessionStatus === "authenticated") {
             if (session?.user?.role === "usuario") {
                 router.replace("/usuario");
-            } else {
+            } else if(session?.user?.role === "terapeuta"){
                 router.replace("/terapeuta");
+            }else{
+                router.replace("/admin");
             }
         } else if (sessionStatus === "unauthenticated") {
             router.replace("/signin");
