@@ -126,7 +126,7 @@ function Navbar() {
                                             </li>
                                             <li onClick={() => setMenuOpen(false)} 
                                                 className='links'>
-                                                    <Link href="app/signin">
+                                                    <Link href="/signin" onClick={() => {signOut();}}>
                                                         Cerrar sesión
                                                     </Link>
                                             </li>
