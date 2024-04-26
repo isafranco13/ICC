@@ -1,11 +1,5 @@
 {
   "/page": "app/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js",
-  "/admin/home/page": "app/admin/home/page.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
-  "/signup/page": "app/signup/page.js",
-  "/terapeuta/page": "app/terapeuta/page.js",
-  "/usuario/page": "app/usuario/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }
