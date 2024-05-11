@@ -1,10 +1,11 @@
 import NextAuth from "next-auth"
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/libs/mongodb";
-import GithubProvider from "next-auth/providers/github"
+import CredentialsProvider from "next-auth/providers/credentials";
 import Auth0Provider from "next-auth/providers/auth0";
 import { dateNowUnix } from "@/utils/dates";
 import GoogleProvider from "next-auth/providers/google";
+//import User from "@/models/usuarios";
 
 
 
@@ -18,7 +19,7 @@ export const authOptions = {
       const { user, isNewUser } = ctx;
       try {
         if (isNewUser) {
-          user.roles = ["user"];
+          user.roles = ["usuario"]; //user 
           user.createdAt = dateNowUnix();
           user.updatedAt = dateNowUnix();
           user.lastLogin = dateNowUnix();
@@ -29,7 +30,7 @@ export const authOptions = {
         const client = await clientPromise;
         await client
           .db()
-          .collection("users")
+          .collection("users") //users
           .updateOne({ email: user.email }, { $set: user });
 
         console.log(`${user.email} logged in and updated in DB =>`);
@@ -43,6 +44,14 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }),
+    CredentialsProvider({
+      name: "credentials",
+      credentials:{},
+
+      aync authorize(credentials){
+        
+      }
     })
     // TODO: Aqui va el otro provider
     // ...add more providers here
@@ -50,7 +59,8 @@ export const authOptions = {
   // A database is optional, but required to persist accounts in a database
   callbacks: {
     async jwt({ token}) {
-      token.userRole = "admin"
+      token.userRole = "usuario" 
+      //admin
       return token
     },
     async session({ session, token }) {
@@ -59,7 +69,7 @@ export const authOptions = {
         const client = await clientPromise;
         const user = await client
           .db()
-          .collection("users")
+          .collection("users") //users
           .findOne({ email: session.user.email });
 
         // Add the user's role to the session object

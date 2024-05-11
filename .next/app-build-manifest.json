@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/usuario/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/usuario/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,15 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/signin/page.js"
     ],
-    "/usuario/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/usuario/page.js"
+      "static/chunks/app/page.js"
     ],
-    "/admin/page": [
+    "/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
+      "static/chunks/app/signup/page.js"
     ],
     "/terapeuta/page": [
       "static/chunks/webpack.js",
@@ -32,20 +32,10 @@
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
     ],
-    "/admin/users/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/users/page.js"
-    ],
-    "/admin/altaTerapeuta/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/altaTerapeuta/page.js"
-    ],
-    "/admin/configApp/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/configApp/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

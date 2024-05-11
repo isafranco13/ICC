@@ -17,20 +17,20 @@ export default function Home() {
     const router = useRouter();
     const { data: session, status: sessionStatus } = useSession()
 
-    useEffect(() => {
+    /*useEffect(() => {
         fetch('/api/usuarios')
             .then(response => response.json())
             .then(data => setUsuarios(data.usuarios));
-    }, []);
+    }, []);*/
     useEffect(() => {
         if (sessionStatus === "authenticated") {
             if (session?.user?.role === "admin") {
                 router.replace("/admin");
-            } else if(session?.user?.role === "terapeuta"){
-                router.replace("/terapeuta");
-            }else{
+            }else if(session?.user?.role === "usuario"){
                 router.replace("/usuario");
-            }
+            }/*else{
+                router.replace("/usuario");
+            }*/
         } else if (sessionStatus === "unauthenticated") {
             router.replace("/signin");
         }

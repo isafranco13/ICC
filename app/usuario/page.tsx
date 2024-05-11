@@ -21,15 +21,16 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     const router = useRouter();
     const { data: session, status: sessionStatus } = useSession()
     console.log("session => ", session);
+    //console.log("roles", session?.user?.roles[0])
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-            if (session?.user?.role === "usuario") {
+            if (session?.user?.roles[0] === "usuario") {
                 router.replace("/usuario");
-            } else if(session?.user?.role === "terapeuta"){
+            } else if(session?.user?.roles[0] === "terapeuta"){
                 router.replace("/terapeuta");
-            }else{
+            }/*else{
                 router.replace("/admin");
-            }
+            }*/
         } else if (sessionStatus === "unauthenticated") {
             router.replace("/signin");
         }
@@ -44,7 +45,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
                            <p>Nombre: {session?.user?.name}</p>
-                             <p>Rol: {session?.user?.role}</p>
+                             <p>Rol: {session?.user?.roles[0]}</p>
                         
                         <div className="section-1 h-max">
                             <h1 className="font-bold text-2xl">Terapeutas</h1>

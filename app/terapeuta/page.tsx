@@ -11,21 +11,25 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import dayjs from 'dayjs';
 import {useSession} from 'next-auth/react';
 import { useEffect } from 'react';
+import { useRouter } from "next/navigation";
 
-const Dashboard = async () => {
+const Dashboard = () => {
     //const session = await getServerSession();
-    const { data: session, status } = useSession()
+    const router = useRouter();
+    const { data: session, status: sessionStatus} = useSession()
     useEffect(() => {
-        if (session?.user?.role == 'terapeuta') {
-            
-            console.log("tera");
-        }else{
-            redirect("/signin");
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.roles[0] === "terapeuta") {
+                router.replace("/terapeuta");
+            }else if(session?.user?.roles[0] === "usuario"){
+                router.replace("/usuario");
+            }/*else{
+                router.replace("/usuario");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
         }
-        if (!session) {
-            redirect("/signin");
-          }
-}, [status, session]);
+}, [sessionStatus, session, router]);
     //componentes del calendario
     const localizer = dayjsLocalizer(dayjs);
     
@@ -38,7 +42,7 @@ const Dashboard = async () => {
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
                            <p>Nombre: {session?.user?.name}</p>
-                             <p>Rol: {session?.user?.role}</p>
+                             <p>Rol: {session?.user?.roles[0]}</p>
                         <div className="section-3 h-max">
                             <h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>
                             
