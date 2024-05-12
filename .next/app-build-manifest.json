@@ -16,11 +16,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/signin/page.js"
     ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
-    ],
     "/usuario/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -31,11 +26,6 @@
       "static/chunks/main-app.js",
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

@@ -5,7 +5,7 @@ import CustomButton from '@/components/CustomButton';
 import {signIn, useSession} from 'next-auth/react'
 import { Navbar2 } from "@/components";
 import { useRouter } from "next/navigation";
-import React, {useEffect, useState} from "react";
+import React, {FormEventHandler, useEffect, useState} from "react";
 import CustomAlert from '@/components/CustomAlert';
 
 export default function Form(){
@@ -17,7 +17,6 @@ export default function Form(){
     
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-        //router.replace("/usuario");
             if(session?.user?.role === "usuario"){
                 router.replace("/usuario");
         }else if(session?.user?.role === "terapeuta"){
@@ -28,19 +27,29 @@ export default function Form(){
         }else{
             router.replace("/signin");
         }
-    }, [sessionStatus, router]);
+    }, [sessionStatus, router, session]);
 
-    const handleSubmit = async (e: any) => {
+    const [userInfo, setUserInfo] = useState({email: "", password: ""});
+    const handleSubmit: FormEventHandler<HTMLFormElement> =  async (e) => { //async (e: any)
         e.preventDefault();
-        const email = e.target[0].value;
-        const password = e.target[1].value;
-
-        const res = await signIn('credentials', { //signIn('credentials',
+        /*const email = e.target[0].value;
+        const password =  e.target[1].value;*/
+       
+        console.log(userInfo);
+        const res= await signIn ('credentials', {
+            email: userInfo.email,
+            password: userInfo.password,
+            redirect: false,
+        });
+        
+        console.log(res);
+        console.log(sessionStatus);
+        /*const res = await signIn('credentials', { //signIn('credentials',
             email,
             password,
             redirect: false,
-        });
-        console.log(res);
+            
+        });*/
         if (res?.error ) { //
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
@@ -72,9 +81,9 @@ export default function Form(){
                     <div className="divYellowContainer"><h1 className="text-3xl font-bold text-center titleSignIn">Iniciar Sesión</h1><br />
                         <div className="flex flex-col w-full pl-4">
                             <form className="flex flex-col items-center w-full" onSubmit={handleSubmit}>                                 
-                                <input type="email" className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Correo"/>
+                                <input type="email" value={userInfo.email} onChange={({target}) => setUserInfo({ ...userInfo, email: target.value})} className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Correo" />
                                 <br />
-                                <input type="password" className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña"/>
+                                <input type="password" value={userInfo.password} onChange={({target}) => setUserInfo({ ...userInfo, password: target.value})} className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña" />
                             
                                 <CustomButton
                                     btnType="submit"

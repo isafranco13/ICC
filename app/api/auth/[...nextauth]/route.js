@@ -27,13 +27,15 @@ export const authOptions = {
           user.lastLogin = dateNowUnix();
         }
         // Save the updated user to the database
-        const client = await clientPromise;
+        /*const client = await clientPromise;
         await client
           .db()
           .collection("users") //users
-          .updateOne({ email: user.email }, { $set: user });
+          .updateOne({ email: user.email }, { $set: user });*/
 
-        console.log(`${user.email} logged in and updated in DB =>`);
+          console.log("prueba existosa");
+          console.log(`${user.email} logged in`);
+          //console.log(`${user.email} logged in and updated in DB =>`);
       } catch (error) {
         console.log(`Error udating user ${user.email} in signinevent:`, error);
       }
@@ -46,32 +48,26 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     }),
     CredentialsProvider({
-      name: "credentials",
-      credentials:{},
-      async authorize(credentials){
-        const email = credentials.email;
-        const password = credentials.password;
-        
-        try {
-          const client = await clientPromise;
-          const user = await client.db().collection("users").findOne({ email: email });
-          if (!user) {
-            throw new Error("No user found with the given email");
-          }
-          if (user.password !== password) {
-            throw new Error("Incorrect password");
-          }
-          return user;
-        } catch (error) {
-          console.log("Error in credentials provider", error);
-          throw new Error("Authentication failed");
-        }
-    },
-    })
+      type: "credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+      },
+      authorize(credentials, req){
+        const user = {id: "1", name: "isabel", email: "isa@mail.com", password: "12345", roles: ["usuario"] }
+                if(credentials?.email === user.email || credentials?.password === user.password){
+                    //return user;
+                    return true;
+              }else{
+                return null;
+              }
+            }
+    }),
     
     // TODO: Aqui va el otro provider
     // ...add more providers here
   ],
+  
   // A database is optional, but required to persist accounts in a database
   callbacks: {
     async jwt({ token}) {

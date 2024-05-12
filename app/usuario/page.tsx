@@ -20,7 +20,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     }*/
     const router = useRouter();
     const { data: session, status: sessionStatus } = useSession()
-    console.log("session => ", session);
+    console.log(session);
     //console.log("roles", session?.user?.roles[0])
     useEffect(() => {
         if (sessionStatus === "authenticated") {
