@@ -40,7 +40,7 @@ export default function Form(){
             password,
             redirect: false,
         });
-
+        console.log(res);
         if (res?.error ) { //
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);

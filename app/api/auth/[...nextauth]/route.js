@@ -48,11 +48,27 @@ export const authOptions = {
     CredentialsProvider({
       name: "credentials",
       credentials:{},
-
-      aync authorize(credentials){
+      async authorize(credentials){
+        const email = credentials.email;
+        const password = credentials.password;
         
-      }
+        try {
+          const client = await clientPromise;
+          const user = await client.db().collection("users").findOne({ email: email });
+          if (!user) {
+            throw new Error("No user found with the given email");
+          }
+          if (user.password !== password) {
+            throw new Error("Incorrect password");
+          }
+          return user;
+        } catch (error) {
+          console.log("Error in credentials provider", error);
+          throw new Error("Authentication failed");
+        }
+    },
     })
+    
     // TODO: Aqui va el otro provider
     // ...add more providers here
   ],
@@ -64,7 +80,7 @@ export const authOptions = {
       return token
     },
     async session({ session, token }) {
-      // console.log("session", session)
+       console.log(session)
       try {
         const client = await clientPromise;
         const user = await client
