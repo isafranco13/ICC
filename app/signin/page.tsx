@@ -48,7 +48,8 @@ export default function Form(){
             redirect: false,
             
         });
-        console.log(res);
+        //console.log(res);
+        console.log(session);
         console.log(sessionStatus);
         if (res?.error ) { //
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
