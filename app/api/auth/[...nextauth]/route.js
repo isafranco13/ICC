@@ -34,7 +34,7 @@ export const authOptions = {
           .updateOne({ email: user.email }, { $set: user });*/
 
           
-          console.log("prueba existosa");
+          //console.log("prueba existosa");
           console.log(`${user.email} logged in`);
           //console.log(`${user.email} logged in and updated in DB =>`);
       } catch (error) {
@@ -60,11 +60,9 @@ export const authOptions = {
         const user = {id: "1", email: "isa@mail.com", name: "isabel",  password: "12345", roles: "usuario" }
                 if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
                     return user;
-                    
               }else{
-                return null;
-                
-              }
+                return null; 
+              }  
             }
     }),
   ],
@@ -89,7 +87,7 @@ export const authOptions = {
     async session({ session, token }) {
       if(token){
         session = token;
-        console.log(token, "user session");
+        console.log("user session");
        }
        return session;
       //Encontrando en internet 
