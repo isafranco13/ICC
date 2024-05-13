@@ -71,9 +71,8 @@ export const authOptions = {
   callbacks: {
     async jwt({ token}) {
       token.userRole = "usuario" 
-      token.id = user.id;
       //admin
-      console.log(token, "token en jwt");
+      //console.log(token, "token en jwt");
       return token;
     },
     /*async jwt({ user, token }) {
