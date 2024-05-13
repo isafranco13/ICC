@@ -10,7 +10,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 
 export const authOptions = {
-  secret: process.env.BASE_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, //process.env.BASE_SECRET,
   adapter: MongoDBAdapter(clientPromise),
   session: { jwt: true }, // Use JSON Web Tokens for session instead of database sessions.
   events: {
@@ -47,6 +47,8 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     }),
+    // TODO: Aqui va el otro provider
+    // ...add more providers here
     CredentialsProvider({
       type: "credentials",
       credentials: {
@@ -55,26 +57,25 @@ export const authOptions = {
       },
       authorize(credentials, req){
         const user = {id: "1", name: "isabel", email: "isa@mail.com", password: "12345", roles: ["usuario"] }
-                if(credentials?.email === user.email || credentials?.password === user.password){
+                if(credentials?.email === user.email && credentials?.password === user.password){ 
                     //return user;
-                    return true;
+                    return Promise.resolve(user);
               }else{
-                return null;
+                //return null;
+                return Promise.resolve(null);
               }
             }
     }),
-    
-    // TODO: Aqui va el otro provider
-    // ...add more providers here
   ],
   
   // A database is optional, but required to persist accounts in a database
   callbacks: {
-    async jwt({ token}) {
+    /*async jwt({ token}) {
       token.userRole = "usuario" 
       //admin
+      console.log(token);
       return token
-    },
+    },*/
     async session({ session, token }) {
        console.log(session)
       try {
@@ -85,7 +86,7 @@ export const authOptions = {
           .findOne({ email: session.user.email });
 
         // Add the user's role to the session object
-        session.user.roles = user.roles;
+        session.user.roles = user.roles[0]; //user.roles
 
         return Promise.resolve(session);
       } catch (error) {
