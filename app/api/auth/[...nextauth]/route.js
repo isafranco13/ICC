@@ -71,22 +71,25 @@ export const authOptions = {
   
   // A database is optional, but required to persist accounts in a database
   callbacks: {
-    /*async jwt({ token}) {
+    async jwt({ token}) {
       token.userRole = "usuario" 
       //admin
-      console.log(token);
-      return token
-    },*/
-    async jwt({ user, token }) {
-      if (user) {
-        token.user = user;
-      }
+      //console.log(token, "token en jwt");
       return token;
     },
+    /*async jwt({ user, token }) {
+      if (user) {
+        token.user = user;
+        console.log(token, "token");
+        
+      }
+      return token;
+      
+    },*/
     async session({ session, token }) {
        if(token.user){
         session.user = token.user;
-        console.log(token.user, "usuario en session");
+        console.log(session, "user session");
        }
        return session;
       /*try {
