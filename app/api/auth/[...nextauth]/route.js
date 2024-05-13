@@ -56,7 +56,7 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req){
-        const user = {id: "1", email: "isa@mail.com", name: "isabel",  password: "12345", roles: ["usuario"] }
+        const user = {id: "1", email: "isa@mail.com", name: "isabel",  password: "12345", roles: "usuario" }
                 if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
                     return user;
                     //return Promise.resolve(user);
@@ -76,15 +76,16 @@ export const authOptions = {
       console.log(token);
       return token
     },*/
-    async jwt({ user,token }) {
+    async jwt({ user, token }) {
       if (user) {
         token.user = user;
       }
       return token;
     },
     async session({ session, token }) {
-       console.log(session)
-       session.user = token.user;
+       if(token.user){
+        session.user = token.user;
+       }
        return session;
       /*try {
         const client = await clientPromise;
