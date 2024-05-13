@@ -60,10 +60,10 @@ export const authOptions = {
         const user = {id: "1", email: "isa@mail.com", name: "isabel",  password: "12345", roles: "usuario" }
                 if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
                     return user;
-                    //return Promise.resolve(user);
+                    
               }else{
                 return null;
-                //return Promise.resolve(null);
+                
               }
             }
     }),
@@ -87,11 +87,19 @@ export const authOptions = {
       
     },*/
     async session({ session, token }) {
-       if(token.user){
+      if(token){
+        session = token;
+        console.log(token, "user session");
+       }
+       return session;
+      //Encontrando en internet 
+      /*if(token.user){
         session.user = token.user;
         console.log(session, "user session");
        }
-       return session;
+       return session;*/
+
+      //Version profe
       /*try {
         const client = await clientPromise;
         const user = await client
