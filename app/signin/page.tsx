@@ -18,14 +18,14 @@ export default function Form(){
     useEffect(() => {
         if (sessionStatus === "authenticated") {
             if(session?.user?.roles === "usuario"){
-                router.replace("/usuario");
+                router.push("/usuario"); //router.replace
         }else if(session?.user?.roles === "terapeuta"){
-            router.replace("/terapeuta");
+            router.push("/terapeuta");
         }else if(session?.user?.roles === "admin"){
-            router.replace("/admin");
+            router.push("/admin");
         }
         }else{
-            router.replace("/signin");
+            router.push("/signin");
         }
         
     }, [sessionStatus, router, session]);
