@@ -55,14 +55,14 @@ export const authOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      authorize(credentials, req){
-        const user = {id: "1", name: "isabel", email: "isa@mail.com", password: "12345", roles: ["usuario"] }
-                if(credentials?.email === user.email && credentials?.password === user.password){ 
-                    //return user;
-                    return Promise.resolve(user);
+      async authorize(credentials, req){
+        const user = {id: "1", email: "isa@mail.com", name: "isabel",  password: "12345", roles: ["usuario"] }
+                if(user && user.contrasena === credentials.password){  //credentials.email === user.email && credentials.password === user.password
+                    return user;
+                    //return Promise.resolve(user);
               }else{
-                //return null;
-                return Promise.resolve(null);
+                return null;
+                //return Promise.resolve(null);
               }
             }
     }),
@@ -76,9 +76,17 @@ export const authOptions = {
       console.log(token);
       return token
     },*/
+    async jwt({ user,token }) {
+      if (user) {
+        token.user = user;
+      }
+      return token;
+    },
     async session({ session, token }) {
        console.log(session)
-      try {
+       session.user = token.user;
+       return session;
+      /*try {
         const client = await clientPromise;
         const user = await client
           .db()
@@ -91,7 +99,7 @@ export const authOptions = {
         return Promise.resolve(session);
       } catch (error) {
         return Promise.reject(error);
-      }
+      }*/
     },
   },
 }
