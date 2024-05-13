@@ -33,6 +33,7 @@ export const authOptions = {
           .collection("users") //users
           .updateOne({ email: user.email }, { $set: user });*/
 
+          
           console.log("prueba existosa");
           console.log(`${user.email} logged in`);
           //console.log(`${user.email} logged in and updated in DB =>`);
@@ -79,6 +80,7 @@ export const authOptions = {
     async jwt({ user, token }) {
       if (user) {
         token.user = user;
+        console.log(user, "usuario en jwt");
       }
       return token;
     },
