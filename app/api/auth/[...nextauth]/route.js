@@ -51,13 +51,13 @@ export const authOptions = {
     // TODO: Aqui va el otro provider
     // ...add more providers here
     CredentialsProvider({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req){
-        const user = {id: "1", email: "isa@mail.com", name: "isabel",  password: "12345", roles: "usuario" }
+        const user = {id: "1",  name: "isabel", email: "isa@mail.com", password: "12345", roles: "usuario" }
                 if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
                     return user;
               }else{
@@ -69,8 +69,22 @@ export const authOptions = {
   
   // A database is optional, but required to persist accounts in a database
   callbacks: {
-    async jwt({ token}) {
-      token.userRole = "usuario" 
+    async jwt({ token, user, session}) {
+      //console.log({token, user, session}, "token, user, session")
+      if(user){
+        return {
+          ...token,
+          id: user.id,
+          roles: user.roles,
+        }
+      }
+      console.log(token, "token");
+      /*if (user) {
+        token = user;
+        console.log(token, "token");
+        
+      }*/
+      //token.userRole = "usuario" 
       //admin
       //console.log(token, "token en jwt");
       return token;
@@ -84,11 +98,13 @@ export const authOptions = {
       return token;
       
     },*/
-    async session({ session, token }) {
-      if(token){
-        session.user.id = token.id;
-        console.log("user session");
-       }
+    async session({ session, token, user}) {
+      console.log({session, token, user}, "session, token, user");
+      /*if(token){
+        session = token;
+        session.user.roles = user.roles[0];
+        console.log(session, "user session");
+       }*/
        return session;
       //Encontrando en internet 
       /*if(token.user){
