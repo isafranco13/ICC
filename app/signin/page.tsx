@@ -31,7 +31,7 @@ export default function Form(){
     }, [sessionStatus, router, session]);
 
     //const [userInfo, setUserInfo] = useState({email: "", password: ""});
-    const handleSubmit/*: FormEventHandler<HTMLFormElement>*/ =  async (e: any) => { //async (e: any)
+    const handleSubmit =  async (e: any) => { //async (e: any)
         e.preventDefault();
         const email = e.target[0].value;
         const password =  e.target[1].value;

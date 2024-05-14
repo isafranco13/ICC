@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import CustomButton from '../../../components/CustomButton';
 import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
+import React, {useState} from "react";
 //import React, {useState} from "react";
 
 
@@ -15,7 +16,37 @@ const Historial = async () => {
     if (!session) {
       redirect("/signin");
     }*/
-    
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+            const res = await fetch("/api/historial",{
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers:{
+                    "Content-Type": "application/json"
+                }
+                
+            })
+            
+    }
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+        const value = e.target.value;
+        const name = e.target.name;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    }
+    const startingUsuariosData={
+        name: "",
+        telefono: "",
+        edad: "",
+        correo: "",
+        contrasena: "",
+        role: "usuario",
+    };
+   
+    const [formData, setFormData] = useState(startingUsuariosData);
     return (
         <>
             <main className="formUser">
@@ -40,11 +71,11 @@ const Historial = async () => {
                                         <div className="mb-4">
                                             <input type="hidden" name="name"  /> {/*Input para tomar el nombre */}
                                             <p className="formUserText">Telefono</p>
-                                            <input required={true} name="telefono"  id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
+                                            <input required={true} name="telefono" onChange={handleChange} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
                                         <div className="edad">
                                             <p className="formUserText">Edad</p>
-                                            <input name="edad"  id="edad"  required={true} type="number" placeholder="25" className="inputBox" />
+                                            <input name="edad" onChange={handleChange}  id="edad"  required={true} type="number" placeholder="25" className="inputBox" />
                                         </div>
                                     </div>
 
