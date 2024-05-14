@@ -29,7 +29,7 @@ const Historial = async () => {
             })
             
     }
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
         const value = e.target.value;
         const name = e.target.name;
         setFormData((prevState) => ({
@@ -37,13 +37,26 @@ const Historial = async () => {
             [name]: value,
         }));
     }
+    const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.checked; // true si está marcado, false si está desmarcado
+        const name = e.target.name;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+    
     const startingUsuariosData={
         name: "",
         telefono: "",
         edad: "",
-        correo: "",
-        contrasena: "",
-        role: "usuario",
+        estadocivil: "",
+        papas: "",
+        noHijo: "",
+        abortos: "",
+        hijos:"",
+        operaciones:"",
+        medicamentos:"",
     };
    
     const [formData, setFormData] = useState(startingUsuariosData);
@@ -71,11 +84,11 @@ const Historial = async () => {
                                         <div className="mb-4">
                                             <input type="hidden" name="name"  /> {/*Input para tomar el nombre */}
                                             <p className="formUserText">Telefono</p>
-                                            <input required={true} name="telefono" onChange={handleChange} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
+                                            <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
                                         <div className="edad">
                                             <p className="formUserText">Edad</p>
-                                            <input name="edad" onChange={handleChange}  id="edad"  required={true} type="number" placeholder="25" className="inputBox" />
+                                            <input name="edad" onChange={handleChange}  id="edad" value={formData.edad} required={true} type="number" placeholder="25" className="inputBox" />
                                         </div>
                                     </div>
 
@@ -85,12 +98,12 @@ const Historial = async () => {
                                             
                                             <div className="radio"> 
                                                 <div className="mr-4">
-                                                    <input type="radio" id="casado" name="estadoCivil" value="casado" className="textInput" />
+                                                    <input type="radio" onChange={handleChange} value={formData.estadocivil} id="casado" name="estadoCivil"  className="textInput" />
                                                     <label htmlFor="casado" className="ml-2 text-[19px]">Casado(a)</label>
                                                 </div>
 
                                                 <div>
-                                                    <input type="radio" id="soltero" name="estadoCivil" value="soltero" className="textInput" />
+                                                    <input type="radio" onChange={handleChange} id="soltero" value={formData.estadocivil} name="estadoCivil"  className="textInput" />
                                                     <label htmlFor="soltero" className="ml-2 text-[19px]">Soltero(a)</label>
                                                 </div>
                                             </div>      
@@ -102,9 +115,9 @@ const Historial = async () => {
                                         <div className="w-full pl-[30px]"><p className="formUserText">Seleccione si uno de sus padres ha fallecido</p></div>
                                         
                                         <div className="flex flex-row pl-[30px] gap-[10px]">
-                                            <input type="checkbox" id="mama" name="mama" className="textInput"/>
+                                            <input type="checkbox" onChange={handleChangeCheckbox} value={formData.papas} id="mama" name="mama" className="textInput"/>
                                             <label htmlFor="mama" className="text-[19px]">Mamá</label>
-                                            <input type="checkbox" id="papa" name="papa" className="textInput"/>
+                                            <input type="checkbox" value={formData.papas} onChange={handleChangeCheckbox} id="papa" name="papa" className="textInput"/>
                                             <label htmlFor="papa" className="text-[19px]">Papá</label>
                                         </div>
                                     </div><br/>
@@ -112,31 +125,31 @@ const Historial = async () => {
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">Número de hijo</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
-                                        <InputNumber/> <br/><br/>
+                                        <InputNumber/> <br/><br/> {/*value={formData.noHijo}*/}
                                         <p className="formUserText">¿Tiene hijos?</p>
                                             <div className="flex flex-row  gap-[10px]"> 
-                                                <input type="radio" id="si" name="hijos" className="textInput"/>
+                                                <input type="radio" onChange={handleChange} id="si" name="hijos" className="textInput"/>
                                                 <label htmlFor="si">Si</label>
-                                                <input type="radio" id="no" name="hijos" className="textInput"/>
+                                                <input type="radio" onChange={handleChange} id="no" name="hijos" className="textInput"/>
                                                 <label htmlFor="no">No</label><br /><br />
                                             </div>
                                             
                                         <p className="formUserText">¿Cuántos hijos tiene?</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
-                                        <InputNumber/> <br/><br/>
+                                        <InputNumber/> <br/><br/> {/*value={formData.noHijo}*/}
                                     </div>
 
                                     <h3 className="formUserSubtitle">Datos médicos</h3> 
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">¿Ha tenido operaciones?</p>
                                             <div className="flex flex-row  gap-[10px]"> 
-                                                <input type="radio" id="si" name="operaciones" className="textInput"/>
+                                                <input type="radio" onChange={handleChange} id="si" name="operaciones" className="textInput"/>
                                                 <label htmlFor="si">Si</label>
-                                                <input type="radio" id="no" name="operaciones" className="textInput"/>
+                                                <input type="radio" onChange={handleChange} id="no" name="operaciones" className="textInput"/>
                                                 <label htmlFor="no">No</label><br /><br />
                                             </div>
 
-                                        <textarea  name="operaciones"  id="operaciones"  placeholder="Describa sus operaciones, de qué trataron" 
+                                        <textarea  name="operaciones" onChange={handleChange} required={true} value={formData.operaciones} id="operaciones"  placeholder="Describa sus operaciones, de qué trataron" 
                                         className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
                                         <br /><br />
 
@@ -147,7 +160,7 @@ const Historial = async () => {
                                                     <input type="radio" id="no" name="medicamento" className="textInput"/>
                                                     <label htmlFor="no">No</label><br /><br />
                                                 </div>
-                                            <textarea  name="medicamentos"  id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
+                                            <textarea  name="medicamentos"  value={formData.medicamentos} id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
                                             <br /><br />
                                     </div>
