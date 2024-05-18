@@ -24,8 +24,6 @@ export default function Form(){
         }else if(session?.user?.roles === "admin"){
             router.push("/admin");
         }
-        }else{
-            router.push("/signin");
         }
         
     }, [sessionStatus, router, session]);

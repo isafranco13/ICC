@@ -27,11 +27,11 @@ export const authOptions = {
           user.lastLogin = dateNowUnix();
         }
         // Save the updated user to the database
-        /*const client = await clientPromise;
+        const client = await clientPromise;
         await client
           .db()
           .collection("users") //users
-          .updateOne({ email: user.email }, { $set: user });*/
+          .updateOne({ email: user.email }, { $set: user });
 
           
           //console.log("prueba existosa");
@@ -85,25 +85,16 @@ export const authOptions = {
     },
     async session({ session, token}) {
       console.log("token ", token);
-      if (token) {
+      /*if (token) {
         session.user.id = token.id;
         session.user.roles = token.roles;
-      }
+      }*/
       /*if(token){
         session = token;
         session.user.roles = user.roles[0];
         console.log(session, "user session");
        }*/
-       return session;
-      //Encontrando en internet 
-      /*if(token.user){
-        session.user = token.user;
-        console.log(session, "user session");
-       }
-       return session;*/
-
-      //Version profe
-      /*try {
+       try {
         const client = await clientPromise;
         const user = await client
           .db()
@@ -116,7 +107,17 @@ export const authOptions = {
         return Promise.resolve(session);
       } catch (error) {
         return Promise.reject(error);
-      }*/
+      }
+       //return session;
+      //Encontrando en internet 
+      /*if(token.user){
+        session.user = token.user;
+        console.log(session, "user session");
+       }
+       return session;*/
+
+      //Version profe
+      
     },
   },
 }
