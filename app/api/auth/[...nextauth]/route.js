@@ -57,8 +57,14 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req){
-        const user = {id: "1",  name: "isabel", email: "isa@mail.com", password: "12345", roles: "usuario" }
-                if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
+        //const user = {id: "1",  name: "isabel", email: "isa@mail.com", password: "12345", roles: "usuario" }
+         const client = await clientPromise;
+         const user = await client
+             .db()
+             .collection("usuarios") //users
+             .findOne({ email: credentials.email });     
+        
+              if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
                     return user;
               }else{
                 return null; 
@@ -84,7 +90,7 @@ export const authOptions = {
       
     },
     async session({ session, token}) {
-      console.log("token ", token);
+      console.log("async session");
       /*if (token) {
         session.user.id = token.id;
         session.user.roles = token.roles;
@@ -98,7 +104,7 @@ export const authOptions = {
         const client = await clientPromise;
         const user = await client
           .db()
-          .collection("users") //users
+          .collection("usuarios") //users
           .findOne({ email: session.user.email });
 
         // Add the user's role to the session object
