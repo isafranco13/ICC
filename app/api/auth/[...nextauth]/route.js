@@ -30,7 +30,7 @@ export const authOptions = {
         const client = await clientPromise;
         await client
           .db()
-          .collection("users") //users
+          .collection("usuarios") //users
           .updateOne({ email: user.email }, { $set: user });
 
           
@@ -51,18 +51,14 @@ export const authOptions = {
     // TODO: Aqui va el otro provider
     // ...add more providers here
     CredentialsProvider({
+      id: "credentials",
       name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req){
-        //const user = {id: "1",  name: "isabel", email: "isa@mail.com", password: "12345", roles: "usuario" }
-         const client = await clientPromise;
-         const user = await client
-             .db()
-             .collection("usuarios") //users
-             .findOne({ email: credentials.email });     
+        const user = {id: "1",  name: "isabel", email: "betty@mail.com", password: "12345", roles: "usuario" }
         
               if(user && user.password === credentials.password){  //credentials.email === user.email && credentials.password === user.password
                     return user;
