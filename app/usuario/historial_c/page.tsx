@@ -53,8 +53,7 @@ const Historial = async () => {
         estadocivil: "",
         papas: "",
         noHijo: "",
-        abortos: "",
-        hijos:"",
+        hijoPropio:"",
         operaciones:"",
         medicamentos:"",
     };
@@ -77,7 +76,7 @@ const Historial = async () => {
                         <div className="formUserDiv"> 
                             {/*titulo e instrucciones */}
                             <div className="formUserForm"><br />
-                                <form className=" w-full pl-4" method="post">{/*onSubmit={handleSumbmit}*/}
+                                <form className=" w-full pl-4" method="post" onSubmit={handleSubmit}>
                                     <h3 className="formUserSubtitle">Datos generales</h3> 
                                 
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
@@ -136,7 +135,7 @@ const Historial = async () => {
                                             
                                         <p className="formUserText">¿Cuántos hijos tiene?</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
-                                        <InputNumber/> <br/><br/> {/*value={formData.noHijo}*/}
+                                        <InputNumber/> <br/><br/> {/*value={formData.hijoPropio}*/}
                                     </div>
 
                                     <h3 className="formUserSubtitle">Datos médicos</h3> 
@@ -160,7 +159,8 @@ const Historial = async () => {
                                                     <input type="radio" id="no" name="medicamento" className="textInput"/>
                                                     <label htmlFor="no">No</label><br /><br />
                                                 </div>
-                                            <textarea  name="medicamentos"  value={formData.medicamentos} id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
+                                            <textarea  name="medicamentos"  value={formData.medicamentos
+                                            } id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
                                             <br /><br />
                                     </div>
