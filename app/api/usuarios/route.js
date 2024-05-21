@@ -13,7 +13,7 @@ export async function GET() {
 export async function POST(request) {
     await connectDB();
     const data = await request.json();
-    const userExists = await Usuarios.findOne({ correo: data.correo });
+    const userExists = await Usuarios.findOne({ nombre: data.nombre });
     if (!userExists) {
         const usuarios = await Usuarios.create(data);
         return NextResponse.json({ usuarios , message: "Usuario creado"});
