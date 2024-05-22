@@ -11,8 +11,6 @@ const InputNumber = () => {
     return (
        <ChakraProvider>
         <NumberInput 
-        value={value}
-        onChange={onChange}
         defaultValue={0} 
         min={0} 
         max={15}

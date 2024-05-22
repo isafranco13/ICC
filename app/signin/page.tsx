@@ -17,16 +17,16 @@ export default function Form(){
     
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-            if(session?.user?.roles === "usuario"){
+            if(session?.user?.roles[0] === "usuario"){
                 router.push("/usuario"); //router.replace
-        }else if(session?.user?.roles === "terapeuta"){
+        }else if(session?.user?.roles[0] === "terapeuta"){
             router.push("/terapeuta");
-        }else if(session?.user?.roles === "admin"){
+        }else if(session?.user?.roles[0] === "admin"){
             router.push("/admin");
         }
         }
         
-    }, [sessionStatus, router, session]);
+    }, [sessionStatus, router]);
 
     //const [userInfo, setUserInfo] = useState({email: "", password: ""});
     const handleSubmit =  async (e: any) => { //async (e: any)

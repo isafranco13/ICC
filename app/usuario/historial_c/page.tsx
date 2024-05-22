@@ -4,14 +4,14 @@ import Link from "next/link"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import CustomButton from '../../../components/CustomButton';
-import MyListbox from "@/components/listboxHijo";
+//import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useState} from "react";
 //import React, {useState} from "react";
 
 
 const Historial = async () => {
-    //Hay que cambiar para que funcione la session y el listboxHijo
+    
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
@@ -81,7 +81,7 @@ const Historial = async () => {
                                 
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
                                         <div className="mb-4">
-                                            <input type="hidden" name="name"  /> {/*Input para tomar el nombre */}
+                                            <input  name="name" onChange={handleChange} value={formData.name} /> {/*Input para tomar el nombre type="hidden"*/}
                                             <p className="formUserText">Telefono</p>
                                             <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>

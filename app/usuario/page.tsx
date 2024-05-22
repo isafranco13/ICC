@@ -25,9 +25,9 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     //console.log("roles", session?.user?.roles[0])
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-            if (session?.user?.roles === "usuario") {
+            if (session?.user?.roles[0] === "usuario") {
                 router.replace("/usuario");
-            } else if(session?.user?.roles === "terapeuta"){
+            } else if(session?.user?.roles[0] === "terapeuta"){
                 router.replace("/terapeuta");
             }/*else{
                 router.replace("/admin");
