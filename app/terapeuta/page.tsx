@@ -72,7 +72,7 @@ const Dashboard = () => {
                             <div className="flex justify-start items-center w-full h-[120px] rounded-lg pl-2 mt-[14px]">
                                 <div className="flex items-center"> 
                                     <Image
-                                    src="/ver.png"
+                                    src="/userb.png"
                                     alt="perfil"
                                     width={66} 
                                     height={66}
@@ -94,13 +94,13 @@ const Dashboard = () => {
                                         </div>
                                         <div className="flex items-center "> 
                                             <Image
-                                                src="/descargar.png"
+                                                src="/ver.png"
                                                 alt="ubi"
                                                 width={20} 
                                                 height={20} 
                                                 className=" object-contain mr-2 ms-[40px]" 
                                             />
-                                            <a href="#"><p className="font-medium text-[19px] hover:text-[#05814E]">Descargar Historial Clinico</p></a>
+                                            <a href="#"><p className="font-medium text-[19px] hover:text-[#05814E]">Ver Historial Clinico</p></a>
                                         </div>
                                     </div>
                                 </div>
