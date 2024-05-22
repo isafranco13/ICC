@@ -43,9 +43,10 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       
-    })
+    }),
     // TODO: Aqui va el otro provider
     // ...add more providers here
+    
   ],
   // A database is optional, but required to persist accounts in a database
   callbacks: {

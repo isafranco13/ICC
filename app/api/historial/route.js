@@ -1,4 +1,5 @@
 import { connectDB } from "@/libs/mongodb";
+//import clientPromise from "@/libs/mongodb";
 import  Historial from "@/models/terapeutas";
 import { NextResponse } from "next/server";
 
@@ -14,12 +15,11 @@ export async function GET() {
 export async function POST(request) {
     await connectDB();
     const data = await request.json();
-    const historialExists = await Historial.findOne({ correo: data.correo });
+    const historialExists = await Historial.findOne({ name: data.name });
     if (!historialExists) {
         const historial = await Historial.create(data);
         return NextResponse.json({ historial , message: "Usuario creado"});
     } else{
-        //Si el usuario ya existe, no hace nada
-        //return NextResponse.json({ message: "correo"});
+        
     }
 }

@@ -4,21 +4,23 @@ import Link from "next/link"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import CustomButton from '../../../components/CustomButton';
+import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useState} from "react";
 //import React, {useState} from "react";
 
 
-const Historial = async () => {
+const Historial = () => {
     
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
     }*/
+    const { data: session} = useSession()
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+        console.log(formData);
             const res = await fetch("/api/historial",{
                 method: "POST",
                 body: JSON.stringify(formData),
@@ -46,19 +48,18 @@ const Historial = async () => {
         }));
     };
     
-    const startingUsuariosData={
+    const startingHistorialData={
         name: "",
         telefono: "",
         edad: "",
-        estadocivil: "",
+        estadoCivil: "",
         papas: "",
         noHijo: "",
         hijoPropio:"",
         operaciones:"",
         medicamentos:"",
     };
-   
-    const [formData, setFormData] = useState(startingUsuariosData);
+    const [formData, setFormData] = useState(startingHistorialData);
     return (
         <>
             <main className="formUser">
@@ -81,7 +82,7 @@ const Historial = async () => {
                                 
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
                                         <div className="mb-4">
-                                            <input  name="name" onChange={handleChange} value={formData.name} /> {/*Input para tomar el nombre type="hidden"*/}
+                                            <input type="text" name="name" onChange={handleChange} value={session?.user?.name} /> {/*Input para tomar el nombre type="hidden"*/}
                                             <p className="formUserText">Telefono</p>
                                             <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
@@ -97,12 +98,12 @@ const Historial = async () => {
                                             
                                             <div className="radio"> 
                                                 <div className="mr-4">
-                                                    <input type="radio" onChange={handleChange} value={formData.estadocivil} id="casado" name="estadoCivil"  className="textInput" />
+                                                    <input type="radio" onChange={handleChange} value="casado" id="casado" name="estadoCivil"  className="textInput" />
                                                     <label htmlFor="casado" className="ml-2 text-[19px]">Casado(a)</label>
                                                 </div>
 
                                                 <div>
-                                                    <input type="radio" onChange={handleChange} id="soltero" value={formData.estadocivil} name="estadoCivil"  className="textInput" />
+                                                    <input type="radio" onChange={handleChange} id="soltero" value="soltero" name="estadoCivil"  className="textInput" />
                                                     <label htmlFor="soltero" className="ml-2 text-[19px]">Soltero(a)</label>
                                                 </div>
                                             </div>      
@@ -142,9 +143,9 @@ const Historial = async () => {
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">¿Ha tenido operaciones?</p>
                                             <div className="flex flex-row  gap-[10px]"> 
-                                                <input type="radio" onChange={handleChange} id="si" name="operaciones" className="textInput"/>
+                                                <input type="radio" id="si" name="operaciones" className="textInput"/>
                                                 <label htmlFor="si">Si</label>
-                                                <input type="radio" onChange={handleChange} id="no" name="operaciones" className="textInput"/>
+                                                <input type="radio" id="no" name="operaciones" className="textInput"/>
                                                 <label htmlFor="no">No</label><br /><br />
                                             </div>
 
@@ -160,7 +161,7 @@ const Historial = async () => {
                                                     <label htmlFor="no">No</label><br /><br />
                                                 </div>
                                             <textarea  name="medicamentos"  value={formData.medicamentos
-                                            } id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
+                                            } onChange={handleChange} id="medicamentos"  placeholder="Nombre los medicamentos que toma y su función" 
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
                                             <br /><br />
                                     </div>

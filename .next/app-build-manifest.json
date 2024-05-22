@@ -26,6 +26,16 @@
       "static/chunks/main-app.js",
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
+    ],
+    "/usuario/historial_c/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/usuario/historial_c/page.js"
+    ],
+    "/signup/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/signup/page.js"
     ]
   }
 }
