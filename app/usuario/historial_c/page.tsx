@@ -7,7 +7,7 @@ import CustomButton from '../../../components/CustomButton';
 import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 //import React, {useState} from "react";
 
 
@@ -17,7 +17,9 @@ const Historial = () => {
     if (!session) {
       redirect("/signin");
     }*/
+    
     const { data: session} = useSession()
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(formData);
@@ -31,9 +33,18 @@ const Historial = () => {
             })
             
     }
+    useEffect(() => {
+        if (session?.user?.name) {
+            setFormData(prevState => ({
+                ...prevState,
+                name: session.user.name
+            }));
+        }
+    }, [session]);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
-        const value = e.target.value;
-        const name = e.target.name;
+        const {name, value} = e.target;
+        //const value = e.target.value;
+        //const name = e.target.name;
         setFormData((prevState) => ({
             ...prevState,
             [name]: value,
@@ -98,7 +109,7 @@ const Historial = () => {
                                 
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
                                         <div className="mb-4">
-                                            <input type="text" name="name" onChange={handleChange} value={session?.user?.name} /> {/*Input para tomar el nombre type="hidden"*/}
+                                            <input type="text" name="name" onChange={handleChange} value={formData.name} /> {/*Input para tomar el nombre type="hidden"*/}
                                             <p className="formUserText">Telefono</p>
                                             <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
@@ -154,7 +165,7 @@ const Historial = () => {
                                         <p className="formUserText">¿Cuántos hijos tiene?</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
                                         <input name="hijoPropio" onChange={handleChange}  id="hijoPropio" value={formData.hijoPropio}  type="number" placeholder="2" className="inputBox"/>
-                                        <InputNumber/> <br/><br/> {/*value={formData.hijoPropio}*/}
+                                        {/*<InputNumber/> */} <br/><br/> {/*value={formData.hijoPropio}*/}
                                     </div>
 
                                     <h3 className="formUserSubtitle">Datos médicos</h3> 
