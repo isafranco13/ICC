@@ -13,16 +13,15 @@ import { useToast } from '@chakra-ui/react'
 
 
 const Historial = () => {
-    function ToastExample() {
-        const toast = useToast()
-    }
+   
+    
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
     }*/
     
     const { data: session} = useSession()
-    console.log(session);
+    //console.log(session);
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(formData);

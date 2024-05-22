@@ -21,17 +21,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/usuario/page.js"
     ],
-    "/terapeuta/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/terapeuta/page.css",
-      "static/chunks/app/terapeuta/page.js"
-    ],
-    "/terapeuta/historialV/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/terapeuta/historialV/page.js"
-    ],
     "/usuario/historial_c/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

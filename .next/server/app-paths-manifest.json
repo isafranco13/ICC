@@ -1,7 +1,6 @@
 {
   "/signin/page": "app/signin/page.js",
   "/usuario/page": "app/usuario/page.js",
-  "/terapeuta/page": "app/terapeuta/page.js",
-  "/terapeuta/historialV/page": "app/terapeuta/historialV/page.js",
-  "/usuario/historial_c/page": "app/usuario/historial_c/page.js"
+  "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
