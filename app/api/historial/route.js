@@ -22,7 +22,8 @@ export async function POST(request) {
       const result = await db.collection("historial").insertOne(data);
       return NextResponse.json({ result, message: "Historial creado" });
     } else{
-        return NextResponse.json({ message: "Historial ya existe" });
+        const result = await db.collection("historial").updateOne({ name: data.name }, { $set: data });
+        return NextResponse.json({ result, message: "Historial actualizado" });
         
     }
           //.updateOne({ email: user.email }, { $set: user });

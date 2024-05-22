@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { AuthOptions } from "next-auth";
 import Image from 'next/image';
+import Link from "next/link"
 import CustomButton from '../../components/CustomButton';
 import NavbarTera from "@/components/NavbarTera";
 import {Calendar, dayjsLocalizer} from 'react-big-calendar';
@@ -100,7 +101,8 @@ const Dashboard = () => {
                                                 height={20} 
                                                 className=" object-contain mr-2 ms-[40px]" 
                                             />
-                                            <a href="#"><p className="font-medium text-[19px] hover:text-[#05814E]">Ver Historial Clinico</p></a>
+                                            <Link href="/terapeuta/historialV" className="font-medium text-[19px] hover:text-[#05814E]">Ver Historial Clinico</Link>
+                                            
                                         </div>
                                     </div>
                                 </div>

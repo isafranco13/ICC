@@ -8,11 +8,14 @@ import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
+import { useToast } from '@chakra-ui/react'
 //import React, {useState} from "react";
 
 
 const Historial = () => {
-    
+    function ToastExample() {
+        const toast = useToast()
+    }
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
@@ -109,7 +112,7 @@ const Historial = () => {
                                 
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
                                         <div className="mb-4">
-                                            <input type="text" name="name" onChange={handleChange} value={formData.name} /> {/*Input para tomar el nombre type="hidden"*/}
+                                            <input type="hidden" name="name" onChange={handleChange} value={formData.name} /> {/*Input para tomar el nombre type="hidden"*/}
                                             <p className="formUserText">Telefono</p>
                                             <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6141234567" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
@@ -194,11 +197,12 @@ const Historial = () => {
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2"></textarea> {/*value={formData.operaciones} */}
                                             <br /><br />
                                     </div>
-
+                                    
                                     <CustomButton
                                         btnType="submit"
                                         title="Guardar"
                                         containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
+                                        
                                     /> 
 
                                 </form>
