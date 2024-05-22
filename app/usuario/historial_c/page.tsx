@@ -8,13 +8,12 @@ import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
-import { useToast } from '@chakra-ui/react'
+
 //import React, {useState} from "react";
 
 
 const Historial = () => {
-   
-    
+
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
