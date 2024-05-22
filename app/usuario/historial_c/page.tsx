@@ -141,7 +141,8 @@ const Historial = () => {
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">Número de hijo</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
-                                        <InputNumber/> <br/><br/> {/*value={formData.noHijo}*/}
+                                        <input name="noHijo" onChange={handleChange}  id="noHijo" value={formData.noHijo} required={true} type="number" placeholder="2" className="inputBox"/>
+                                        {/* <InputNumber/>*/} <br/><br/> {/*value={formData.noHijo}*/}
                                         <p className="formUserText">¿Tiene hijos?</p>
                                             <div className="flex flex-row  gap-[10px]"> 
                                                 <input type="radio" onChange={handleChange} id="si" name="hijos" className="textInput"/>
@@ -152,6 +153,7 @@ const Historial = () => {
                                             
                                         <p className="formUserText">¿Cuántos hijos tiene?</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de su familia*</p><br />
+                                        <input name="hijoPropio" onChange={handleChange}  id="hijoPropio" value={formData.hijoPropio}  type="number" placeholder="2" className="inputBox"/>
                                         <InputNumber/> <br/><br/> {/*value={formData.hijoPropio}*/}
                                     </div>
 
