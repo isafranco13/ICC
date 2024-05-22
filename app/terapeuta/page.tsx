@@ -72,7 +72,7 @@ const Dashboard = () => {
                             <div className="flex justify-start items-center w-full h-[120px] rounded-lg pl-2 mt-[14px]">
                                 <div className="flex items-center"> 
                                     <Image
-                                    src="/userb.png"
+                                    src="/ver.png"
                                     alt="perfil"
                                     width={66} 
                                     height={66}
