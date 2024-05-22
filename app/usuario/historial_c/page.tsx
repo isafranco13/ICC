@@ -40,12 +40,28 @@ const Historial = () => {
         }));
     }
     const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.checked; // true si está marcado, false si está desmarcado
+        const checked = e.target.checked; // true si está marcado, false si está desmarcado
         const name = e.target.name;
-        setFormData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
+        setFormData((prevState) => {
+            // Crear una copia del estado actual de 'papas'
+            let updatedPapas = prevState.papas;
+
+            // Determinar si agregar o quitar el valor
+            if (checked) {
+                // Agregar el valor si el checkbox está marcado
+                updatedPapas = updatedPapas ? `${updatedPapas}, ${name}` : name;
+            } else {
+                // Quitar el valor si el checkbox está desmarcado
+                const values = updatedPapas.split(', ').filter(item => item !== name);
+                updatedPapas = values.join(', ');
+            }
+
+            // Devolver el nuevo estado con 'papas' actualizado
+            return {
+                ...prevState,
+                papas: updatedPapas
+            };
+        });
     };
     
     const startingHistorialData={
@@ -115,9 +131,9 @@ const Historial = () => {
                                         <div className="w-full pl-[30px]"><p className="formUserText">Seleccione si uno de sus padres ha fallecido</p></div>
                                         
                                         <div className="flex flex-row pl-[30px] gap-[10px]">
-                                            <input type="checkbox" onChange={handleChangeCheckbox} value={formData.papas} id="mama" name="mama" className="textInput"/>
+                                            <input type="checkbox" onChange={handleChangeCheckbox} id="mama" name="mama" className="textInput"/>
                                             <label htmlFor="mama" className="text-[19px]">Mamá</label>
-                                            <input type="checkbox" value={formData.papas} onChange={handleChangeCheckbox} id="papa" name="papa" className="textInput"/>
+                                            <input type="checkbox" onChange={handleChangeCheckbox} id="papa" name="papa" className="textInput"/>
                                             <label htmlFor="papa" className="text-[19px]">Papá</label>
                                         </div>
                                     </div><br/>
