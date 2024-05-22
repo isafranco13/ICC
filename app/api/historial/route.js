@@ -1,6 +1,6 @@
-import { connectDB } from "@/libs/mongodb";
-//import clientPromise from "@/libs/mongodb";
-import  Historial from "@/models/terapeutas";
+//import { connectDB } from "@/libs/mongodb";
+import clientPromise from "@/libs/mongodb";
+import  Historial from "@/models/historial";
 import { NextResponse } from "next/server";
 
 //Obtener todos los historiales
@@ -13,7 +13,20 @@ export async function GET() {
 
 //Insertar nuevo historial
 export async function POST(request) {
-    await connectDB();
+    const client = await clientPromise;
+    const data = await request.json();
+    const db = client.db();
+    const historialExists = await db.collection("historial").findOne({ name: data.name });
+      
+   if(!historialExists){
+      const result = await db.collection("historial").insertOne(data);
+      return NextResponse.json({ result, message: "Historial creado" });
+    } else{
+        return NextResponse.json({ message: "Historial ya existe" });
+        
+    }
+          //.updateOne({ email: user.email }, { $set: user });
+    /*await connectDB();
     const data = await request.json();
     const historialExists = await Historial.findOne({ name: data.name });
     if (!historialExists) {
@@ -21,5 +34,5 @@ export async function POST(request) {
         return NextResponse.json({ historial , message: "Usuario creado"});
     } else{
         
-    }
+    }*/
 }
