@@ -41,7 +41,7 @@ const Historial = () => {
             }));
         }
     }, [session]);
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{ //HTMLInputElement |
         const {name, value} = e.target;
         //const value = e.target.value;
         //const name = e.target.name;
@@ -111,7 +111,7 @@ const Historial = () => {
                                         <div className="mb-4">
                                             <input type="text" name="name" onChange={handleChange} value={formData.name} /> {/*Input para tomar el nombre type="hidden"*/}
                                             <p className="formUserText">Telefono</p>
-                                            <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6145153999" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
+                                            <input required={true} name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" placeholder="6141234567" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" />
                                         </div>
                                         <div className="edad">
                                             <p className="formUserText">Edad</p>
@@ -156,9 +156,9 @@ const Historial = () => {
                                         {/* <InputNumber/>*/} <br/><br/> {/*value={formData.noHijo}*/}
                                         <p className="formUserText">¿Tiene hijos?</p>
                                             <div className="flex flex-row  gap-[10px]"> 
-                                                <input type="radio" onChange={handleChange} id="si" name="hijos" className="textInput"/>
+                                                <input type="radio" id="si" value="si" name="hijos" className="textInput"/>
                                                 <label htmlFor="si">Si</label>
-                                                <input type="radio" onChange={handleChange} id="no" name="hijos" className="textInput"/>
+                                                <input type="radio" id="no" value="no" name="hijos" className="textInput"/>
                                                 <label htmlFor="no">No</label><br /><br />
                                             </div>
                                             
