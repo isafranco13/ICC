@@ -8,15 +8,20 @@ import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
+import { useRouter } from "next/router";
 //import React, {useState} from "react";
 
 
-const Historial = () => {
+const HistorialV = () => {
     
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
     }*/
+    
+    
+
+    
     
     const { data: session} = useSession()
     console.log(session);
@@ -33,14 +38,7 @@ const Historial = () => {
             })
             
     }
-    useEffect(() => {
-        if (session?.user?.name) {
-            setFormData(prevState => ({
-                ...prevState,
-                name: session.user.name
-            }));
-        }
-    }, [session]);
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{ //HTMLInputElement |
         const {name, value} = e.target;
         //const value = e.target.value;
@@ -50,30 +48,7 @@ const Historial = () => {
             [name]: value,
         }));
     }
-    const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const checked = e.target.checked; // true si está marcado, false si está desmarcado
-        const name = e.target.name;
-        setFormData((prevState) => {
-            // Crear una copia del estado actual de 'papas'
-            let updatedPapas = prevState.papas;
-
-            // Determinar si agregar o quitar el valor
-            if (checked) {
-                // Agregar el valor si el checkbox está marcado
-                updatedPapas = updatedPapas ? `${updatedPapas}, ${name}` : name;
-            } else {
-                // Quitar el valor si el checkbox está desmarcado
-                const values = updatedPapas.split(', ').filter(item => item !== name);
-                updatedPapas = values.join(', ');
-            }
-
-            // Devolver el nuevo estado con 'papas' actualizado
-            return {
-                ...prevState,
-                papas: updatedPapas
-            };
-        });
-    };
+    
     
     const startingHistorialData={
         name: "",
@@ -96,7 +71,7 @@ const Historial = () => {
                         {/*titulo e instrucciones */}
                         <div className="items-start px-[50px] py-[10px]"><br />
                             <div className="flex justify-end"><Link href="/terapeuta" className="hover:text-[#E55E7F] font-extrabold text-[22px]">Salir</Link></div>
-                            <h1 className="formUserTitle">Historial clínico</h1>
+                            <h1 className="formUserTitle">Historial clínico de </h1>
                             <p>Historial clinico del Paciente Seleccionado</p> 
                         </div>
                     </div>
@@ -196,4 +171,4 @@ const Historial = () => {
     );
 };
 
-export default Historial;
+export default HistorialV;
