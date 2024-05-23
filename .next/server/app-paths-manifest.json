@@ -1,6 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/signin/page": "app/signin/page.js",
-  "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
-  "/usuario/page": "app/usuario/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/usuarios/route": "app/api/usuarios/route.js"
 }
