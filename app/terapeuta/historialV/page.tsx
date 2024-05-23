@@ -20,9 +20,6 @@ const HistorialV = () => {
     }*/
     
     
-
-    
-    
     const { data: session} = useSession()
     console.log(session);
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

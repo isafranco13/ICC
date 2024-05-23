@@ -5,10 +5,16 @@ import { NextResponse } from "next/server";
 
 //Obtener todos los historiales
 //Cambiar a obtener uno solo cuando se selecciona un historial
-export async function GET() {
-    await connectDB();
-    const historial = await Historial.find({});
+export async function GET(req) {
+    const client = await clientPromise;
+    //const data = await request.json();
+    const db = client.db();
+    const {name} = req.params;
+    const historial = await db.collection("historial").findOne({ name: name }); //name: data.name
     return NextResponse.json({ historial });
+    /*await connectDB();
+    const historial = await Historial.find({});
+    return NextResponse.json({ historial });*/
 }
 
 //Insertar nuevo historial
