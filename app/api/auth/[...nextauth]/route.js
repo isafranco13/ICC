@@ -4,6 +4,7 @@ import clientPromise from "@/libs/mongodb";
 import Auth0Provider from "next-auth/providers/auth0";
 import { dateNowUnix } from "@/utils/dates";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 
 
@@ -46,7 +47,24 @@ export const authOptions = {
     }),
     // TODO: Aqui va el otro provider
     // ...add more providers here
-    
+    CredentialsProvider({
+      id: "credentials",
+      name :"credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
+        const user = {id: "1", name: "jane", email: "jane@mail.com", 
+        password: "12345", roles: ["usuario"]}
+
+        if(user && user.password === credentials.password){
+          return user
+        } else {
+          return null;
+        }
+      }
+    }),
   ],
   // A database is optional, but required to persist accounts in a database
   callbacks: {
