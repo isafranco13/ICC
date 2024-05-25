@@ -18,7 +18,9 @@ const HistorialV = () => {
     if (!session) {
       redirect("/signin");
     }*/
-    
+    const router= useRouter();
+    const {nombre} = router.query;
+    console.log(nombre);
     
     const { data: session} = useSession()
     console.log(session);
@@ -68,7 +70,7 @@ const HistorialV = () => {
                         {/*titulo e instrucciones */}
                         <div className="items-start px-[50px] py-[10px]"><br />
                             <div className="flex justify-end"><Link href="/terapeuta" className="hover:text-[#E55E7F] font-extrabold text-[22px]">Salir</Link></div>
-                            <h1 className="formUserTitle">Historial clínico de </h1>
+                            <h1 className="formUserTitle">Historial clínico de {nombre}</h1>
                             <p>Historial clinico del Paciente Seleccionado</p> 
                         </div>
                     </div>
