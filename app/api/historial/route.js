@@ -6,24 +6,30 @@ import { ObjectId } from 'mongodb';
 
 //Obtener todos los historiales
 //Cambiar a obtener uno solo cuando se selecciona un historial
-/*export const GET = async(req, {params}) =>{
+export async function GET(req, {params}) {
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
+
     
-    const historial = await db.collection("historial").find({}).toArray();
-    return NextResponse.json({ historial });import { ObjectId } from 'mongodb';
-}*/
-export const GET = async(req, {params}) => {
+    const {id} = req.params.id;
+    const historialE = await db.collection("historial").findOne({id: id});
+    if(historialE){
+        return NextResponse.json({ historialE });
+    }else{
+        return NextResponse.json({ message: "No se encontro el historial" });
+    }
+}
+/*export const GET = async(req, {params}) => {
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
 
     const { id } = req.params;
-    const historial = await db.collection("historial").findOne({_id: ObjectId(id)}).toArray();
+    const historial = await db.collection("historial").findOne({_id: id}).toArray();
     //console.log(historial);
     return NextResponse.json({ historial });
-}
+}*/
     
     
     /* const client = await clientPromise;
