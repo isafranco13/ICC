@@ -15,6 +15,7 @@ export const authOptions = {
   events: {
     signIn: async (ctx) => {
       //when sign in, update db with last sign in time
+     
       const { user, isNewUser } = ctx;
       try {
         if (isNewUser) {
@@ -55,11 +56,12 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const user = {id: "1", name: "jane", email: "jane@mail.com", 
+        
+        const user = {name: "jane", email: "jane@gmail.com", 
         password: "12345", roles: ["usuario"]}
 
         if(user && user.password === credentials.password){
-          return user
+          return user;
         } else {
           return null;
         }
@@ -69,11 +71,12 @@ export const authOptions = {
   // A database is optional, but required to persist accounts in a database
   callbacks: {
     async jwt({ token}) {
-      token.userRole = "usuario"
+      console.log("jwt", token)
+      //token.userRole = "usuario"
       return token
     },
     async session({ session, token }) {
-      // console.log("session", session)
+      console.log("session", token)
       try {
         const client = await clientPromise;
         const user = await client
@@ -89,6 +92,7 @@ export const authOptions = {
         return Promise.reject(error);
       }
     },
+    
   },
 }
 
