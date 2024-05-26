@@ -13,10 +13,13 @@ import dayjs from 'dayjs';
 import {useSession} from 'next-auth/react';
 import { useEffect } from 'react';
 import { useRouter } from "next/navigation";
+import {useRoute} from "next/router";
 
 const Dashboard = () => {
     //const session = await getServerSession();
     const router = useRouter();
+    let nombrePaciente = "Isabel Franco";
+    let nombrePacienteCodificado = encodeURI(nombrePaciente);
     const { data: session, status: sessionStatus} = useSession()
     useEffect(() => {
         if (sessionStatus === "authenticated") {
@@ -81,7 +84,7 @@ const Dashboard = () => {
                                     />
                                 </div>
                                 <div className="ms-[15px] flex flex-col flex-grow items-stretch">
-                                    <h2 className="font-semibold text-[20px]">Sutanito Perez</h2>
+                                    <h2 className="font-semibold text-[20px]">{nombrePaciente}</h2>
                                     <div className="flex items-center">
                                         <div className="flex items-center"> 
                                             <Image
@@ -101,7 +104,9 @@ const Dashboard = () => {
                                                 height={20} 
                                                 className=" object-contain mr-2 ms-[40px]" 
                                             />
-                                            <Link href="/historialV/[id]" as={`/historialV/${'Isabel Franco'}`} className="font-medium text-[19px] hover:text-[#05814E]">Ver Historial Clinico</Link>
+                                            <Link href={`/terapeuta/historialV?nombre=${nombrePacienteCodificado}`} className="font-medium text-[19px] hover:text-[#05814E]">
+                                                Ver Historial Clinico
+                                            </Link>
                                             
                                         </div>
                                     </div>

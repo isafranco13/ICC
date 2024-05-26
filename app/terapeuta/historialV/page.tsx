@@ -20,7 +20,14 @@ const HistorialV = () => {
     }*/
     const router= useRouter();
     const {nombre} = router.query;
+
+    if (!nombre) {
+        // Manejar el caso donde nombre no está definido
+        return <div>Nombre no encontrado</div>;
+    }
+
     console.log(nombre);
+
     
     const { data: session} = useSession()
     console.log(session);
