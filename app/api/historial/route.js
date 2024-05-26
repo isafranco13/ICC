@@ -2,19 +2,30 @@
 import clientPromise from "@/libs/mongodb";
 import  Historial from "@/models/historial";
 import { NextResponse } from "next/server";
+import { ObjectId } from 'mongodb';
 
 //Obtener todos los historiales
 //Cambiar a obtener uno solo cuando se selecciona un historial
-export async function GET(req) {
+/*export const GET = async(req, {params}) =>{
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
-    //const id= params.id;
     
-        const historial = await db.collection("historial").find({}).toArray();
-        return NextResponse.json({ historial });
+    const historial = await db.collection("historial").find({}).toArray();
+    return NextResponse.json({ historial });import { ObjectId } from 'mongodb';
+}*/
+export const GET = async(req, {params}) => {
+    //Conexion a la base de datos
+    const client = await clientPromise;
+    const db = client.db();
+
+    const { id } = req.params;
+    const historial = await db.collection("historial").findOne({_id: ObjectId(id)}).toArray();
+    //console.log(historial);
+    return NextResponse.json({ historial });
+}
     
-   
+    
     /* const client = await clientPromise;
     const db = client.db();
     const {name} = req.params;
@@ -23,7 +34,7 @@ export async function GET(req) {
     /*await connectDB();
     const historial = await Historial.find({});
     return NextResponse.json({ historial });*/
-}
+
 
 //Insertar nuevo historial
 export async function POST(request) {
