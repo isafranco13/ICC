@@ -2,31 +2,30 @@
 import { Footer, NavbarSignOut} from "@/components";
 import Link from "next/link"
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import { redirect, usePathname, useSearchParams} from "next/navigation";
 import CustomButton from '../../../components/CustomButton';
 import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 //import React, {useState} from "react";
 
 
 const HistorialV = () => {
-    
+    const router= useRouter();
+    const searchParams = useSearchParams();
+    //const nombre = usePathname();
+    //console.log(nombre);
+    const nombre = searchParams.get("nombre");
+    console.log(searchParams.get("nombre"));
     /*const session = await getServerSession();
     if (!session) {
       redirect("/signin");
     }*/
-    const router= useRouter();
-    const {nombre} = router.query;
+    
 
-    if (!nombre) {
-        // Manejar el caso donde nombre no está definido
-        return <div>Nombre no encontrado</div>;
-    }
-
-    console.log(nombre);
+  
 
     
     const { data: session} = useSession()
