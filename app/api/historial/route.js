@@ -31,6 +31,9 @@ export const GET = async(req, {params}) => {
     const client = await clientPromise;
     const db = client.db();
 
+    //debe traer el nombre del usuario de la URL: 
+    //http://localhost:3000/historial/Isabel%20Franco -> ejemplo
+    //No sale ni madres, no se que hacer 
     console.log("req",req.params);
     const  name  = req.params;
     //console.log(name);
