@@ -104,7 +104,7 @@ const Dashboard = () => {
                                                 height={20} 
                                                 className=" object-contain mr-2 ms-[40px]" 
                                             />
-                                            <Link href={`/terapeuta/historialV?nombre=${nombrePacienteCodificado}`} className="font-medium text-[19px] hover:text-[#05814E]">
+                                            <Link href={`/terapeuta/historialV?name=${nombrePacienteCodificado}`} className="font-medium text-[19px] hover:text-[#05814E]">
                                                 Ver Historial Clinico
                                             </Link>
                                             
