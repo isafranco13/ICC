@@ -38,6 +38,7 @@ export const GET = async(req, {params}) => {
     const  name  = req.params;
     //console.log(name);
     const historial = await db.collection("historial").findOne({name: "Isabel Franco"});
+    //const historial = await db.collection("historial").findOne({name: "Isabel Franco"});
     //console.log(historial);
     return NextResponse.json({ historial });
 }

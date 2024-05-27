@@ -55,9 +55,10 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        
-        const user = {name: "jane", email: "jane@gmail.com", 
-        password: "12345", roles: ["usuario"]}
+         //Conexion a la base de datos
+        const client = await clientPromise;
+        const db = client.db();
+        const user = await db.collection("users").collection("users").findOne({ email: credentials.email });
 
         if(user && user.password === credentials.password){
           return user;
@@ -69,9 +70,9 @@ export const authOptions = {
   ],
   // A database is optional, but required to persist accounts in a database
   callbacks: {
-    async jwt({ token}) {
-      token.userRole = "usuario"
-      //console.log("jwt", token)
+    async jwt({ token, usuario}) {
+      token.userRole = ["usuario"];
+      console.log("jwt", token)
       return token
     },
     async session({ session, token }) {
