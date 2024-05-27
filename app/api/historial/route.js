@@ -7,13 +7,15 @@ import { ObjectId } from 'mongodb';
 
 //Obtener todos los historiales
 //Cambiar a obtener uno solo cuando se selecciona un historial
-export async function GET(req) {
+/*export async function GET(req) {
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
     //const usuario = "Jane Ortega";
-    console.log(req.query);
-    const name = req.query;
+    
+    const name = req.params;
+    console.log(name);
+
     //busqueda del historial
     const historial = await db.collection("historial").findOne({name});
     if(historial){
@@ -23,17 +25,18 @@ export async function GET(req) {
     }
     return NextResponse.json({ historial });
    
-}
-/*export const GET = async(req, {params}) => {
+}*/
+export const GET = async(req, {params}) => {
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
 
-    const { id } = req.params;
-    const historial = await db.collection("historial").findOne({_id: id}).toArray();
+    const  name  = req.params;
+    console.log(name);
+    const historial = await db.collection("historial").findOne({name: "Isabel Franco"});
     //console.log(historial);
     return NextResponse.json({ historial });
-}*/
+}
     
     
     /* const client = await clientPromise;

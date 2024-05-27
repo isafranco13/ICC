@@ -1,3 +1,6 @@
 {
+  "/page": "app/page.js",
+  "/terapeuta/page": "app/terapeuta/page.js",
+  "/terapeuta/historialV/page": "app/terapeuta/historialV/page.js",
   "/api/historial/route": "app/api/historial/route.js"
 }
