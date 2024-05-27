@@ -10,16 +10,18 @@ import { ObjectId } from 'mongodb';
 export async function GET(req) {
     //Conexion a la base de datos
     const client = await clientPromise;
-    const data = await req.json();
     const db = client.db();
-    
-    
-    const historial = await db.collection("historial").findOne({ name: data.name});
-    if(!historial){
-        return NextResponse.json({ message: "Historial no encontrado" });
+    //const usuario = "Jane Ortega";
+    console.log(req.query);
+    const name = req.query;
+    //busqueda del historial
+    const historial = await db.collection("historial").findOne({name});
+    if(historial){
+        return NextResponse.json({historial});
     }else{
-        return NextResponse.json({ historial });
+        return NextResponse.json({ message: "No se encontro el historial"});
     }
+    return NextResponse.json({ historial });
    
 }
 /*export const GET = async(req, {params}) => {
