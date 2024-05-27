@@ -22,10 +22,10 @@
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
     ],
-    "/terapeuta/historialV/page": [
+    "/usuario/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/terapeuta/historialV/page.js"
+      "static/chunks/app/usuario/page.js"
     ]
   }
 }

@@ -32,7 +32,6 @@ export const authOptions = {
           .db()
           .collection("users")
           .updateOne({ email: user.email }, { $set: user });
-
         console.log(`${user.email} logged in and updated in DB =>`);
       } catch (error) {
         console.log(`Error udating user ${user.email} in signinevent:`, error);
@@ -71,8 +70,8 @@ export const authOptions = {
   // A database is optional, but required to persist accounts in a database
   callbacks: {
     async jwt({ token}) {
-      console.log("jwt", token)
-      //token.userRole = "usuario"
+      token.userRole = "usuario"
+      //console.log("jwt", token)
       return token
     },
     async session({ session, token }) {
@@ -92,7 +91,12 @@ export const authOptions = {
         return Promise.reject(error);
       }
     },
-    
+    async signIn([user, account]) {
+      if(account?.provider === "credentials"){
+        return true;
+      }
+      return true
+    },
   },
 }
 
