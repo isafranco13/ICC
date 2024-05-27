@@ -53,7 +53,7 @@ export const authOptions = {
     // ...add more providers here
     CredentialsProvider({
       id: "credentials",
-      name :"credentials",
+      name :"Credentials",
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
@@ -64,12 +64,7 @@ export const authOptions = {
         const db = client.db();
         const user = await db.collection("users").findOne({ email: credentials.email });
         
-        if(user && user.contrasena === credentials.password){
-          console.log(user);
-          return user;
-        } else {
-          return null;
-        }
+        return user;
       }
     }),
   ],
