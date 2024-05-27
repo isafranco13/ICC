@@ -43,7 +43,7 @@ export default function configApp() {
                             <p className='tituloAdmin'><strong>Configuración de la aplicación</strong></p>
                         </div>
 
-                        <div className="py-5 flex items-center justify-between m-6 bg-white rounded-xl p-3">
+                        {/*<div className="py-5 flex items-center justify-between m-6 bg-white rounded-xl p-3">
                             <p className= 'text-pink-400 font-bold' style={{marginRight: '10px' }}>Modo mantenimiento</p>
                                     <Switch
                                         checked={enabled1}
@@ -59,7 +59,7 @@ export default function configApp() {
                                         />
                                     </Switch>
                             </div>
-
+                        */}
 
                             <div className="py-5 flex items-center justify-between m-6 bg-white rounded-xl p-3">
                             <p className= 'text-pink-400 font-bold' style={{marginRight: '10px' }}>Modo mantenimiento</p>

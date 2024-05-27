@@ -1,5 +1,12 @@
 {
-  "/page": "app/page.js",
+  "/not-found": "app/not-found.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/home/page": "app/admin/home/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/admin/altaTerapeuta/page": "app/admin/altaTerapeuta/page.js",
+  "/admin/configApp/page": "app/admin/configApp/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/admin/mantenimiento/page": "app/admin/mantenimiento/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
 }

@@ -2864,6 +2864,59 @@ html {
   .adminDiv{
     margin-left: 30%;
   }
+
+  
+.image-container{
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  
+@media (min-width: 1280px){
+
+    .image-container{
+      height: 100vh;
+      flex: 1.5;
+    }
+  }
+
+.image{
+    position: relative;
+    z-index: 0;
+    height: 500px;
+    width: 95%;
+  }
+
+@media (min-width: 1280px){
+
+    .image{
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+.image-overlay{
+    position: absolute;
+    right: -25%;
+    z-index: -10;
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    background-image: url('/hero-bg.png');
+    background-repeat: round;
+  }
+
+@media (min-width: 1280px){
+
+    .image-overlay{
+      top: -6rem;
+      right: -50%;
+      height: 100vh;
+    }
+  }
+
 }
 
 @media  (min-width: 1007px){
