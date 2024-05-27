@@ -4,13 +4,13 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { AuthOptions } from "next-auth";
 import Image from 'next/image';
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '@/components/CustomButton';
 import NavbarTera from "@/components/NavbarTera";
 import {Calendar, dayjsLocalizer} from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import dayjs from 'dayjs';
 import type { User } from "next-auth"
-
+import Link from "next/link"
 
 const Dashboard = async () => {
     /*const session = await getServerSession();
@@ -30,12 +30,13 @@ const Dashboard = async () => {
     */}    
 
                         <div className="section-3 h-max">
-                            <h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>
+                            {/*<h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>*/}
                             
                             <div className="h-[500px] w-[500] items-center">
                                     <Calendar
                                         localizer={localizer}
                                         style={{
+                                            backgroundColor: 'white',
                                             borderRadius: 20,
                                             height: '100%',
                                             width: '100%',
@@ -45,12 +46,14 @@ const Dashboard = async () => {
                                         }}
                                         length={1}
                                     />
-                            </div>                            
-                            <CustomButton
-                                    btnType="submit"
+                            </div>
+                            <Link href="/terapeuta/agendar-cita">
+                                <CustomButton
+                                    btnType="button"
                                     title="Añadir Cita"
                                     containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] w-full font-medium textButton mt-5 hover:bg-[#E55E7F]"
-                            /> 
+                                /> 
+                            </Link>                            
                         </div>
 
                         <div className="section-4 h-max">
