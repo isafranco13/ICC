@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
 import Image from 'next/image';
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '@/components/CustomButton';
 import {signIn} from 'next-auth/react'
-import { Navbar2 } from "@/components";
+import Navbar2 from "@/components/Navbar2";
 import { useRouter } from "next/navigation";
 import React, {useState} from "react";
 
