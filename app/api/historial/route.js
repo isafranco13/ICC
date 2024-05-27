@@ -31,8 +31,9 @@ export const GET = async(req, {params}) => {
     const client = await clientPromise;
     const db = client.db();
 
+    console.log("req",req.params);
     const  name  = req.params;
-    console.log(name);
+    //console.log(name);
     const historial = await db.collection("historial").findOne({name: "Isabel Franco"});
     //console.log(historial);
     return NextResponse.json({ historial });

@@ -21,7 +21,7 @@ const HistorialV = () => {
     //console.log(searchParams.get("nombre"));
     
     const [formData, setFormData] = useState({
-        name:"",
+        name: "",
         telefono: "",
         edad: "",
         estadoCivil: "",
@@ -35,7 +35,7 @@ const HistorialV = () => {
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const res = await fetch("/api/historial?name=${name}");
+                const res = await fetch(`/api/historial?name=${name}`);
                 const data = await res.json();
                 if(res.ok){
                     setFormData(data.historial);
@@ -54,18 +54,18 @@ const HistorialV = () => {
     //console.log(session);
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-            const res = await fetch("/api/historial",{
+            /*const res = await fetch("/api/historial",{
                 method: "GET",
                 body: JSON.stringify(name),
                 headers:{
                     "Content-Type": "application/json"
                 }
                 
-            })
+            })*/
             
     }
     
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{ //HTMLInputElement |
+    /*const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{ //HTMLInputElement |
         const {name, value} = e.target;
         //const value = e.target.value;
         //const name = e.target.name;
@@ -73,7 +73,7 @@ const HistorialV = () => {
             ...prevState,
             [name]: value,
         }));
-    }
+    }*/
     
     
     
@@ -93,17 +93,17 @@ const HistorialV = () => {
                         <div className="formUserDiv"> 
                             {/*titulo e instrucciones */}
                             <div className="formUserForm"><br />
-                                <form className=" w-full pl-4" method="post" onSubmit={handleSubmit}>
+                                <form className=" w-full pl-4" method="post" onSubmit={handleSubmit} >
                                     <h3 className="formUserSubtitle">Datos generales</h3> 
                                 
                                     <div className="formUserDiv mt-[20px] pl-[30px]">
                                         <div className="mb-4">
                                             <p className="formUserText">Telefono</p>
-                                            <input name="telefono" onChange={handleChange} value={formData.telefono} id="telefono" type="number" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" readOnly/>
+                                            <input name="telefono"  value={formData.telefono} id="telefono" type="number" className="outline-none text-base pl-2 border-gray-300 rounded-lg py-2 px-4" readOnly/>
                                         </div>
                                         <div className="edad">
                                             <p className="formUserText">Edad</p>
-                                            <input name="edad" onChange={handleChange}  id="edad" value={formData.edad}  type="number" className="inputBox" readOnly/>
+                                            <input name="edad"   id="edad" value={formData.edad}  type="number" className="inputBox" readOnly/>
                                         </div>
                                     </div>
 
@@ -113,7 +113,7 @@ const HistorialV = () => {
                                             
                                             <div className="radio"> 
                                                 <div className="mr-4">
-                                                    <input type="text" onChange={handleChange} value={formData.estadoCivil} id="casado" name="estadoCivil"  className="inputBox" readOnly/>
+                                                    <input type="text"  value={formData.estadoCivil} id="casado" name="estadoCivil"  className="inputBox" readOnly/>
                                                 </div>
                                             </div>      
                                         </div>
@@ -131,13 +131,13 @@ const HistorialV = () => {
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">Número de hijo</p>
                                         <p className="formUserWarning">*Incluyendo abortos dentro de la familia*</p><br />
-                                        <input name="noHijo" onChange={handleChange}  id="noHijo" value={formData.noHijo} required={true} type="number"  className="inputBox" readOnly/>
+                                        <input name="noHijo"  id="noHijo" value={formData.noHijo} required={true} type="number"  className="inputBox" readOnly/>
                                         {/* <InputNumber/>*/} <br/><br/> {/*value={formData.noHijo}*/}
                                         
                                             
                                         <p className="formUserText">Hijos Propios</p>
                                         <p className="formUserWarning">*Incluyendo abortos que conozca dentro de la familia*</p><br />
-                                        <input name="hijoPropio" onChange={handleChange}  id="hijoPropio" value={formData.hijoPropio}  type="number"  className="inputBox" readOnly/>
+                                        <input name="hijoPropio"  id="hijoPropio" value={formData.hijoPropio}  type="number"  className="inputBox" readOnly/>
                                         {/*<InputNumber/> */} <br/><br/> {/*value={formData.hijoPropio}*/}
                                     </div>
 
@@ -145,7 +145,7 @@ const HistorialV = () => {
                                     <div className="w-full pl-[30px] gap-[40px]">{/**/}
                                         <p className="formUserText">Operaciones del Paciente</p>
                                             
-                                        <textarea  name="operaciones" onChange={handleChange} required={true} value={formData.operaciones} id="operaciones"   
+                                        <textarea  name="operaciones"  required={true} value={formData.operaciones} id="operaciones"   
                                         className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2" readOnly></textarea> {/*value={formData.operaciones} */}
                                         <br /><br />
 
@@ -153,7 +153,7 @@ const HistorialV = () => {
                                                 <div className="flex flex-row  gap-[10px]"> 
                                                     
                                                 </div>
-                                            <textarea  name="medicamentos"  value={formData.medicamentos} onChange={handleChange} id="medicamentos"   
+                                            <textarea  name="medicamentos"  value={formData.medicamentos}  id="medicamentos"   
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2" readOnly></textarea> {/*value={formData.operaciones} */}
                                             <br /><br />
                                     </div>

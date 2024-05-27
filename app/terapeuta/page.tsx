@@ -13,13 +13,15 @@ import dayjs from 'dayjs';
 import {useSession} from 'next-auth/react';
 import { useEffect } from 'react';
 import { useRouter } from "next/navigation";
-import {useRoute} from "next/router";
 
 const Dashboard = () => {
     //const session = await getServerSession();
+
+    //Aqui se deben agregar el nombre del usuario cuando se muestre en la cita
     const router = useRouter();
     let nombrePaciente = "Isabel Franco";
     let nombrePacienteCodificado = encodeURI(nombrePaciente);
+
     const { data: session, status: sessionStatus} = useSession()
     useEffect(() => {
         if (sessionStatus === "authenticated") {
