@@ -1,21 +1,4 @@
 {
-<<<<<<< HEAD
-  "/signup/page": "app/signup/page.js",
-  "/page": "app/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js",
-  "/terapeuta/page": "app/terapeuta/page.js",
-  "/usuario/page": "app/usuario/page.js",
-  "/usuario/historial_c/page": "app/usuario/historial_c/page.js"
-=======
-  "/admin/home/page": "app/admin/home/page.js",
-  "/admin/users/page": "app/admin/users/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/signin/page": "app/signin/page.js",
-  "/signup/page": "app/signup/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
-  "/api/terapeutas/route": "app/api/terapeutas/route.js"
->>>>>>> fcae5e2dd307cd3f7f92ddcf1a8fbd435903a693
+  "/terapeuta/perfil/page": "app/terapeuta/perfil/page.js",
+  "/terapeuta/page": "app/terapeuta/page.js"
 }

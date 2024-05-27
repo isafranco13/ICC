@@ -6,59 +6,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-<<<<<<< HEAD
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
-    "/signup/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/signup/page.css",
-      "static/chunks/app/signup/page.js"
-=======
-    "/admin/altaTerapeuta/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/altaTerapeuta/page.js"
-    ],
-    "/admin/home/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/home/page.js"
-    ],
-    "/admin/users/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/users/page.js"
-    ],
-    "/admin/configApp/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/configApp/page.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
-    ],
-    "/admin/mantenimiento/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/mantenimiento/page.js"
-    ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
->>>>>>> fcae5e2dd307cd3f7f92ddcf1a8fbd435903a693
-    ],
-    "/signin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/signin/page.js"
     ],
     "/terapeuta/page": [
       "static/chunks/webpack.js",
@@ -66,15 +17,10 @@
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
     ],
-    "/usuario/page": [
+    "/terapeuta/perfil/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/usuario/page.js"
-    ],
-    "/signup/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/signup/page.js"
+      "static/chunks/app/terapeuta/perfil/page.js"
     ]
   }
 }

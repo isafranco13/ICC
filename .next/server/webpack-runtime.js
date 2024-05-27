@@ -47,11 +47,6 @@
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/amd options */
-/******/ 	(() => {
-/******/ 		__webpack_require__.amdO = {};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -130,11 +125,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = () => ("39ff258b6d21f533")
-=======
-/******/ 		__webpack_require__.h = () => ("36836372f5dbbaaf")
->>>>>>> fcae5e2dd307cd3f7f92ddcf1a8fbd435903a693
+/******/ 		__webpack_require__.h = () => ("9c5c42c4fe2688e3")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -172,11 +163,6 @@
 /******/ 			var r = fn();
 /******/ 			return r === undefined ? result : r;
 /******/ 		}
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/nonce */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/require chunk loading */
