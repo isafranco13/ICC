@@ -83,8 +83,7 @@ export default function Form(){
                                 <input type="email" /*value={userInfo.email} onChange={({target}) => setUserInfo({ ...userInfo, email: target.value})}*/ className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Correo" />
                                 <br />
                                 <input type="password" /*value={userInfo.password} onChange={({target}) => setUserInfo({ ...userInfo, password: target.value})}*/ className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña" />
-                                <button  type="submit" onClick={() => signIn(undefined, { callbackUrl: '/usuario' })} /*'/terapeuta' */ className="flex items-center justify-center w-[299px] h-[59px] 
-                        border-2 border-[#FFFFFF] bg-[#FFFFFF] rounded px-2 py-2 font-light text-center"> Iniciar sesión</button>
+                                
                                 <CustomButton
                                     btnType="submit"
                                     title="Iniciar Sesión"

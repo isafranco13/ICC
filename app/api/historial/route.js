@@ -32,13 +32,12 @@ export const GET = async(req, {params}) => {
     const db = client.db();
 
     //debe traer el nombre del usuario de la URL: 
-    //http://localhost:3000/historial/Isabel%20Franco -> ejemplo
-    //No sale ni madres, no se que hacer 
-    console.log("req",req.params);
-    const  name  = req.params;
-    //console.log(name);
+    //http://localhost:3000/terapeutas/Isabel%20Franco -> ejemplo
+    const  {name}  = req.params;
+    //const decodedName = decodeURIComponent(name);
+    console.log(name);
+    //const historial = await db.collection("historial").findOne({name: decodedName});
     const historial = await db.collection("historial").findOne({name: "Isabel Franco"});
-    //const historial = await db.collection("historial").findOne({name: "Isabel Franco"});
     //console.log(historial);
     return NextResponse.json({ historial });
 }

@@ -1,12 +1,8 @@
 "use client"
-import { Footer, NavbarSignOut} from "@/components";
 import Link from "next/link"
-import { getServerSession } from "next-auth";
 import { redirect, usePathname, useSearchParams} from "next/navigation";
 import CustomButton from '../../../components/CustomButton';
 import {useSession} from 'next-auth/react';
-//import MyListbox from "@/components/listboxHijo";
-import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 //import React, {useState} from "react";
@@ -49,7 +45,7 @@ const HistorialV = () => {
         if(name){
             fetchData();
         }
-    }, [name])
+    }, [name]);
     //const { data: session} = useSession()
     //console.log(session);
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
