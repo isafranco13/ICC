@@ -7,6 +7,24 @@ import { ObjectId } from 'mongodb';
 
 //Obtener todos los historiales
 //Cambiar a obtener uno solo cuando se selecciona un historial
+export async function GET(req, {params}) {
+    
+    const url = new URL(req.url);
+    const nombre = url.searchParams.get('name');
+    console.log("nombre", nombre);
+    //Conexion a la base de datos
+    const client = await clientPromise;
+    const db = client.db();
+    //const nombre = req.params;
+    
+    const historial = await db.collection("historial").findOne({name: nombre});
+
+    if (historial) {
+        return NextResponse.json({ historial });
+    } else {
+        return NextResponse.json({ message: 'Historial no encontrado' });
+    }
+}
 /*export async function GET(req) {
     //Conexion a la base de datos
     const client = await clientPromise;
@@ -23,11 +41,13 @@ import { ObjectId } from 'mongodb';
     }else{
         return NextResponse.json({ message: "No se encontro el historial"});
     }
-    return NextResponse.json({ historial });
+    //return NextResponse.json({ historial });
    
 }*/
-export const GET = async(req, {params}) => {
-     const {name} = params;
+/*export const GET = async(req, {params}) => {
+    const { historialVname } = params; 
+    console.log("Funcion GET");
+    const decodedName = decodeURIComponent(historialVname);
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
@@ -41,7 +61,7 @@ export const GET = async(req, {params}) => {
         return NextResponse.json({ message: "No se encontro el historial"});
     }
     //return NextResponse.json({ historial });
-}
+}*/
     
     
     /* const client = await clientPromise;

@@ -17,9 +17,10 @@ import { useRouter } from "next/navigation";
 const Dashboard = () => {
     //const session = await getServerSession();
 
-    //Aqui se deben agregar el nombre del usuario cuando se muestre en la cita
+    
     const router = useRouter();
-    let nombrePaciente = "Isabel Franco";
+    //Aqui se deben agregar el nombre del usuario cuando se muestre en la cita
+    let nombrePaciente = "Jane Ortega"; //-> AQUI DEBE DE IR EL NOMBRE DEL PACIENTE
     let nombrePacienteCodificado = encodeURI(nombrePaciente);
     //console.log(nombrePacienteCodificado);
 
@@ -107,7 +108,7 @@ const Dashboard = () => {
                                                 height={20} 
                                                 className=" object-contain mr-2 ms-[40px]" 
                                             />
-                                            <Link href={`/terapeuta/${nombrePacienteCodificado}`} className="font-medium text-[19px] hover:text-[#05814E]">
+                                            <Link href={`/terapeuta/${nombrePacienteCodificado}?name=${nombrePacienteCodificado}`} className="font-medium text-[19px] hover:text-[#05814E]">
                                                 Ver Historial Clinico
                                             </Link>
                                             

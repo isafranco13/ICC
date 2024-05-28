@@ -6,16 +6,15 @@ import {useSession} from 'next-auth/react';
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 //import React, {useState} from "react";
-import { useParams } from 'next/navigation'
+import { useParams } from 'next/navigation';
 
 
 export default function HistorialVDetails ()  { //=>
     const router= useRouter();
-    const params = useParams();
+    const searchParams = useSearchParams();
+    const name = searchParams.get("name");   
     
-    //const decodeName = decodeURIComponent(params.historialVname);
-    console.log("params", params)
-    //console.log("decodeName",decodeName);
+    console.log("name",name);
     const [formData, setFormData] = useState({
         name: "",
         telefono: "",
@@ -30,7 +29,8 @@ export default function HistorialVDetails ()  { //=>
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const res = await fetch(`/api/historial/${params.historialVname}`); ///api/historial/`
+                const res = await fetch(`/api/historial?name=${name}`); 
+                console.log("res", res);
                 const data = await res.json();
                 if(res.ok){
                     setFormData(data.historial);
@@ -41,10 +41,10 @@ export default function HistorialVDetails ()  { //=>
                 console.log(error);
             }
         };
-        if(params){
+        if(name){
             fetchData();
         }
-    }, [params]);
+    }, [name]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -66,7 +66,7 @@ export default function HistorialVDetails ()  { //=>
                     <div className="flex flex-col rounded-lg">                 
                         <div className="items-start px-[50px] py-[10px]"><br />
                             <div className="flex justify-end"><Link href="/terapeuta" className="hover:text-[#E55E7F] font-extrabold text-[22px]">Salir</Link></div>
-                            <h1 className="formUserTitle">Historial clínico de </h1>
+                            <h1 className="formUserTitle">Historial clínico de {name}</h1>
                             <p>Historial clinico del Paciente Seleccionado</p> 
                         </div>
                     </div>
