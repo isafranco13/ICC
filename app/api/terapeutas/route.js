@@ -1,6 +1,7 @@
 //import { connectDB } from "@/libs/mongodb";
 import clientPromise from "@/libs/mongodb";
 import  Terapeutas from "@/models/terapeutas";
+import  PerfilTerapeutas from "@/models/perfil_terap";
 import { NextResponse } from "next/server";
 
 //Función GET para obtener todos los terapeutas
@@ -21,9 +22,18 @@ export async function POST(request) {
     const terapeutaExists = await db.collection("users").findOne({ correo: data.correo });
       
    if(!terapeutaExists){
-      const result = await db.collection("users").insertOne(data);
-      return NextResponse.json({ result, message: "terapeuta creado" });
-    } else{ 
+        const result = await db.collection("users").insertOne(data);
+        // Crear el perfil del terapeuta con los datos proporcionados
+        const perfilTerapeuta = await PerfilTerapeutas.create({
+            usuarioId: result._id,
+            nombre: data.nombre,
+            apellidoPaterno: data.apellidoPaterno,
+            apellidoMaterno: data.apellidoMaterno,
+            celular: data.celular,
+        });
+        return NextResponse.json({ result, message: "terapeuta creado" });
+    } else{
+        return NextResponse.json({ message: "Terapeuta ya existe" });
     }  
     /*await connectDB();
     const data = await request.json();
@@ -47,8 +57,11 @@ export async function POST(request) {
 }
 
 export async function DELETE(request) {
-    const id = request.nextUrl.searchParams.get("id");
-    await connectDB();
-    await Usuarios.findByIdAndDelete(id);
+    const db = client.db();    
+    // Eliminar el terapeuta por su ID
+    const result = await db.collection("users").deleteOne({ _id: ObjectId(id), role: "terapeuta" });
+    if (result.deletedCount === 0) {
+        return NextResponse.error("No se encontró ningún terapeuta con el ID proporcionado.", { status: 404 });
+    }
     return NextResponse.json({ message: "Terapeuta eliminado" });
 }
