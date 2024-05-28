@@ -1,10 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/terapeuta/page": "app/terapeuta/page.js",
+  "/signin/page": "app/signin/page.js",
   "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js",
-  "/terapeuta/historialV/page": "app/terapeuta/historialV/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/historial/route": "app/api/historial/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/terapeuta/page": "app/terapeuta/page.js"
 }

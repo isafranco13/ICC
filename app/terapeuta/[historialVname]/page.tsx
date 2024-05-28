@@ -6,14 +6,16 @@ import {useSession} from 'next-auth/react';
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 //import React, {useState} from "react";
+import { useParams } from 'next/navigation'
 
-export default function HistorialVDetails ({params})  { //=>
+
+export default function HistorialVDetails ()  { //=>
     const router= useRouter();
+    const params = useParams();
     
-    
-    const decodeName = decodeURIComponent(params.historialVname);
-    console.log("params", params.historialVname)
-    console.log("decodeName",decodeName);
+    //const decodeName = decodeURIComponent(params.historialVname);
+    console.log("params", params)
+    //console.log("decodeName",decodeName);
     const [formData, setFormData] = useState({
         name: "",
         telefono: "",
@@ -39,10 +41,10 @@ export default function HistorialVDetails ({params})  { //=>
                 console.log(error);
             }
         };
-        if(decodeName){
+        if(params){
             fetchData();
         }
-    }, [decodeName]);
+    }, [params]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -64,7 +66,7 @@ export default function HistorialVDetails ({params})  { //=>
                     <div className="flex flex-col rounded-lg">                 
                         <div className="items-start px-[50px] py-[10px]"><br />
                             <div className="flex justify-end"><Link href="/terapeuta" className="hover:text-[#E55E7F] font-extrabold text-[22px]">Salir</Link></div>
-                            <h1 className="formUserTitle">Historial clínico de {decodeName}</h1>
+                            <h1 className="formUserTitle">Historial clínico de </h1>
                             <p>Historial clinico del Paciente Seleccionado</p> 
                         </div>
                     </div>
