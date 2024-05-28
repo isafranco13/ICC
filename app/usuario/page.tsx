@@ -25,9 +25,9 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
     //console.log("roles", session?.user?.roles[0])
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-            if (session?.user?.role[0] === "usuario") {
+            if (session?.user?.roles[0] === "usuario") {
                 router.replace("/usuario");
-            } else if(session?.user?.role[0] === "terapeuta"){
+            } else if(session?.user?.roles[0] === "terapeuta"){
                 router.replace("/terapeuta");
             }/*else{
                 router.replace("/admin");
@@ -37,7 +37,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
         }
     }, [sessionStatus, session, router]);
 
-    const [terapeutas, setTerapeutas] = useState<{ _id: string, nombre: string, apellido: string }[]>([]);
+    const [terapeutas, setTerapeutas] = useState<{ _id: string, nombre: string, apellidoPaterno: string, apellidoMaterno: string }[]>([]);
 
     useEffect(() => {
         fetch('/api/terapeutas')
@@ -54,7 +54,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
                            <p>Nombre: {session?.user?.name}</p>
-                             <p>Rol: {session?.user?.role[0]}</p>
+                             <p>Rol: {session?.user?.roles[0]}</p>
                         
                         <div className="section-1 h-max">
                 <h1 className="font-bold text-2xl">Terapeutas</h1>
@@ -70,7 +70,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                             />
                         </div>
                         <div className="ms-[15px] flex flex-col">
-                            <h2 className="subtitleHome">{`Psic. ${terapeuta.nombre} ${terapeuta.apellido}`}</h2>
+                            <h2 className="subtitleHome">{`Psic. ${terapeuta.nombre} ${terapeuta.apellidoPaterno} ${terapeuta.apellidoMaterno}`}</h2>
                             <div className="flex flex-row">
                                 <Image
                                     src="/reloj.png"
