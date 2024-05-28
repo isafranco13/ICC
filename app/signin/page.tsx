@@ -5,38 +5,56 @@ import CustomButton from '@/components/CustomButton';
 import {signIn, useSession} from 'next-auth/react'
 import Navbar2 from "@/components/Navbar2";
 import { useRouter } from "next/navigation";
-import React, {useEffect, useState} from "react";
+import React, {FormEventHandler, useEffect, useState} from "react";
 import CustomAlert from '@/components/CustomAlert';
 
 export default function Form(){
-    const router = useRouter();
     // const session = useSession();
+    const router = useRouter();
     const { data: session, status: sessionStatus } = useSession();
     const [alertMessage, setAlertMessage] = useState(""); // Mensaje de alerta
     const [isVisible, setIsVisible] = useState(false);
-
+    
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-        router.replace("/usuario");
+            if(session?.user?.roles === "usuario"){
+                router.push("/usuario"); //router.replace
+        }else if(session?.user?.roles === "terapeuta"){
+            router.push("/terapeuta");
+        }else if(session?.user?.roles === "admin"){
+            router.push("/admin");
         }
+        }
+        
     }, [sessionStatus, router]);
 
-    const handleSubmit = async (e: any) => {
+    //const [userInfo, setUserInfo] = useState({email: "", password: ""});
+    const handleSubmit =  async (e: any) => { //async (e: any)
         e.preventDefault();
         const email = e.target[0].value;
-        const password = e.target[1].value;
-
-        const res = await signIn('credentials', {
+        const password =  e.target[1].value;
+       
+        //console.log(userInfo);
+        /*const res= await signIn ('credentials', {
+            email: userInfo.email,
+            password: userInfo.password,
+            redirect: false,
+        });*/
+        const res = await signIn('credentials', { //signIn('credentials',
             email,
             password,
             redirect: false,
+            
         });
-
-        if (res?.error) {
+        //console.log(res);
+        console.log(session);
+        console.log(sessionStatus);
+        if (res?.error ) { //
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
-            if (res?.url) router.replace("/usuario");
+            //if (res?.url) router.replace("/usuario");
         }
+        
     };
 
     if (sessionStatus === "loading") {
@@ -62,9 +80,9 @@ export default function Form(){
                     <div className="divYellowContainer"><h1 className="text-3xl font-bold text-center titleSignIn">Iniciar Sesión</h1><br />
                         <div className="flex flex-col w-full pl-4">
                             <form className="flex flex-col items-center w-full" onSubmit={handleSubmit}>                                 
-                                <input type="email" className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Correo"/>
+                                <input type="email" /*value={userInfo.email} onChange={({target}) => setUserInfo({ ...userInfo, email: target.value})}*/ className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Correo" />
                                 <br />
-                                <input type="password" className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña"/>
+                                <input type="password" /*value={userInfo.password} onChange={({target}) => setUserInfo({ ...userInfo, password: target.value})}*/ className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña" />
                             
                                 <CustomButton
                                     btnType="submit"
@@ -97,7 +115,7 @@ export default function Form(){
                         </div>
                         <br />
                         <div className="flex justify-center my-2">&nbsp;
-                        <button onClick={() => signIn('google', { callbackUrl: '/terapeuta' })} className="flex items-center justify-center w-[299px] h-[59px] 
+                        <button onClick={() => signIn('google', { callbackUrl: '/usuario' })} /*'/terapeuta' */ className="flex items-center justify-center w-[299px] h-[59px] 
                         border-2 border-[#FFFFFF] bg-[#FFFFFF] rounded px-2 py-2 font-light text-center"> <Image
                         src="/buscar.png"
                         alt="mental"

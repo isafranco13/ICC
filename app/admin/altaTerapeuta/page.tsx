@@ -41,6 +41,7 @@ export default function Home() {
                     celular: "",
                     correo: "",
                     contrasena: "",
+                    role: "terapeuta",
                 });
             }
         } else {
@@ -64,6 +65,7 @@ export default function Home() {
         celular: "",
         correo: "",
         contrasena: "",
+        role: "terapeuta",
     };
     const [formData, setFormData] = useState(startingTerapeutasData);
     

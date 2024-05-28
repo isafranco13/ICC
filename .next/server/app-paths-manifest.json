@@ -1,4 +1,3 @@
 {
-  "/terapeuta/perfil/page": "app/terapeuta/perfil/page.js",
-  "/terapeuta/page": "app/terapeuta/page.js"
+  "/page": "app/page.js"
 }

@@ -1,5 +1,4 @@
 "use client"
-import { Footer} from "@/components";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { AuthOptions } from "next-auth";
@@ -9,15 +8,28 @@ import NavbarTera from "@/components/NavbarTera";
 import {Calendar, dayjsLocalizer} from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import dayjs from 'dayjs';
-import type { User } from "next-auth"
+import {useSession} from 'next-auth/react';
+import { useEffect } from 'react';
+import { useRouter } from "next/navigation";
 import Link from "next/link"
 
-const Dashboard = async () => {
-    /*const session = await getServerSession();
-    if (!session) {
-      redirect("/signin");
-    }
-    */
+const Dashboard = () => {
+    //const session = await getServerSession();
+    const router = useRouter();
+    const { data: session, status: sessionStatus} = useSession()
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.role[0] === "terapeuta") {
+                router.replace("/terapeuta");
+            }else if(session?.user?.role[0] === "usuario"){
+                router.replace("/usuario");
+            }/*else{
+                router.replace("/usuario");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+}, [sessionStatus, session, router]);
     //componentes del calendario
     const localizer = dayjsLocalizer(dayjs);
     
@@ -27,8 +39,10 @@ const Dashboard = async () => {
                         <div className="navbarUser">
                             <NavbarTera />
                         </div>
-    */}    
-
+                        <div>
+                           {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
+                           <p>Nombre: {session?.user?.name}</p>
+                             <p>Rol: {session?.user?.role[0]}</p>
                         <div className="section-3 h-max">
                             {/*<h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>*/}
                             
@@ -83,13 +97,14 @@ const Dashboard = async () => {
                                         </div>
                                         <div className="flex items-center "> 
                                             <Image
-                                                src="/descargar.png"
+                                                src="/ver.png"
                                                 alt="ubi"
                                                 width={20} 
                                                 height={20} 
                                                 className=" object-contain mr-2 ms-[40px]" 
                                             />
-                                            <a href="#"><p className="font-medium text-[19px] hover:text-[#05814E]">Descargar Historial Clinico</p></a>
+                                            <Link href={"/terapeuta/historialV?nombre=Isabel Franco"} className="font-medium text-[19px] hover:text-[#05814E]">Ver Historial Clinico</Link>
+                                            
                                         </div>
                                     </div>
                                 </div>

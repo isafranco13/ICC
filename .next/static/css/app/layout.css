@@ -820,9 +820,6 @@ video {
 .w-1\/2{
   width: 50%;
 }
-.w-1\/4{
-  width: 25%;
-}
 .w-1\/5{
   width: 20%;
 }
@@ -1139,10 +1136,6 @@ video {
 .bg-blue-100{
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-}
-.bg-blue-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 .bg-emerald-50{
   --tw-bg-opacity: 1;

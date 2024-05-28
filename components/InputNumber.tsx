@@ -10,10 +10,14 @@ import {
 const InputNumber = () => {
     return (
        <ChakraProvider>
-        <NumberInput defaultValue={0} min={0} max={15}
+        <NumberInput 
+        defaultValue={0} 
+        min={0} 
+        max={15}
         keepWithinRange={true}
         clampValueOnBlur={true}
-        size='md' maxW={24}>
+        size='md' 
+        maxW={24}>
         <NumberInputField bg='white.100'/>
         <NumberInputStepper>
         <NumberIncrementStepper />

@@ -3,22 +3,39 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import NavbarUsuario from "@/components/NavbarUsuario";
-import type { User } from "next-auth"
 import { useEffect, useState } from 'react';
+import {useSession} from 'next-auth/react';
+//import React, {useState} from 'react';
+//import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-type Props = {
-    user: User,
-}
+
   
-export default function Dashboard() { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
-    /*const session = await getServerSession();
-    if(session?.user.rol !== "terapeuta" && !session){
-        redirect("/signin");
-    }
-    
+const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
+    //const session = getServerSession();
+    //console.log(session)
+    /*const session = await getServerSession(authOptions)
     if (!session) {
       redirect("/signin");
     }*/
+    const router = useRouter();
+    const { data: session, status: sessionStatus } = useSession()
+    console.log(session);
+    console.log(sessionStatus);
+    //console.log("roles", session?.user?.roles[0])
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.role[0] === "usuario") {
+                router.replace("/usuario");
+            } else if(session?.user?.role[0] === "terapeuta"){
+                router.replace("/terapeuta");
+            }/*else{
+                router.replace("/admin");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+    }, [sessionStatus, session, router]);
 
     const [terapeutas, setTerapeutas] = useState<{ _id: string, nombre: string, apellido: string }[]>([]);
 
@@ -27,15 +44,18 @@ export default function Dashboard() { // async ({user}: Props)  -> NO BORRAR EST
             .then(response => response.json())
             .then(data => setTerapeutas(data.terapeutas));
     }, []);
-    
     return (
         <>                            <NavbarUsuario/>
 
                   {/*  <div className="containerUser">
                         <div className="navbarUser">
                             <NavbarUsuario/>
-                        </div>
-    */} 
+                        </div>/*}
+                        <div>
+                           {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
+                           <p>Nombre: {session?.user?.name}</p>
+                             <p>Rol: {session?.user?.role[0]}</p>
+                        
                         <div className="section-1 h-max">
                 <h1 className="font-bold text-2xl">Terapeutas</h1>
                 {terapeutas.map((terapeuta) => (
@@ -117,3 +137,4 @@ export default function Dashboard() { // async ({user}: Props)  -> NO BORRAR EST
         </>
     );
 };
+export default Dashboard;
