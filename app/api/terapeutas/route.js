@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
     const client = await clientPromise;
     const db = client.db();
-    const terapeutas = await db.collection("users").find({}).toArray();
+    const terapeutas = await db.collection("users").find({ role: "terapeuta" }).toArray();
     return NextResponse.json({ terapeutas });
     /*await connectDB();
     const terapeutas = await Terapeutas.find({});
@@ -30,7 +30,7 @@ export async function POST(request) {
     const terapeutaExists = await Usuarios.findOne({ correo: data.correo });
 
     if (!terapeutaExists) {
-        const nuevoTerapeuta = await Usuarios.create({ ...data, role: "terapeuta" }); // Crea un nuevo terapeuta
+        const nuevoTerapeuta = await Usuarios.create({ ...data }); // Crea un nuevo terapeuta
         // Crear el perfil del terapeuta con los datos proporcionados
         const perfilTerapeuta = await PerfilTerapeutas.create({
             usuarioId: nuevoTerapeuta._id,
