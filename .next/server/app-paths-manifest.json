@@ -1,9 +1,8 @@
 {
-  "/page": "app/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/signin/page": "app/signin/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/terapeuta/page": "app/terapeuta/page.js",
-  "/api/historial/route": "app/api/historial/route.js",
-  "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js"
+  "/admin/page": "app/admin/page.js",
+  "/usuario/page": "app/usuario/page.js",
+  "/page": "app/page.js"
 }

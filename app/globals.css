@@ -108,7 +108,7 @@ html {
 }
 
 .pinkLine{
-  @apply min-w-[260px];
+  @apply min-w-[135px];
 }
 
 
@@ -550,7 +550,7 @@ html {
   }
 
   .pinkLine{
-    @apply min-w-[120px];
+    @apply min-w-[105px];
   }
 
   .googleLogo{
@@ -727,7 +727,7 @@ html {
       /*Home page*/
   .contenedor2{
     flex-wrap: wrap;
-  }
+  } 
         
 }
 
@@ -746,7 +746,7 @@ html {
 
     /*User*/
     .formUser{
-      @apply py-[58px] px-[40px] h-[1932px] flex-1
+      @apply py-[58px] px-[25px] h-[1932px] flex-1
     }
     
     .edad{
@@ -833,12 +833,26 @@ html {
   .adminDiv{
     margin-left: 30%;
   }
+
+  
+.image-container {
+  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
 }
 
-@media  (min-width: 900px){
+.image {
+  @apply relative xl:w-full w-[95%] xl:h-full h-[500px] z-0;
+}
+
+.image-overlay {
+  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[600px] overflow-hidden;
+}
+
+}
+
+@media  (min-width: 1007px){
   /*Admin*/
   .adminDiv{
-    margin-left: 30%;
+    margin-left: 20%;
   }
 
   .formTera{
@@ -993,11 +1007,11 @@ html {
   }
 
   .formTera{
-    @apply pl-5
+    @apply pl-5 
   }
 
   .labelForm{
-    @apply text-sm min-w-[110px]  pr-0
+    @apply text-sm min-w-[110px]  pr-0 pt-2
   }
   
   .inputForm{

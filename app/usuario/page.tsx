@@ -93,7 +93,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                             <div className="section-2 h-max">
                             <h1 className="font-bold text-2xl">Próxima Cita</h1>
                                 <div className="therapistAppointment items-center">
-                                    <div className="flex bg-white rounded-[29px] w-[70px] h-[70px] relative">
+                                    <div className="flex bg-white rounded-full w-[80px] h-[70px] relative">
                                         <h3 className="pl-[10px] font-semibold text-[28px] absolute top-0 left-0">Jun</h3>
                                         <h3 className="pl-[20px] font-semibold text-[28px] absolute bottom-0 left-0">10</h3>
                                     </div>

@@ -1,13 +1,13 @@
 export const footerLinks = [
-  {
+  /*{
     title: "About",
     links: [
       { title: "¿Cómo funciona?", url: "/" },
 /*      { title: "Featured", url: "/" },
       { title: "Partnership", url: "/" },
       { title: "Bussiness Relation", url: "/" },
-    */    ],
-  },
+    */   /* ],
+  },*/
   {
     title: "Company",
     links: [

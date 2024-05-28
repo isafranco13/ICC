@@ -16,16 +16,41 @@
       "static/chunks/main-app.js",
       "static/chunks/app/signin/page.js"
     ],
+    "/usuario/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/usuario/page.js"
+    ],
+    "/usuario/historial_c/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/usuario/historial_c/page.js"
+    ],
+    "/signup/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/signup/page.js"
+    ],
     "/terapeuta/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
     ],
-    "/terapeuta/[historialVname]/page": [
+    "/usuario/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/terapeuta/[historialVname]/page.js"
+      "static/chunks/app/usuario/page.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ],
+    "/signup/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/signup/page.js"
     ]
   }
 }
