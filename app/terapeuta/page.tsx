@@ -21,6 +21,7 @@ const Dashboard = () => {
     const router = useRouter();
     let nombrePaciente = "Isabel Franco";
     let nombrePacienteCodificado = encodeURI(nombrePaciente);
+    //console.log(nombrePacienteCodificado);
 
     const { data: session, status: sessionStatus} = useSession()
     useEffect(() => {

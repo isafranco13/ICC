@@ -9,12 +9,11 @@ import { useRouter } from "next/navigation";
 
 export default function HistorialVDetails ({params})  { //=>
     const router= useRouter();
-    console.log(router);
-    // const searchParams = useSearchParams();
-    //const nombre = usePathname();
-    //console.log(nombre);
-    //const name = searchParams.get("name");
+    
+    
     const decodeName = decodeURIComponent(params.historialVname);
+    console.log("params", params.historialVname)
+    console.log("decodeName",decodeName);
     const [formData, setFormData] = useState({
         name: "",
         telefono: "",
@@ -29,7 +28,7 @@ export default function HistorialVDetails ({params})  { //=>
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const res = await fetch(`/api/historial/${decodeName}`);
+                const res = await fetch(`/api/historial/${params.historialVname}`); ///api/historial/`
                 const data = await res.json();
                 if(res.ok){
                     setFormData(data.historial);
@@ -58,7 +57,7 @@ export default function HistorialVDetails ({params})  { //=>
             
     }
     return (
-        <>
+       
             <main className="formUser">
                 {/*contenedor del formulario*/}
                 <div className="bg-[#FFEBA9] rounded-lg"> 
@@ -153,7 +152,7 @@ export default function HistorialVDetails ({params})  { //=>
                 <br/><br/><br/>
             </main>
             
-        </>
+       
     );
 };
 
