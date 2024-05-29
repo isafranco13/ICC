@@ -24,14 +24,14 @@ export async function POST(request) {
    if(!terapeutaExists){
         const result = await db.collection("users").insertOne(data);
         // Crear el perfil del terapeuta con los datos proporcionados
-        const perfilTerapeuta = await PerfilTerapeutas.create({
-            usuarioId: result._id,
+        const perfilTerapeuta = await db.collection("perfilterapeutas").insertOne({
+            usuarioId: result.insertedId,
             nombre: data.nombre,
             apellidoPaterno: data.apellidoPaterno,
             apellidoMaterno: data.apellidoMaterno,
             celular: data.celular,
         });
-        return NextResponse.json({ result, message: "terapeuta creado" });
+        return NextResponse.json({ result, perfilTerapeuta, message: "terapeuta creado" });
     } else{
         return NextResponse.json({ message: "Terapeuta ya existe" });
     }  
@@ -54,14 +54,4 @@ export async function POST(request) {
     } else {
         return NextResponse.json({ message: "Terapeuta ya existe" });
     }*/
-}
-
-export async function DELETE(request) {
-    const db = client.db();    
-    // Eliminar el terapeuta por su ID
-    const result = await db.collection("users").deleteOne({ _id: ObjectId(id), role: "terapeuta" });
-    if (result.deletedCount === 0) {
-        return NextResponse.error("No se encontró ningún terapeuta con el ID proporcionado.", { status: 404 });
-    }
-    return NextResponse.json({ message: "Terapeuta eliminado" });
 }
