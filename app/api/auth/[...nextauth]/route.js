@@ -1,4 +1,4 @@
-import NextAuth, {NextAuthOptions} from "next-auth"
+import NextAuth from "next-auth"
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/libs/mongodb";
 import { dateNowUnix } from "@/utils/dates";
@@ -7,7 +7,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 
 
-export const  NextAuthOptions= { //authOptions
+export const  authOptions= { //authOptions
   secret: process.env.NEXTAUTH_SECRET, //NEXTAUTH_SECRET
   adapter: MongoDBAdapter(clientPromise),
   session: { jwt: true }, // Use JSON Web Tokens for session instead of database sessions.
