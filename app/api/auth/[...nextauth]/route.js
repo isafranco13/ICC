@@ -17,7 +17,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
       //const { user, isNewUser } = ctx;
       try {
         if (isNewUser) {
-          user.roles = ["user"];
+          user.roles = ["usuario"];
           user.createdAt = dateNowUnix();
           user.updatedAt = dateNowUnix();
           user.lastLogin = dateNowUnix();
@@ -71,11 +71,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
   // A database is optional, but required to persist accounts in a database
   callbacks: {
     async jwt({ token, user}) {
-      if(user){
+      /*if(user){
         token.roles = user.roles;
-      }
-      //token.userRole = ["usuario"];
-      console.log("jwt", token)
+      }*/
+      token.userRole = ["usuario"];
+      //console.log("jwt", token)
       return token;
     },
     async session({ session, token }) {
