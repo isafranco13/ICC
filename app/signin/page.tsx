@@ -34,25 +34,17 @@ export default function Form(){
         const email = e.target[0].value;
         const password =  e.target[1].value;
        
-        //console.log(userInfo);
-        /*const res= await signIn ('credentials', {
-            email: userInfo.email,
-            password: userInfo.password,
-            redirect: false,
-        });*/
         const res = await signIn('credentials', { //signIn('credentials',
             email,
             password,
             redirect: false,
             
         });
-        //console.log(res);
         console.log(session);
         console.log(sessionStatus);
         if (res?.error ) { //
             setAlertMessage("Contraseña y/o correo eléctronico incorrecto");
             setIsVisible(true);
-            //if (res?.url) router.replace("/usuario");
         }
         
     };

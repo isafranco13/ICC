@@ -5,6 +5,8 @@ import { NextResponse } from "next/server";
 
 //Función GET para obtener todos los terapeutas
 export async function GET() {
+    //NUEVA FORMA 
+    //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
     const terapeutas = await db.collection("users").find({}).toArray();
@@ -15,6 +17,8 @@ export async function GET() {
 }
 
 export async function POST(request) {
+    //NUEVA FORMA
+    //Conexion a la base de datos
     const client = await clientPromise;
     const data = await request.json();
     const db = client.db();

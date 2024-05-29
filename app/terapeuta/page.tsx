@@ -117,7 +117,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="section-5 h-max">
+                            {/*<div className="section-5 h-max">
                                 <h1 className="pl-[30px] font-bold text-2xl">Notas</h1>
                                     <form action="">
                                         <textarea name="notas" id="notas" placeholder="Agregue sus notas aqui" className="resize-none bg-white outline-none text-base w-full h-36 whitespace-normal break-words"></textarea>
@@ -130,7 +130,7 @@ const Dashboard = () => {
                                         </div>
 
                                     </form>
-                            </div>
+                            </div>*/}
                         </div>
 
     {/*

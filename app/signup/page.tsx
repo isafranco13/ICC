@@ -35,8 +35,7 @@ export default function Form(){
             }else{
                 router.replace("/usuario");
             }
-           // router.refresh();
-            //router.push("/usuario"); // /dashboard
+           
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const value = e.target.value;

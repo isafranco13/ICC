@@ -1,8 +1,8 @@
 {
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/terapeuta/page": "app/terapeuta/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/usuario/page": "app/usuario/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/page": "app/page.js"
 }

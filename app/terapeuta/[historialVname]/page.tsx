@@ -5,16 +5,15 @@ import CustomButton from '../../../components/CustomButton';
 import {useSession} from 'next-auth/react';
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
-//import React, {useState} from "react";
 import { useParams } from 'next/navigation';
 
 
-export default function HistorialVDetails ()  { //=>
+export default function HistorialVDetails ()  { 
     const router= useRouter();
     const searchParams = useSearchParams();
     const name = searchParams.get("name");   
     
-    console.log("name",name);
+    //console.log("name",name); -> Ver el nombre del paciente
     const [formData, setFormData] = useState({
         name: "",
         telefono: "",
@@ -30,7 +29,6 @@ export default function HistorialVDetails ()  { //=>
         const fetchData = async () => {
             try{
                 const res = await fetch(`/api/historial?name=${name}`); 
-                console.log("res", res);
                 const data = await res.json();
                 if(res.ok){
                     setFormData(data.historial);
@@ -48,15 +46,6 @@ export default function HistorialVDetails ()  { //=>
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-            /*const res = await fetch("/api/historial",{
-                method: "GET",
-                body: JSON.stringify(name),
-                headers:{
-                    "Content-Type": "application/json"
-                }
-                
-            })*/
-            
     }
     return (
        
@@ -157,5 +146,3 @@ export default function HistorialVDetails ()  { //=>
        
     );
 };
-
-//export default HistorialVDetails;

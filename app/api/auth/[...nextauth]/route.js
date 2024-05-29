@@ -59,7 +59,8 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-         //Conexion a la base de datos
+        //NUEVA FORMA
+        //Conexion a la base de datos
         const client = await clientPromise;
         const db = client.db();
         const user = await db.collection("users").findOne({ email: credentials.email });

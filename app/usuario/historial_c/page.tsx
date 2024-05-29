@@ -196,12 +196,13 @@ const Historial = () => {
                                             <br />
                                     </div>
                                     
+                                    <Link href="/usuario">
                                     <CustomButton
                                         btnType="submit"
                                         title="Guardar"
                                         containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
                                         
-                                    /> 
+                                    /> </Link>
 
                                 </form>
                             </div>
