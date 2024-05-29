@@ -19,7 +19,11 @@ export const authOptions = {
       
       if(account?.provider === "credentials"){
         console.log("Credenciales", user);
-        return true;
+        return user;
+      }
+      if(account?.provider === "google"){
+        console.log("Google", user);
+        return user;
       }
       /*try {
         if (isNewUser) {
@@ -63,8 +67,13 @@ export const authOptions = {
         //Conexion a la base de datos
         const client = await clientPromise;
         const db = client.db();
+
         const user = await db.collection("users").findOne({ email: credentials.email });
-        
+        if(user && user.password === credentials.password){
+          return user;
+        }else{
+          return null;
+        }
         return user;
       }
     }),
