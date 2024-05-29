@@ -13,11 +13,11 @@ export default function Form(){
     
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-            if(session?.user?.roles[0] === "usuario"){
+            if(session?.user?.role === "usuario"){
                 router.push("/usuario"); //router.replace
-        }else if(session?.user?.roles[0] === "terapeuta"){
+        }else if(session?.user?.role === "terapeuta"){
             router.push("/terapeuta");
-        }else if(session?.user?.roles[0] === "admin"){
+        }else if(session?.user?.role === "admin"){
             router.push("/admin");
         }
         }
