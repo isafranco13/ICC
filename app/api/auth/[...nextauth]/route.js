@@ -83,6 +83,8 @@ export const authOptions = {
 
         // Add the user's role to the session object
         session.user.roles = user.roles;
+        // Add the user's ID to the session object
+        session.user.id = user._id;
 
         return Promise.resolve(session);
       } catch (error) {
