@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
 import Image from 'next/image';
-import CustomButton from '../../components/CustomButton';
-import {signIn, useSession} from 'next-auth/react'
-import { Navbar2 } from "@/components";
+import CustomButton from '@/components/CustomButton';
+import Navbar2 from "@/components/Navbar2";
+import {signIn, useSession} from 'next-auth/react';
 import { useRouter } from "next/navigation";
 import React, {useState} from "react";
 import CustomAlert from '@/components/CustomAlert';

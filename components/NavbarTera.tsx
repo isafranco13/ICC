@@ -37,7 +37,7 @@ const NavbarTera = () => {
                                 <div className='text-white hidden sm:flex'>
                                     <ul className='hidden sm:flex'> {/*<ul className={`${styles.navMenu}`}>*/}
                                     <li className={`${styles.navTextUser}`}> 
-                                            <Link href="/terapeuta">
+                                            <Link href="/terapeuta/perfil">
                                                 <strong>Perfil</strong>
                                             </Link>
                                         </li>
@@ -46,7 +46,7 @@ const NavbarTera = () => {
                                         </li>
                                         <li className={`${styles.navLinks}`}> 
                                             <button onClick={() => {signOut();}} 
-                                                className="text-white rounded-full bg-pink-400 font-semibold textButtonSignOut">
+                                                className="btnStyle font-semibold textButtonSignOut">
                                                 Cerrar Sesión
                                             </button>
                                         </li>

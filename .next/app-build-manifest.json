@@ -26,6 +26,14 @@
       "static/chunks/main-app.js",
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
+<<<<<<< HEAD
+=======
+    ],
+    "/terapeuta/historialV/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/terapeuta/historialV/page.js"
+>>>>>>> adriana
     ]
   }
 }

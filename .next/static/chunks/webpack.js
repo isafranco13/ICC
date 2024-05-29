@@ -192,7 +192,11 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "9942af61017ece4f"; }
+=======
+/******/ 		__webpack_require__.h = function() { return "e7267e02482113bc"; }
+>>>>>>> adriana
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

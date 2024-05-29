@@ -1,6 +1,7 @@
 //import { connectDB } from "@/libs/mongodb";
 import clientPromise from "@/libs/mongodb";
 import  Terapeutas from "@/models/terapeutas";
+import  PerfilTerapeutas from "@/models/perfil_terap";
 import { NextResponse } from "next/server";
 
 //Función GET para obtener todos los terapeutas
@@ -9,7 +10,7 @@ export async function GET() {
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
-    const terapeutas = await db.collection("users").find({}).toArray();
+    const terapeutas = await db.collection("users").find({ role: "terapeuta" }).toArray();
     return NextResponse.json({ terapeutas });
     /*await connectDB();
     const terapeutas = await Terapeutas.find({});
@@ -28,25 +29,36 @@ export async function POST(request) {
     const terapeutaExists = await db.collection("users").findOne({ correo: data.correo });
       
    if(!terapeutaExists){
-      const result = await db.collection("users").insertOne(data);
-      return NextResponse.json({ result, message: "terapeuta creado" });
-    } else{ 
+        const result = await db.collection("users").insertOne(data);
+        // Crear el perfil del terapeuta con los datos proporcionados
+        const perfilTerapeuta = await db.collection("perfilterapeutas").insertOne({
+            usuarioId: result.insertedId,
+            nombre: data.nombre,
+            apellidoPaterno: data.apellidoPaterno,
+            apellidoMaterno: data.apellidoMaterno,
+            celular: data.celular,
+        });
+        return NextResponse.json({ result, perfilTerapeuta, message: "terapeuta creado" });
+    } else{
+        return NextResponse.json({ message: "Terapeuta ya existe" });
     }  
     /*await connectDB();
     const data = await request.json();
-    const terapeutaExists = await Terapeutas.findOne({ correo: data.correo });
+    const terapeutaExists = await Usuarios.findOne({ correo: data.correo });
 
     if (!terapeutaExists) {
-        const terapeuta = await Terapeutas.create(data); // Crea un nuevo terapeuta
-        return NextResponse.json({ terapeuta }); // Devuelve la respuesta con el terapeuta creado
+        const nuevoTerapeuta = await Usuarios.create({ ...data }); // Crea un nuevo terapeuta
+        // Crear el perfil del terapeuta con los datos proporcionados
+        const perfilTerapeuta = await PerfilTerapeutas.create({
+            usuarioId: nuevoTerapeuta._id,
+            nombre: data.nombre,
+            apellidoPaterno: data.apellidoPaterno,
+            apellidoMaterno: data.apellidoMaterno,
+            celular: data.celular,
+            // Los campos no proporcionados se dejarán vacíos o con valores predeterminados
+        });
+        return NextResponse.json({ terapeuta: nuevoTerapeuta, perfil: perfilTerapeuta }); // Devuelve la respuesta con el terapeuta y perfil creado
     } else {
         return NextResponse.json({ message: "Terapeuta ya existe" });
     }*/
-}
-
-export async function DELETE(request) {
-    const id = request.nextUrl.searchParams.get("id");
-    await connectDB();
-    await Terapeutas.findByIdAndDelete(id);
-    return NextResponse.json({ message: "Terapeuta eliminado" });
 }

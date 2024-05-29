@@ -90,9 +90,9 @@ const Historial = () => {
     const [formData, setFormData] = useState(startingHistorialData);
     return (
         <>
-            <main className="formUser">
+            <main className="formUser bg-[#F5FFFC]">
                 {/*contenedor del formulario*/}
-                <div className="bg-[#FFEBA9] rounded-lg"> 
+                <div className="bg-[#FFEBA9] rounded-3xl"> 
                     <div className="flex flex-col rounded-lg">                 
                         {/*titulo e instrucciones */}
                         <div className="items-start px-[50px] py-[10px]"><br />
@@ -200,10 +200,9 @@ const Historial = () => {
                                     <CustomButton
                                         btnType="submit"
                                         title="Guardar"
-                                        containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
-                                        
-                                    /> </Link>
-
+                                        containerStyles="btnStyle min-w-[100px] font-medium textButton mt-5 h-10"
+                                    /> 
+                                    <br/>
                                 </form>
                             </div>
                         </div>
