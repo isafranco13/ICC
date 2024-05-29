@@ -1,14 +1,13 @@
-import NextAuth from "next-auth"
+import NextAuth, {NextAuthOptions} from "next-auth"
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/libs/mongodb";
-import Auth0Provider from "next-auth/providers/auth0";
 import { dateNowUnix } from "@/utils/dates";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 
 
-export const authOptions = {
+export const  NextAuthOptions= { //authOptions
   secret: process.env.NEXTAUTH_SECRET, //NEXTAUTH_SECRET
   adapter: MongoDBAdapter(clientPromise),
   session: { jwt: true }, // Use JSON Web Tokens for session instead of database sessions.
@@ -98,17 +97,10 @@ export const authOptions = {
         return Promise.reject(error);
       }
     },
-    pages: {
-      signIn: '/signin',
-      //signOut: '/auth/signout',
-      //error: '/auth/error',
-      //verifyRequest: '/auth/verify-request',
-      //newUser: '/auth/new-user',
-    },
+    
   },
 }
 
 const handler = NextAuth(authOptions);
 //export default NextAuth(authOptions);
 export { handler as GET, handler as POST };
-export default authOptions;
