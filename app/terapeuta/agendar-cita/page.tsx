@@ -1,6 +1,6 @@
 "use client"
 import NavbarTera from "@/components/NavbarTera";
-import Link from "next/link"
+import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { useRouter } from "next/navigation";
 import CustomButton from '@/components/CustomButton';
@@ -48,15 +48,22 @@ export default function AgendarCita() {
         });
     };
 
-    const handleSumbmit = async () => {
+    const handleSumbmit = async (event) => {
+        event.preventDefault();
         if (!date || !selectedHour) return;
+
+        const dataToSend = {
+            ...formData,
+            fecha: date, // Asegúrate de que la fecha esté en formato Date
+            hora: selectedHour,
+        };
 
         const res = await fetch('/api/citas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(dataToSend),
         });
         if (res.ok) {
             router.push('/terapeuta');
