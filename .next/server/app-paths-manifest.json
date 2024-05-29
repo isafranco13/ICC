@@ -1,7 +1,8 @@
 {
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/page": "app/page.js",
   "/signin/page": "app/signin/page.js",
+  "/usuario/page": "app/usuario/page.js",
   "/terapeuta/page": "app/terapeuta/page.js",
-  "/terapeuta/agendar-cita/page": "app/terapeuta/agendar-cita/page.js",
-  "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/terapeutas/route": "app/api/terapeutas/route.js"
 }

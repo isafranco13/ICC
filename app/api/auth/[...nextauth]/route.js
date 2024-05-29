@@ -109,5 +109,6 @@ export const authOptions = {
 }
 
 const handler = NextAuth(authOptions);
-
+//export default NextAuth(authOptions);
 export { handler as GET, handler as POST };
+export default authOptions;
