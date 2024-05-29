@@ -7,7 +7,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 
 
-export const  authOptions= { //authOptions
+ const  authOptions= { //authOptions
   secret: process.env.NEXTAUTH_SECRET, //NEXTAUTH_SECRET
   adapter: MongoDBAdapter(clientPromise),
   session: { jwt: true }, // Use JSON Web Tokens for session instead of database sessions.
