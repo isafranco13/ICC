@@ -19,9 +19,9 @@ const Dashboard = () => {
     const { data: session, status: sessionStatus} = useSession()
     useEffect(() => {
         if (sessionStatus === "authenticated") {
-            if (session?.user?.role[0] === "terapeuta") {
+            if (session?.user?.roles[0] === "terapeuta") {
                 router.replace("/terapeuta");
-            }else if(session?.user?.role[0] === "usuario"){
+            }else if(session?.user?.roles[0] === "usuario"){
                 router.replace("/usuario");
             }/*else{
                 router.replace("/usuario");
@@ -42,7 +42,7 @@ const Dashboard = () => {
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
                            <p>Nombre: {session?.user?.name}</p>
-                             <p>Rol: {session?.user?.role[0]}</p>
+                             <p>Rol: {session?.user?.roles[0]}</p>
                         <div className="section-3 h-max">
                             {/*<h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>*/}
                             
@@ -110,7 +110,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="section-5 h-max">
+                            {/*<div className="section-5 h-max">
                                 <h1 className="pl-[30px] font-bold text-2xl">Notas</h1>
                                     <form action="">
                                         <textarea name="notas" id="notas" placeholder="Agregue sus notas aqui" className="resize-none bg-white outline-none text-base w-full h-36 whitespace-normal break-words"></textarea>
@@ -123,7 +123,7 @@ const Dashboard = () => {
                                         </div>
 
                                     </form>
-                            </div>
+                            </div>*/}
                         </div>
 
     {/*
