@@ -13,19 +13,10 @@ export const authOptions = {
   adapter: MongoDBAdapter(clientPromise),
   session: { jwt: true }, // Use JSON Web Tokens for session instead of database sessions.
   events: {
-    signIn: async ({user, account}) => { //async (ctx) =>
+    signIn: async (ctx) => { //async (ctx) =>
       //when sign in, update db with last sign in time
       //const { user, isNewUser } = ctx;
-      
-      if(account?.provider === "credentials"){
-        //console.log("Credenciales", user);
-        return user;
-      }
-      if(account?.provider === "google"){
-        //console.log("Google", user);
-        return user;
-      }
-      /*try {
+      try {
         if (isNewUser) {
           user.roles = ["user"];
           user.createdAt = dateNowUnix();
@@ -43,7 +34,7 @@ export const authOptions = {
         console.log(`${user.email} logged in and updated in DB =>`);
       } catch (error) {
         console.log(`Error udating user ${user.email} in signinevent:`, error);
-      }*/
+      }
     },
   },
   // Configure one or more authentication providers
@@ -74,19 +65,18 @@ export const authOptions = {
         }else{
           return null;
         }
-        return user;
+        //return user;
       }
     }),
   ],
   // A database is optional, but required to persist accounts in a database
   callbacks: {
     async jwt({ token, user}) {
-      console.log("user", user);
       if(user){
         token.roles = user.roles;
       }
       //token.userRole = ["usuario"];
-      //console.log("jwt", token)
+      console.log("jwt", token)
       return token;
     },
     async session({ session, token }) {

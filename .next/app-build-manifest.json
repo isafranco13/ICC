@@ -16,24 +16,31 @@
       "static/chunks/main-app.js",
       "static/chunks/app/signin/page.js"
     ],
-    "/usuario/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/usuario/page.js"
-    ],
     "/terapeuta/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/terapeuta/page.css",
       "static/chunks/app/terapeuta/page.js"
-<<<<<<< HEAD
-=======
     ],
-    "/terapeuta/historialV/page": [
+    "/terapeuta/agendar-cita/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/terapeuta/historialV/page.js"
->>>>>>> adriana
+      "static/chunks/app/terapeuta/agendar-cita/page.js"
+    ],
+    "/terapeuta/[historialVname]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/terapeuta/[historialVname]/page.js"
+    ],
+    "/usuario/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/usuario/page.js"
+    ],
+    "/usuario/agendar-cita/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/usuario/agendar-cita/page.js"
     ]
   }
 }
