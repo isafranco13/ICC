@@ -48,7 +48,7 @@ export default function AgendarCita() {
         });
     };
 
-    const handleSumbmit = async (event) => {
+    const handleSumbmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!date || !selectedHour) return;
 
