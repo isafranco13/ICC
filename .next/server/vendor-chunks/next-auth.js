@@ -1406,17 +1406,6 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\ncons
 
 /***/ }),
 
-/***/ "(rsc)/./node_modules/next-auth/providers/auth0.js":
-/*!***************************************************!*\
-  !*** ./node_modules/next-auth/providers/auth0.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = Auth0;\n\nfunction Auth0(options) {\n  return {\n    id: \"auth0\",\n    name: \"Auth0\",\n    wellKnown: `${options.issuer}/.well-known/openid-configuration`,\n    type: \"oauth\",\n    authorization: {\n      params: {\n        scope: \"openid email profile\"\n      }\n    },\n    checks: [\"pkce\", \"state\"],\n    idToken: true,\n\n    profile(profile) {\n      return {\n        id: profile.sub,\n        name: profile.nickname,\n        email: profile.email,\n        image: profile.picture\n      };\n    },\n\n    style: {\n      logo: \"/auth0.svg\",\n      text: \"#fff\",\n      bg: \"#EB5424\"\n    },\n    options\n  };\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC1hdXRoL3Byb3ZpZGVycy9hdXRoMC5qcyIsIm1hcHBpbmdzIjoiQUFBYTs7QUFFYiw4Q0FBNkM7QUFDN0M7QUFDQSxDQUFDLEVBQUM7QUFDRixrQkFBZTs7QUFFZjtBQUNBO0FBQ0E7QUFDQTtBQUNBLGtCQUFrQixlQUFlO0FBQ2pDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEtBQUs7O0FBRUw7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaGVhbHRoc3luYy8uL25vZGVfbW9kdWxlcy9uZXh0LWF1dGgvcHJvdmlkZXJzL2F1dGgwLmpzPzFkOTQiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5cbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwge1xuICB2YWx1ZTogdHJ1ZVxufSk7XG5leHBvcnRzLmRlZmF1bHQgPSBBdXRoMDtcblxuZnVuY3Rpb24gQXV0aDAob3B0aW9ucykge1xuICByZXR1cm4ge1xuICAgIGlkOiBcImF1dGgwXCIsXG4gICAgbmFtZTogXCJBdXRoMFwiLFxuICAgIHdlbGxLbm93bjogYCR7b3B0aW9ucy5pc3N1ZXJ9Ly53ZWxsLWtub3duL29wZW5pZC1jb25maWd1cmF0aW9uYCxcbiAgICB0eXBlOiBcIm9hdXRoXCIsXG4gICAgYXV0aG9yaXphdGlvbjoge1xuICAgICAgcGFyYW1zOiB7XG4gICAgICAgIHNjb3BlOiBcIm9wZW5pZCBlbWFpbCBwcm9maWxlXCJcbiAgICAgIH1cbiAgICB9LFxuICAgIGNoZWNrczogW1wicGtjZVwiLCBcInN0YXRlXCJdLFxuICAgIGlkVG9rZW46IHRydWUsXG5cbiAgICBwcm9maWxlKHByb2ZpbGUpIHtcbiAgICAgIHJldHVybiB7XG4gICAgICAgIGlkOiBwcm9maWxlLnN1YixcbiAgICAgICAgbmFtZTogcHJvZmlsZS5uaWNrbmFtZSxcbiAgICAgICAgZW1haWw6IHByb2ZpbGUuZW1haWwsXG4gICAgICAgIGltYWdlOiBwcm9maWxlLnBpY3R1cmVcbiAgICAgIH07XG4gICAgfSxcblxuICAgIHN0eWxlOiB7XG4gICAgICBsb2dvOiBcIi9hdXRoMC5zdmdcIixcbiAgICAgIHRleHQ6IFwiI2ZmZlwiLFxuICAgICAgYmc6IFwiI0VCNTQyNFwiXG4gICAgfSxcbiAgICBvcHRpb25zXG4gIH07XG59Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next-auth/providers/auth0.js\n");
-
-/***/ }),
-
 /***/ "(rsc)/./node_modules/next-auth/providers/credentials.js":
 /*!*********************************************************!*\
   !*** ./node_modules/next-auth/providers/credentials.js ***!

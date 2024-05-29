@@ -46,7 +46,7 @@ export default function Form(){
                                 <br />
                                 <input type="password" className="bg-white rounded-lg outline-none text-base h-12 pl-2 w-3/4 input" placeholder="Contraseña"/>
                             
-                            <a href="/admin/home">Abrir</a>
+                            <a href="/admin/home" className="text-[#FFEBA9]">Abrir</a>
                                 <CustomButton
                                     btnType="submit"
                                     title="Iniciar Sesión"
