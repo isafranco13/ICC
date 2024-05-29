@@ -1,10 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/signin/page": "app/signin/page.js",
-  "/usuario/page": "app/usuario/page.js",
   "/terapeuta/page": "app/terapeuta/page.js",
-  "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js",
-  "/api/historial/route": "app/api/historial/route.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

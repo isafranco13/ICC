@@ -18,11 +18,11 @@ export const authOptions = {
       //const { user, isNewUser } = ctx;
       
       if(account?.provider === "credentials"){
-        console.log("Credenciales", user);
+        //console.log("Credenciales", user);
         return user;
       }
       if(account?.provider === "google"){
-        console.log("Google", user);
+        //console.log("Google", user);
         return user;
       }
       /*try {
@@ -80,13 +80,17 @@ export const authOptions = {
   ],
   // A database is optional, but required to persist accounts in a database
   callbacks: {
-    async jwt({ token, usuario}) {
-      token.userRole = ["usuario"];
+    async jwt({ token, user}) {
+      console.log("user", user);
+      if(user){
+        token.roles = user.roles;
+      }
+      //token.userRole = ["usuario"];
       //console.log("jwt", token)
-      return token
+      return token;
     },
     async session({ session, token }) {
-      console.log("session", token)
+      console.log("session")
       try {
         const client = await clientPromise;
         const user = await client
@@ -101,6 +105,13 @@ export const authOptions = {
       } catch (error) {
         return Promise.reject(error);
       }
+    },
+    pages: {
+      signIn: '/signin',
+      //signOut: '/auth/signout',
+      //error: '/auth/error',
+      //verifyRequest: '/auth/verify-request',
+      //newUser: '/auth/new-user',
     },
   },
 }
