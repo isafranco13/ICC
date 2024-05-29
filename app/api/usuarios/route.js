@@ -6,9 +6,12 @@ import { NextResponse } from "next/server";
 //Función GET para obtener todos los usuarios
 export async function GET() {
     //NUEVA FORMA
-    //Conexion a la base de datos
+    ///Conexion a la base de datos
+    //Copias esto mismo para la conexion a la base
     const client = await clientPromise;
     const db = client.db();
+    //db.collection es en que carpeta se van a buscar
+    //find es para buscar todos los elementos dentro de la coleccion en mongo
     const terapeutas = await db.collection("users").find({}).toArray();
     return NextResponse.json({ terapeutas });
     

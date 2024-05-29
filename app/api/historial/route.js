@@ -16,10 +16,13 @@ export async function GET(req, {params}) {
     //console.log("nombre", nombre);
 
     //Conexion a la base de datos
+    //Copias esto mismo para la conexion a la base
     const client = await clientPromise;
     const db = client.db();
     //const nombre = req.params;
     
+    //db.collection es en que carpeta se van a buscar
+    //findOne es para buscar un solo elemento por medio de una etiquetra dentro de la coleccion en mongo
     const historial = await db.collection("historial").findOne({name: nombre});
 
     if (historial) {

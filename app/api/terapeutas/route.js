@@ -18,10 +18,13 @@ export async function GET() {
 
 export async function POST(request) {
     //NUEVA FORMA
-    //Conexion a la base de datos
+    ///Conexion a la base de datos
+    //Copias esto mismo para la conexion a la base
     const client = await clientPromise;
     const data = await request.json();
     const db = client.db();
+    //db.collection es en que carpeta se van a buscar
+    //findOne es para buscar un solo elemento por medio de una etiquetra dentro de la coleccion en mongo
     const terapeutaExists = await db.collection("users").findOne({ correo: data.correo });
       
    if(!terapeutaExists){
