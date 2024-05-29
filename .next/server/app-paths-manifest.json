@@ -1,13 +1,7 @@
 {
-  "/terapeuta/agendar-cita/page": "app/terapeuta/agendar-cita/page.js",
-  "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js",
-  "/usuario/page": "app/usuario/page.js",
-  "/usuario/agendar-cita/page": "app/usuario/agendar-cita/page.js",
-  "/signin/page": "app/signin/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/terapeutas/route": "app/api/terapeutas/route.js",
-  "/api/citas/route": "app/api/citas/route.js",
-  "/api/citasUsuario/route": "app/api/citasUsuario/route.js",
+  "/signin/page": "app/signin/page.js",
   "/terapeuta/page": "app/terapeuta/page.js",
-  "/api/historial/route": "app/api/historial/route.js"
+  "/terapeuta/agendar-cita/page": "app/terapeuta/agendar-cita/page.js",
+  "/terapeuta/[historialVname]/page": "app/terapeuta/[historialVname]/page.js"
 }

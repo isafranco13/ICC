@@ -127,11 +127,7 @@ export default function HistorialVDetails ()  {
                                             className="flex w-full inputBox resize-none bg-white h-[170px] whitespace-normal break-words pt-2" readOnly></textarea> {/*value={formData.operaciones} */}
                                             <br /><br />
                                     </div>
-                                    <Link href="/terapeuta"><CustomButton
-                                        btnType="submit"
-                                        title="Salir"
-                                        containerStyles="text-white rounded-lg bg-pink-400 min-w-[100px] font-medium textButton mt-5 hover:bg-[#E55E7F] h-10"
-                                    /> </Link>
+                                    
                                     
 
                                 </form>
