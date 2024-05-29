@@ -1,7 +1,9 @@
 {
-  "/admin/users/page": "app/admin/users/page.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
+  "/page": "app/page.js",
+  "/signin/page": "app/signin/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/admin/page": "app/admin/page.js",
-  "/api/terapeutas/route": "app/api/terapeutas/route.js"
+  "/usuario/page": "app/usuario/page.js",
+  "/api/terapeutas/route": "app/api/terapeutas/route.js",
+  "/terapeuta/page": "app/terapeuta/page.js",
+  "/terapeuta/historialV/page": "app/terapeuta/historialV/page.js"
 }
