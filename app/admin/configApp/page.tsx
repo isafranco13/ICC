@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 import NavBarAdmin from '@/components/NavBarAdmin';
 
-export default function configApp() {
+export default function ConfigApp() {
     const [enabled1, setEnabled1] = useState(false);
     const [enabled2, setEnabled2] = useState(false);
     const [enabled3, setEnabled3] = useState(false);
