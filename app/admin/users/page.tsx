@@ -16,9 +16,20 @@ export default function Home() {
     const [usuarios, setUsuarios] = useState<{ _id: string, nombre: string, correo: string, apellido: string }[]>([]);
 
     useEffect(() => { //cargar usuarios
-        fetch('/api/usuarios')
-            .then(response => response.json())
-            .then(data => setUsuarios(data.usuarios));
+        async function fetchUsuarios() {
+            try {
+                const response = await fetch('/api/usuarios');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setUsuarios(data.usuarios);
+            } catch (error) {
+                console.error('Failed to fetch usuarios:', error);
+            }
+        }
+
+        fetchUsuarios();
     }, []);
 
     /*const handleDeleteUser = async ( id: string ) => {
@@ -66,26 +77,13 @@ export default function Home() {
 
     //Función para eliminar después de la confirmación de la eliminación de un usuario o terapeuta
     const handleDelete = async () => {
-        // Verificar si el selectedItem es un usuario o un terapeuta
-        const isUser = usuarios.some(usuario => usuario._id === selectedItemId);
-        if (isUser) {
-            // Es un usuario, realizar la eliminación
-            const res = await fetch(`/api/usuarios?id=${selectedItemId}`, {
-                method: 'DELETE',
-            });
-            if (res.ok) {
-                setUsuarios(usuarios.filter(usuario => usuario._id !== selectedItemId));
-                router.refresh();
-            }
-        } else {
-            // Es un terapeuta, realizar la eliminación
-            const res = await fetch(`/api/terapeutas?id=${selectedItemId}`, {
-                method: 'DELETE',
-            });
-            if (res.ok) {
-                setTerapeutas(terapeutas.filter(terapeuta => terapeuta._id !== selectedItemId));
-                router.refresh();
-            }
+        const res = await fetch(`/api/usuarios?id=${selectedItemId}`, {
+            method: 'DELETE',
+        });
+        if (res.ok) {
+            setUsuarios(usuarios.filter(usuario => usuario._id !== selectedItemId));
+            setTerapeutas(terapeutas.filter(terapeuta => terapeuta._id !== selectedItemId));
+            router.refresh();
         }
         setIsAlertDialogOpen(false);
         setSelectedItemId('');
