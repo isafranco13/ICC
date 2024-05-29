@@ -69,9 +69,9 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                         </div>/*}
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
-                           <p>Nombre: {session?.user?.name}</p>
+                           {/*<p>Nombre: {session?.user?.name}</p>
                              <p>Rol: {session?.user?.roles[0]}</p>
-                             <p>Id: {session?.user?.id}</p>
+    <p>Id: {session?.user?.id}</p>*/}
                         
                         <div className="section-1 h-max">
                 <h1 className="font-bold text-2xl">Terapeutas</h1>

@@ -8,6 +8,7 @@ import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
+import { useRouter } from "next/navigation";
 
 //import React, {useState} from "react";
 
@@ -18,7 +19,7 @@ const Historial = () => {
     if (!session) {
       redirect("/signin");
     }*/
-    
+    const router = useRouter();
     const { data: session} = useSession()
     //console.log(session);
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,7 +33,9 @@ const Historial = () => {
                 }
                 
             })
-            
+            if(res.ok){
+                router.push("/usuario");
+            }
     }
     useEffect(() => {
         if (session?.user?.name) {
@@ -196,7 +199,6 @@ const Historial = () => {
                                             <br />
                                     </div>
                                     
-                                    <Link href="/usuario">
                                     <CustomButton
                                         btnType="submit"
                                         title="Guardar"

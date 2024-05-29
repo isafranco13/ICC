@@ -48,8 +48,8 @@ const Dashboard = () => {
                         </div>
                         <div>
                            {/*<pre>{JSON.stringify(session, null, 2)}</pre>*/} 
-                           <p>Nombre: {session?.user?.name}</p>
-                             <p>Rol: {session?.user?.roles[0]}</p>
+                           {/*<p>Nombre: {session?.user?.name}</p>
+                             <p>Rol: {session?.user?.roles[0]}</p>*/}
                         <div className="section-3 h-max">
                             {/*<h1 className="font-bold text-[30px] text-[#05814E] items-center">Calendario</h1>*/}
                             
