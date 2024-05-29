@@ -7,7 +7,7 @@ import NavbarTera from "@/components/NavbarTera";
 
 export default function Perfil() {
     const router = useRouter();
-    const id = "6652d97eb490e1357e8bbc59";
+    const id = "66565af2e7b50c9ac4f951b4";
     const [formData, setFormData] = useState({
         nombre: "",
         apellidoPaterno: "",
@@ -52,7 +52,7 @@ export default function Perfil() {
             body: JSON.stringify(formData),
         });
 
-        if (res.ok) {
+        if (res.ok || res.status === 404) {
             router.push('/terapeuta');
         }
     };
