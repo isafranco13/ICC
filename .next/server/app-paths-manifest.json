@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/usuario/page": "app/usuario/page.js",
@@ -8,3 +9,6 @@
   "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
   "/signin/page": "app/signin/page.js"
 }
+=======
+{}
+>>>>>>> 61b22581c11531feb07d21b8dc09977435cc4f54

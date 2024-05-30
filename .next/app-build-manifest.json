@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "pages": {
     "/usuario/page": [
       "static/chunks/webpack.js",
@@ -27,4 +28,7 @@
       "static/chunks/app/signin/page.js"
     ]
   }
+=======
+  "pages": {}
+>>>>>>> 61b22581c11531feb07d21b8dc09977435cc4f54
 }
