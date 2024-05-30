@@ -4,17 +4,31 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import CustomButton from '@/components/CustomButton';
-import React, {useState, ChangeEvent} from "react";
+import React, {useState, ChangeEvent, useEffect} from "react";
 import { Calendar } from "@/components/ui/calendar";
 
 export default function AgendarCita() {
-    const { data: session, status } = useSession(); // Obtiene la sesión del usuario
     const router = useRouter();
+    const { data: session, status: sessionStatus} = useSession()
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.roles[0] === "terapeuta") {
+                router.replace("/terapeuta");
+            }else if(session?.user?.roles[0] === "usuario"){
+                router.replace("/usuario/agendar-cita");
+            }/*else{
+                router.replace("/usuario");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+    }, [sessionStatus, session, router]);
+
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [availableHours, setAvailableHours] = React.useState<string[]>([]);
     const [selectedHour, setSelectedHour] = React.useState<string | undefined>(undefined);
     
-    const terapeutaId = "65f87fb82a912a8beba100f5"; // Reemplaza esto con el ID real del terapeuta
+    const terapeutaId = "66565af2e7b50c9ac4f951b4"; // Reemplaza esto con el ID real del terapeuta
 
     const [formData, setFormData] = useState({
         fecha: date,
@@ -35,7 +49,7 @@ export default function AgendarCita() {
         }
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (date) {
         fetchAvailableHours(date);
         }
@@ -81,7 +95,7 @@ export default function AgendarCita() {
         }));
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (session) {
             setFormData(prev => ({
                 ...prev,
@@ -91,7 +105,7 @@ export default function AgendarCita() {
         }
     }, [session]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setFormData(prev => ({
             ...prev,
             fecha: date,

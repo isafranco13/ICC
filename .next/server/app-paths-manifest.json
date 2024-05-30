@@ -1,8 +1,10 @@
 {
-  "/admin/users/page": "app/admin/users/page.js",
-  "/api/usuarios/route": "app/api/usuarios/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/terapeutas/route": "app/api/terapeutas/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/usuario/page": "app/usuario/page.js"
+  "/usuario/page": "app/usuario/page.js",
+  "/usuario/agendar-cita/page": "app/usuario/agendar-cita/page.js",
+  "/api/citasUsuario/route": "app/api/citasUsuario/route.js",
+  "/api/terapeutas/route": "app/api/terapeutas/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/usuario/historial_c/page": "app/usuario/historial_c/page.js",
+  "/signin/page": "app/signin/page.js"
 }
