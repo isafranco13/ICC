@@ -6,7 +6,6 @@ import NavbarUsuario from "@/components/NavbarUsuario";
 import { useEffect, useState } from 'react';
 import {useSession} from 'next-auth/react';
 //import React, {useState} from 'react';
-//import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
 
 
@@ -96,7 +95,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                                     height={20}
                                     className=" object-contain"
                                 />
-                                <p className="ms-[10px] font-medium text-[20px]">8:00-19:00</p>
+                                <p className="ms-[10px] font-medium text-[20px]">8:00-16:00</p>
                             </div>
 
                             <div className="flex flex-row">
@@ -128,7 +127,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                         </h3>
                         </div>
                         <div className="ms-[15px] flex flex-col">
-                        <h2 className="subtitleHome">Psic. {cita.nombre} {cita.apellidoPaterno}</h2>
+                        <h2 className="subtitleHome">Psic. María Cristina Franco Terrazas</h2>
                         <div className="flex items-center">
                             <Image
                             src="/reloj.png"
