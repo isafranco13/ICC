@@ -33,7 +33,7 @@ function Navbar() {
                             <div className='divOptionsAdmin'>
                                 <ul className='ulAdmin'> 
                                     <li className={`${styles.navLinks}`}> 
-                                        <Link href="/admin">
+                                        <Link href="/admin/home">
                                             <CustomButton
                                                 title="Inicio"
                                                 btnType="button"
