@@ -59,6 +59,11 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                 .then(response => response.json())
                 .then(data => setTerapeutas(data.terapeutas));
     }, []);
+
+    const formatNombreCompleto = (terapeuta: { nombre?: string, apellidoPaterno?: string, apellidoMaterno?: string }) => {
+        const { nombre, apellidoPaterno, apellidoMaterno } = terapeuta;
+        return `${nombre || ''} ${apellidoPaterno || ''} ${apellidoMaterno || ''}`.trim();
+    };
     return (
         <>                            <NavbarUsuario/>
 
@@ -86,7 +91,7 @@ const Dashboard =  () => { // async ({user}: Props)  -> NO BORRAR ESTA EN PRUEBA
                             />
                         </div>
                         <div className="ms-[15px] flex flex-col">
-                            <h2 className="subtitleHome">{`Psic. ${terapeuta.nombre} ${terapeuta.apellidoPaterno} ${terapeuta.apellidoMaterno}`}</h2>
+                            <h2 className="subtitleHome">{`Psic. ${formatNombreCompleto(terapeuta)}`}</h2>
                             <div className="flex flex-row">
                                 <Image
                                     src="/reloj.png"
