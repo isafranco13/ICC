@@ -118,7 +118,7 @@ export default function Home() {
                         <NavBarAdmin />
                     </div>
 
-                    <div style={{ display: 'inline-block', width: '100%', marginLeft: '2%' , marginRight: '2%'}}>
+                    <div className='adminDiv' style={{ display: 'inline-block', width: '100%', marginRight: '2%' }}>
                         {/* Sección de visitas y número de usuarios registrados */}
                         <div style={{ display: 'flex', margin: '3%', alignItems: 'center', justifyContent: 'center' }}>
                             <div className='w-5/12 h-44 mr-6 pt-5 pb-7 bg-[#0DF591] rounded-2xl text-center text-[#F5FFFC] text-3xl font-bold'>
