@@ -14,7 +14,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
   events: {
     signIn: async (ctx) => { //async (ctx) =>
       //when sign in, update db with last sign in time
-      //const { user, isNewUser } = ctx;
+      const { user, isNewUser } = ctx;
       try {
         if (isNewUser) {
           user.roles = ["usuario"];
