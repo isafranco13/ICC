@@ -12,7 +12,7 @@ export async function GET() {
     const db = client.db();
     //db.collection es en que carpeta se van a buscar
     //find es para buscar todos los elementos dentro de la coleccion en mongo
-    const usuarios = await db.collection("users").find({ "roles.0": "user" }).toArray();
+    const usuarios = await db.collection("users").find({ "roles.0": "usuario" }).toArray();
     return NextResponse.json({ usuarios });
     
 }

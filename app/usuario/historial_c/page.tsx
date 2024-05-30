@@ -3,13 +3,13 @@ import { Footer, NavbarSignOut} from "@/components";
 import Link from "next/link"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import CustomButton from '../../../components/CustomButton';
+import CustomButton from '@/components/CustomButton';
 import {useSession} from 'next-auth/react';
 //import MyListbox from "@/components/listboxHijo";
 import InputNumber from "@/components/InputNumber";
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
-
+import NavbarUsuario from "@/components/NavbarUsuario";
 //import React, {useState} from "react";
 
 
@@ -20,8 +20,21 @@ const Historial = () => {
       redirect("/signin");
     }*/
     const router = useRouter();
-    const { data: session} = useSession()
-    //console.log(session);
+    const { data: session, status: sessionStatus} = useSession()
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.roles[0] === "terapeuta") {
+                router.replace("/terapeuta");
+            }else if(session?.user?.roles[0] === "usuario"){
+                router.replace("/usuario/historial_c");
+            }/*else{
+                router.replace("/usuario");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+    }, [sessionStatus, session, router]);
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(formData);
@@ -92,7 +105,7 @@ const Historial = () => {
     };
     const [formData, setFormData] = useState(startingHistorialData);
     return (
-        <>
+        <> <NavbarUsuario/>
             <main className="formUser bg-[#F5FFFC]">
                 {/*contenedor del formulario*/}
                 <div className="bg-[#FFEBA9] rounded-3xl"> 

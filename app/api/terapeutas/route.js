@@ -10,7 +10,7 @@ export async function GET() {
     //Conexion a la base de datos
     const client = await clientPromise;
     const db = client.db();
-    const terapeutas = await db.collection("users").find({ role: "terapeuta" }).toArray();
+    const terapeutas = await db.collection("users").find({ "roles.0": "terapeuta" }).toArray();
     return NextResponse.json({ terapeutas });
     /*await connectDB();
     const terapeutas = await Terapeutas.find({});

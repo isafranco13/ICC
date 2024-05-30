@@ -4,9 +4,26 @@ import { useRouter } from "next/navigation";
 import Link from "next/link"; 
 import CustomButton from '@/components/CustomButton';
 import NavbarTera from "@/components/NavbarTera";
+import {useSession} from 'next-auth/react';
 
 export default function Perfil() {
     const router = useRouter();
+
+    const { data: session, status: sessionStatus} = useSession()
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.roles[0] === "terapeuta") {
+                router.replace("/terapeuta/perfil");
+            }else if(session?.user?.roles[0] === "usuario"){
+                router.replace("/usuario");
+            }/*else{
+                router.replace("/usuario");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+    }, [sessionStatus, session, router]);
+
     const id = "66565af2e7b50c9ac4f951b4";
     const [formData, setFormData] = useState({
         nombre: "",

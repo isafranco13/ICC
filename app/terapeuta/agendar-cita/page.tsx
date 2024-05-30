@@ -4,7 +4,8 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { useRouter } from "next/navigation";
 import CustomButton from '@/components/CustomButton';
-import React, {useState, ChangeEvent} from "react";
+import {useSession} from 'next-auth/react';
+import React, {useState, ChangeEvent, useEffect} from "react";
 import { Calendar } from "@/components/ui/calendar";
 
 export default function AgendarCita() {
@@ -12,8 +13,23 @@ export default function AgendarCita() {
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [availableHours, setAvailableHours] = React.useState<string[]>([]);
     const [selectedHour, setSelectedHour] = React.useState<string | undefined>(undefined);
+
+    const { data: session, status: sessionStatus} = useSession()
+    useEffect(() => {
+        if (sessionStatus === "authenticated") {
+            if (session?.user?.roles[0] === "terapeuta") {
+                router.replace("/terapeuta/agendar-cita");
+            }else if(session?.user?.roles[0] === "usuario"){
+                router.replace("/usuario");
+            }/*else{
+                router.replace("/usuario");
+            }*/
+        } else if (sessionStatus === "unauthenticated") {
+            router.replace("/signin");
+        }
+    }, [sessionStatus, session, router]);
     
-    const terapeutaId = "65f87fb82a912a8beba100f5"; // Reemplaza esto con el ID real del terapeuta
+    const terapeutaId = "66565af2e7b50c9ac4f951b4"; // Reemplaza esto con el ID real del terapeuta
 
     const [formData, setFormData] = useState({
         fecha: date,
@@ -32,7 +48,7 @@ export default function AgendarCita() {
         setSelectedHour(undefined); // Reset selected hour when date changes
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (date) {
         fetchAvailableHours(date);
         }
@@ -78,7 +94,7 @@ export default function AgendarCita() {
         }));
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         setFormData(prev => ({
             ...prev,
             fecha: date,

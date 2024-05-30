@@ -13,7 +13,7 @@ export default function Home() {
     const [alertDialogTitle, setAlertDialogTitle] = useState('');
     const [alertDialogBody, setAlertDialogBody] = useState('');
     //USUARIOS
-    const [usuarios, setUsuarios] = useState<{ _id: string, nombre: string, correo: string, apellido: string }[]>([]);
+    const [usuarios, setUsuarios] = useState<{ _id: string, name: string, email: string, apellido: string }[]>([]);
 
     useEffect(() => { //cargar usuarios
         async function fetchUsuarios() {
@@ -116,9 +116,9 @@ export default function Home() {
                                 <tbody className='text-green-500 bg-green-50'>
                                     {usuarios.map(usuario => (
                                         <tr key={usuario._id} className='trTable'>
-                                            <td className='textUser'>{usuario.nombre}</td>
+                                            <td className='textUser'>{usuario.name}</td>
                                             <td className='textUser'>{usuario.apellido}</td>
-                                            <td className='textUser'>{usuario.correo}</td>
+                                            <td className='textUser'>{usuario.email}</td>
                                             <td className='textUser flex text-2xl justify-center items-center'>
                                                 <button className='text-green-400 cursor-pointer mr-1'><FaRegEdit /></button>
                                                 <button className='text-red-400 cursor-pointer' onClick={() => handleDeleteUserConfirmation(usuario._id)}><RiDeleteBin6Line /></button>
